@@ -4,10 +4,13 @@
 \begin{document}
 
     
-    \begin{abstract}  A reference for this material is Hubbard, J. H., \& Hubbard, B. B. (2015). Vector calculus, linear algebra, and differential forms: a unified approach (pp. 818-pages). Matrix Editions.  \end{abstract}
+    \begin{abstract} Partial derivatives, $C^k$ functions, chain rule, inverse function theorem, implicit function theorem.
+    \end{abstract}
     \maketitle
 
-We begin by reviewing some calculus concepts. 
+
+
+We begin by reviewing some calculus concepts.  A reference for this material is Hubbard, J. H., \& Hubbard, B. B. (2015). Vector calculus, linear algebra, and differential forms: a unified approach (pp. 818-pages). Matrix Editions. 
 
 
 
@@ -27,7 +30,7 @@ We begin by reviewing some calculus concepts.
 \end{notation}
 
 
-\begin{proposition}[Classical derivative rules]
+\begin{proposition}[Classical derivative rules]\label{pro:classic-derivative-rules}
     Let $U \subset \mathbb{R}^n$ open and $f,g \in C^{\infty}(U)$. Then
     \begin{gather*}
             \partial_i (f+ g)  = \partial _i f + \partial _i g ,\\
@@ -56,15 +59,8 @@ We begin by reviewing some calculus concepts.
 
 
 
-\begin{notation}
-    Throughout this course, the word ``differentiable'' will mean ``smooth'' as in Definition \ref{def:c-k}, ignoring the concept of ``differentiable'' from Definition \ref{def:differential-classic}.  This abuse of notation is common in the literature of smooth manifolds.
-\end{notation}
-
-
-
-
-\begin{theorem}[$C^1$ implies differentiable]
-    Let $U \subset \mathbb{R}^n$ be an open set. If  $f \in C^1( U ; \mathbb{R}^m ) $, then $f$ is differentiable at $p$ for all $p \in U$. Moreover, the differential of $f$ at $p$ is unique and given by
+\begin{theorem}[Smooth implies differentiable]\label{thm:c1-implies-diff}
+    Let $U \subset \mathbb{R}^n$ be an open set. If  $f \in C^{\infty}( U ; \mathbb{R}^m ) $, then $f$ is differentiable at $p$ for all $p \in U$. Moreover, the differential of $f$ at $p$ is unique and given by
     \[     d_p f  : = \begin{pmatrix}
         \partial_1 f_1 (p) & \cdots & \partial _n f_1(p) \\
         \vdots & \ddots & \vdots \\
@@ -75,8 +71,16 @@ We begin by reviewing some calculus concepts.
 
 
 
-\begin{theorem}[Chain rule]
-    Let $U \subset \mathbb{R}^n$ and $V \subset \mathbb{R}^m$ be open sets, $f \in C^{k}(U;\mathbb{R}^m)$, $h \in C^{k}(V; \mathbb{R}^{\ell})$, and $f(U) \subset V$. Then $h \circ f \in C^k (U; \mathbb{R}^{\ell})$, and for each $p \in U$, the differential is given by
+\begin{notation}
+    Throughout this course, the word ``differentiable'' will mean ``smooth'' as in Definition \ref{def:c-k}, ignoring the concept of ``differentiable'' from Definition \ref{def:differential-classic}.  This abuse of notation is common in the literature of smooth manifolds.
+\end{notation}
+
+
+
+
+
+\begin{theorem}[Chain rule]\label{thm:chain rule}
+    Let $U \subset \mathbb{R}^n$ and $V \subset \mathbb{R}^m$ be open sets, $f \in C^{\infty}(U;\mathbb{R}^m)$, $h \in C^{\infty}(V; \mathbb{R}^{\ell})$, and $f(U) \subset V$. Then $h \circ f \in C^{\infty} (U; \mathbb{R}^{\ell})$, and for each $p \in U$, the differential is given by
     \[    d_p (h \circ f) = ( d_{f(p)} h ) \circ (d_p f ) .   \]
     
 \end{theorem}
@@ -87,12 +91,12 @@ Let $U , V \subset \mathbb{R}^n$ be open sets. A bijective smooth function $f : 
 \end{definition}
 
 
-\begin{theorem}[Inverse function theorem]
+\begin{theorem}[Inverse function theorem]\label{thm:inverse-function}
     Let $U \subset \mathbb{R}^n$ be open, $f \in C^{\infty}(U; \mathbb{R}^n)$, and $p \in U$. Assume the linear function $d_p f : \mathbb{R}^n \to \mathbb{R}^n$ is invertible. Then there are open sets $U_0 \subset \mathbb{R}^n$ and $ V_0 \subset \mathbb{R}^n$ such that  $p \in U_0$, $f(p )\in V_0$, and $f : U _ 0 \to V_0$ is a diffeomorphism.
 \end{theorem}
 
 
-\begin{theorem}[Implicit function theorem]
+\begin{theorem}[Implicit function theorem]\label{thm:implicit}
     Let $\Omega \subset \mathbb{R}^n \times \mathbb{R}^m =  \mathbb{R}^{n+m}$ be open and $F \in C^{\infty}(\Omega; \mathbb{R}^m)$. Assume the matrix
     \[   \begin{pmatrix}
         \partial _{n+1} F_1 & \cdots & \partial _{n+m} F_1 \\
@@ -109,6 +113,17 @@ Let $U , V \subset \mathbb{R}^n$ be open sets. A bijective smooth function $f : 
     \[     F^{-1} (0)  \cap ( U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^n \times \mathbb{R}^m \, \vert \,  x \in U  \}    .        \]
 \end{corollary}
 
+
+\begin{remark}
+    For the purposes of this class, the above results were stated for smooth functions, but they have analogues for functions of less regularity:
+    \begin{itemize}
+        \item Proposition \ref{pro:classic-derivative-rules} only requires the partial derivatives of $f$ and $g$ to exist.
+        \item Theorem \ref{thm:c1-implies-diff} only requires that $f$ is $C^1$.
+        \item In Theorem \ref{thm:chain rule}, if  $f$ and  $g$  are $C^k$, then $g \circ f$ is $C^k$.
+        \item  In Theorem \ref{thm:inverse-function}, $f$ only needs to be $C^k$ with $k \geq 1$. In that case,  $f^{-1}$ is also $C^k$.
+        \item In Theorem \ref{thm:implicit}, $F$ only needs to be $C^k$ with $k \geq 1$. In that case, $f$ is also $C^k$.
+    \end{itemize}
+\end{remark}
 
 
 
