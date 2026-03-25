@@ -1,0 +1,57 @@
+\documentclass{ximera}
+\title{Smooth functions}
+
+\begin{document}
+ 
+    \begin{abstract} Smooth functions, diffeomorphisms,  bump functions and partitions of unity. A reference for this material is   \end{abstract}
+    \maketitle
+
+
+
+    \begin{definition}[Smooth function to a manifold]
+        Let $M,$ $N$ be smooth manifolds and $f : M \to N$ a continuous function. We say $f$ is \emph{smooth} if for any chart $(U, \varphi)$ of $M$ and any chart $(V, \psi)$ of $N$, the composition 
+        \[      \psi \circ f \circ \varphi ^{-1} : \varphi ( f^{-1} (V) ) \to \psi (V)                  \]
+        is smooth. 
+    \end{definition}
+
+    
+    \begin{definition}[Diffeomorphism]
+        Let $M$, $N$ be smooth manifolds. A smooth homeomorphism $f : M \to N$ is called a \emph{diffeomorphism} if its inverse $f^{-1} : N \to M$ is smooth. If there is a diffeomorphism $f : M \to N$, we say that $M$ is \emph{diffeomorphic} to $N$.   
+    \end{definition}
+
+    \begin{proposition}
+        Being diffeomorphic is an equivalence relation. 
+    \end{proposition}
+
+    \begin{definition}[Support]
+        Let $M$ be a topological space and $f : M \to \mathbb{R}$ a continuous function. The \emph{support} of $f$, denoted by supp$(f)$ is defined as the topological closure of the set 
+        \[      \{  x \in M  \, \vert \, f(x) \neq 0  \} .   \]
+    \end{definition}
+    
+    \begin{proposition}[Bump functions]
+        Let $M$ be a smooth manifold, $U \subset M$ an open set, and $p\in U$. Then there is $f \in C^{\infty}(M)$ with $f(p) = 1$ and supp$(f) \subset U$. 
+    \end{proposition}
+
+    \begin{definition}[Locally finite]
+        Let $M$ be a topological space and $ \mathcal{X} = \{ X_i \} _{i \in I}$ a collection of subsets of $M$. We say $\mathcal{X}$ is \emph{locally finite} if each $p \in M$ admits an open neighborhood $U \subset M$ such that $U \cap X_i \neq \emptyset $ only for finitely many $i$'s. 
+    \end{definition}
+
+    \begin{theorem}[Partitions of unity]\label{thm:pou}
+        Let $M$ be a smooth manifold and $\{ U_i \} _{i \in I} $ an open cover of $M$. Then there is a collection $\{ \rho_i \} _{i \in I}$ of functions $\rho _i \in C^{\infty }(M)$ such that
+        \begin{itemize}
+            \item For each $i \in I$, one has supp$(\rho_i) \subset U_i$.
+            \item $\rho_i (M)\subset [0,1]$
+            \item The collection $\{ $ supp$(\rho_i)\}_{i \in I}$ is locally finite.
+            \item For each $x \in M$, one has
+            \[      \sum_{i \in I} \rho _i (x) = 1  .            \]
+        \end{itemize}
+    \end{theorem}
+
+    Note that the sum in the last item of Theorem \ref{thm:pou} makes sense since only finitely many summands are finite. 
+
+
+
+
+
+
+\end{document}

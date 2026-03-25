@@ -1,0 +1,76 @@
+\documentclass{ximera}
+\title{Smooth manifolds}
+
+\begin{document}
+
+    \begin{abstract} Charts, atlases, smooth structures, and smooth manifolds. A reference for this material is   \end{abstract}
+    \maketitle
+
+    \begin{definition}[Topological manifold]
+        Let $n \in \mathbb{N}$.  An  \emph{$n$-dimensional topological manifold} is a second-countable Hausdorff topological space $M$ such that each point $p \in M$ has an open neighborhood homeomorphic to an open set in $\mathbb{R}^n$.
+    \end{definition}
+    
+    \begin{definition}[Charts and parametrizations]
+        Let $M$ be an $n$-dimensional topological manifold, $U \subset M$ an open set, and $\varphi : U \to V$ a homeomorphism with $V \subset \mathbb{R}^n$ open.  The pair $(U, \varphi)$ is called a \emph{chart}. The pair $(V ,\varphi ^{-1} )$ is called a \emph{parametrization}.  
+    \end{definition}
+    
+    \begin{definition}[Compatible charts]
+        Let $M$ be a topological manifold. We say two charts $(U , \varphi )$, $(V, \psi)$  are \emph{compatible} if  the map 
+        \[    \psi \circ \varphi ^{-1} : \varphi (U \cap V) \to \psi (U \cap V)      \]
+        is smooth.
+    \end{definition}
+
+    \begin{proposition}
+        Being compatible is an equivalence relation in the set of charts.
+    \end{proposition}
+    
+    \begin{definition}[Smooth atlas]
+        Let $M$ be a  topological manifold. A \emph{smooth atlas} is a collection of compatible charts $\mathcal{A} = \{  (U_i , \varphi_i ) \} _{i \in I } $  with 
+        \[       M \subset \bigcup _{i \in I} U_i .                \]
+    \end{definition}
+
+    \begin{definition}[Smooth structure]
+        Let $M$ be a  topological manifold. A \emph{smooth structure} is a maximal smooth atlas $\mathcal{A}$. In this definition, maximal means that any smooth atlas containing $\mathcal{A}$ equals $\mathcal{A}$. 
+    \end{definition}
+    
+    \begin{proposition}
+        Any smooth atlas $\mathcal{A}$ is contained in a unique smooth structure $\mathcal{S}$. Moreover, $\mathcal{S}$ consists precisely of the charts compatible with all charts in $\mathcal{A}$.
+    \end{proposition}
+
+    \begin{definition}[Smooth manifold]
+        A smooth manifold is a pair $(M, \mathcal{S})$ with  $M$ a topological manifold and  $\mathcal{S}$ a smooth structure on $M$.
+    \end{definition}
+
+    
+    \begin{definition}[Smooth function to $\mathbb{R}^m$]
+    Let $(M, \mathcal{S})$ be a smooth manifold and $f : M \to \mathbb{R}^m$ a function. We say $f$ is \emph{smooth} if for any chart $(U , \varphi)$ in $ \mathcal{S}$, the composition
+    \[     f \circ \varphi ^{-1} : \varphi (U ) \to \mathbb{R}^m        \]
+    is smooth. We denote by $C^{\infty}(M)$ the set of smooth functions $f : M \to \mathbb{R}$. 
+    \end{definition}
+
+    \begin{proposition}
+    Let $(M, \mathcal{S})$ be a smooth manifold, $\mathcal{A} \subset \mathcal{S}$ a smooth atlas, and  $f : M \to \mathbb{R}^m$ a function. Assume that for any chart $(U, \varphi)$ in $\mathcal{A}$, the composition 
+    \[     f \circ \varphi ^{-1} : \varphi (U ) \to \mathbb{R}^m        \]
+    is smooth.  Then $f$ is smooth.     
+    \end{proposition}
+    
+
+
+    
+    \begin{notation}
+    Given a smooth manifold $(M, \mathcal{S})$, by an abuse of noation, whenever we say ``chart'' we mean an element of $\mathcal{S}$.    
+    \end{notation}
+
+
+
+
+    \begin{notation}
+        While a smooth manifold is technically a pair $(M , \mathcal{S})$, it is often simply denoted by $M$. 
+    \end{notation}
+
+
+
+
+
+
+\end{document}

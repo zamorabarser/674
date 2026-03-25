@@ -1,0 +1,116 @@
+\documentclass{ximera}
+\title{Calculus review}
+
+\begin{document}
+
+    
+    \begin{abstract}  A reference for this material is Hubbard, J. H., \& Hubbard, B. B. (2015). Vector calculus, linear algebra, and differential forms: a unified approach (pp. 818-pages). Matrix Editions.  \end{abstract}
+    \maketitle
+
+We begin by reviewing some calculus concepts. 
+
+
+
+\begin{definition}[Partial derivatives]
+    Let $U \subset \mathbb{R}^n$ be an open set,  $f : U \to \mathbb{R}$ a function, $p \in U$, and $i \in \{ 1, \ldots, n \}$. The \emph{$i$-th partial derivative of $f$ at $p$} is defined as
+    \[      \partial_i f (p) : = \lim_{h \to 0} \frac{f(p + h e_i) - f(p)}{h} ,             \]
+    whenever the limit exists, where $e_i = (0, \ldots, 1, \ldots , 0)$ denotes the $i$-th canonical vector. If this limit exists for all $p \in U$, it defines a function 
+    \[ \partial_i f  : U \to \mathbb{R}. \] 
+\end{definition}
+
+\begin{definition}[$C^k$ functions]\label{def:c-k}
+    Let $U \subset \mathbb{R}^n$ be an open set and  $f : U \to \mathbb{R}$ a function. We say $f$ is $C^0$ if it is continuous. Inductively, we say it is $C^{k+1} $ if for each $i \in \{ 1, \ldots , n \}$, the function $ \partial_i  f  : U \to \mathbb{R}$ exists and is $C^k$.   We say that $f$ is $C^{\infty}$ if it is $C^k$ for all $k \in \mathbb{N}$.  $C^{\infty}$ functions are called \emph{smooth}.
+\end{definition}
+
+\begin{notation}
+    Let $U \subset \mathbb{R}^n$ be an open set. We denote by $C^k (U)$ the set of $C^k$ functions   $f: U \to \mathbb{R}$. Same with $k $ replaced by $\infty$. 
+\end{notation}
+
+
+\begin{proposition}[Classical derivative rules]
+    Let $U \subset \mathbb{R}^n$ open and $f,g \in C^{\infty}(U)$. Then
+    \begin{gather*}
+            \partial_i (f+ g)  = \partial _i f + \partial _i g ,\\
+            \partial _i (fg)  = (\partial _i f) g + f (\partial _i g) . 
+    \end{gather*}
+    If in addition, $g (x) \neq 0$ for all $x \in U$, then
+    \[    \partial _i \left( \frac{f}{g} \right) = \frac{g \partial _i f - f \partial _i g}{g^2}     .          \]
+\end{proposition}
+
+\begin{notation}
+    For $m \in \mathbb{N}$, we denote by $C ^{k} (U ; \mathbb{R}^m)$ the set of functions $f : U \to \mathbb{R}^m$, where $f = (f_1, \ldots, f_m ) $ and $f _j \in C^k (U)$ for each $j \in \{ 1, \ldots , m \}$.  We also denote
+    \[      \partial _i f = (\partial _i f_1, \ldots , \partial_i f_m).                        \]
+\end{notation}
+
+
+
+
+
+
+\begin{definition}[Differential of a function]\label{def:differential-classic}
+    Let $U \subset \mathbb{R}^n$ be an open set, $f : U \to \mathbb{R}^m $ a function, and $p \in U$. We say a linear function $L : \mathbb{R} \to \mathbb{R} ^m  $ is a \emph{derivative} or \emph{differential} of $f$ at $p$ if 
+    \[     \lim_{h \to 0} \frac{f(p + h)  - f(p) - L (h)}{\vert h \vert }  = 0    .        \]
+    In such a case, we say that $f$ is \emph{differentiable at $p$}. 
+\end{definition}
+
+
+
+
+\begin{notation}
+    Throughout this course, the word ``differentiable'' will mean ``smooth'' as in Definition \ref{def:c-k}, ignoring the concept of ``differentiable'' from Definition \ref{def:differential-classic}.  This abuse of notation is common in the literature of smooth manifolds.
+\end{notation}
+
+
+
+
+\begin{theorem}[$C^1$ implies differentiable]
+    Let $U \subset \mathbb{R}^n$ be an open set. If  $f \in C^1( U ; \mathbb{R}^m ) $, then $f$ is differentiable at $p$ for all $p \in U$. Moreover, the differential of $f$ at $p$ is unique and given by
+    \[     d_p f  : = \begin{pmatrix}
+        \partial_1 f_1 (p) & \cdots & \partial _n f_1(p) \\
+        \vdots & \ddots & \vdots \\
+        \partial_1 f_m(p) & \cdots & \partial_n f_m(p)
+    \end{pmatrix}   .     \]
+\end{theorem}
+
+
+
+
+\begin{theorem}[Chain rule]
+    Let $U \subset \mathbb{R}^n$ and $V \subset \mathbb{R}^m$ be open sets, $f \in C^{k}(U;\mathbb{R}^m)$, $h \in C^{k}(V; \mathbb{R}^{\ell})$, and $f(U) \subset V$. Then $h \circ f \in C^k (U; \mathbb{R}^{\ell})$, and for each $p \in U$, the differential is given by
+    \[    d_p (h \circ f) = ( d_{f(p)} h ) \circ (d_p f ) .   \]
+    
+\end{theorem}
+
+
+\begin{definition}[Diffeomorphism]
+Let $U , V \subset \mathbb{R}^n$ be open sets. A bijective smooth function $f : U \to V$ is called a \emph{diffeomorphism} if the inverse function $f^{-1} : V \to U$ is smooth.  
+\end{definition}
+
+
+\begin{theorem}[Inverse function theorem]
+    Let $U \subset \mathbb{R}^n$ be open, $f \in C^{\infty}(U; \mathbb{R}^n)$, and $p \in U$. Assume the linear function $d_p f : \mathbb{R}^n \to \mathbb{R}^n$ is invertible. Then there are open sets $U_0 \subset \mathbb{R}^n$ and $ V_0 \subset \mathbb{R}^n$ such that  $p \in U_0$, $f(p )\in V_0$, and $f : U _ 0 \to V_0$ is a diffeomorphism.
+\end{theorem}
+
+
+\begin{theorem}[Implicit function theorem]
+    Let $\Omega \subset \mathbb{R}^n \times \mathbb{R}^m =  \mathbb{R}^{n+m}$ be open and $F \in C^{\infty}(\Omega; \mathbb{R}^m)$. Assume the matrix
+    \[   \begin{pmatrix}
+        \partial _{n+1} F_1 & \cdots & \partial _{n+m} F_1 \\
+        \vdots & \ddots & \vdots \\
+        \partial _{n+1} F_m & \cdots & \partial _{n+m } F_m 
+    \end{pmatrix}                            \]
+    is invertible at a point $(p,q) \in  F^{-1} (0) \subset  \Omega \subset \mathbb{R}^n \times \mathbb{R}^m   $. Then there are  open sets $U \subset \mathbb{R}^n$, $V \in \mathbb{R}^m$, and $f \in C^{\infty}(U; \mathbb{R}^m)$ such that $p \in U$, $q \in V$, and 
+    \[     F^{-1} (0)  \cap ( U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^n \times \mathbb{R}^m \, \vert \,  x \in U  \}    .        \]
+\end{theorem}
+
+
+\begin{corollary}[Implicit function theorem again]
+    Let $\Omega \subset    \mathbb{R}^{n+m}$ be open and $F \in C^{\infty}(\Omega; \mathbb{R}^m)$. Assume the linear map $d_{p} F : \mathbb{R}^{n+m} \to \mathbb{R}^m$ is surjective for some  $ p \in  F^{-1} (0) \subset  \Omega  $. Then there are  open sets $U \subset \mathbb{R}^n$, $V \in \mathbb{R}^m$, and $f \in C^{\infty}(U; \mathbb{R}^m)$ such that after reordering the coordinates of $\mathbb{R}^{n+m}$, one has  $p \in U\times V$ and 
+    \[     F^{-1} (0)  \cap ( U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^n \times \mathbb{R}^m \, \vert \,  x \in U  \}    .        \]
+\end{corollary}
+
+
+
+
+
+\end{document}
