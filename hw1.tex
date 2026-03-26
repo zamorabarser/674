@@ -8,6 +8,67 @@
 
 
 
+\begin{exercise}
+    Let $M$ be an $n$-dimensional topological manifold. Show that being compatible is an equivalence relation in the set of charts of $M$.
+    %\begin{hint}
+    %    Chain rule.
+    %\end{hint}
+\end{exercise}
+
+
+\begin{exercise}
+    Let $M$ be an $n$-dimensional topological manifold and $\mathcal{A}$ a smooth atlas. Show that there is a unique smooth structure $\mathcal{S}$ containing $\mathcal{A}$. Moreover, show that $\mathcal{S}$ consists precisely of the charts compatible with all charts in $\mathcal{A}$.
+
+%\begin{hint}
+ %   Use Zorn's Lemma to show there is at least one smooth structure $\mathcal{S}$ containing $\mathcal{A}$. Let $\mathcal{S}'$ denote the set of charts compatible with all charts in $\mathcal{A}$. Show that $\mathcal{S} \subset \mathcal{S}'$ and deduce $\mathcal{S} = \mathcal{S}'$.
+%\end{hint}
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Let $M$ be a smooth manifold and $\pi : \tilde{M} \to M$ a covering map with $\tilde{M}$ second countable. Show that $\tilde{M}$ admits a smooth structure for which $\pi$ is smooth. 
+\begin{hint}
+    Consider a chart $(U, \varphi)$ of $M$ with $U \subset M $ an evenly covered neighborhood. For each section $ \sigma :  U \to \tilde{M} $, consider the chart $(\sigma (U) , \varphi \circ \pi  )$. Show that the set of charts of $\tilde{M}$ obtained this way is a smooth atlas. Recall that a section is a continuous map $\sigma : U \to \tilde{M}$ with $\pi \circ \sigma = \text{Id}_U$.
+\end{hint}
+\end{exercise}
+
+
+
+\begin{exercise}
+Let $M_n (\mathbb{R})$ denote the space of $n\times n$ real matrices and identify it with $\mathbb{R}^{n^2}$.    Show that 
+    \[      SL (n ; \mathbb{R} ) : = \{ A \in M_n (\mathbb{R}) \, \vert \, \det (A) = 1 \}         \]
+    is a smooth manifold of dimension $n^2 -1 $. 
+    %\begin{hint}
+    %    There is a three-line solution. 
+    %\end{hint}
+\end{exercise}
+
+
+\begin{exercise}
+    Given $A \in M_n(\mathbb{R})$, we denote by $A^T $ its transpose. Show that
+    \[      O  (n ) : = \{ A \in M_n (\mathbb{R}) \, \vert \, A A^{T}  = 1 \}         \]
+    is a smooth manifold of dimension $n(n-1)/2$. 
+
+    \begin{hint}
+        Identify $M_n (\mathbb{R}) = \mathbb{R}^{n^2}$ with $(\mathbb{R}^n)^n$, the set of $n$-tuples of elements of $\mathbb{R}^n$, and $\mathbb{R}^{n(n+1)/2}$ with the set of upper-triangular $n \times n$ matrices.   Define 
+        \[    F :    (\mathbb{R}^n)^n \to \mathbb{R}^{n(n+1)/2}      \]
+        by
+        \[      F _{ij}(  \Vec{v}_1, \ldots,  \Vec{v}_n ) = \Vec{v}_i \cdot \Vec{v}_j - \delta _{ij}                 \]
+        for $1\leq i \leq j\leq n$, where $\delta_{ij}$ denotes the Kronecker delta. Show that 
+        \[        F^{-1} (0) = O (n)                      \]
+        and that for all  $  p \in O (n)    $ the differential $d_p F :  (\mathbb{R}^n)^n \to \mathbb{R}^{n(n+1)/2} $ is surjective. 
+    \end{hint}
+\end{exercise}
+
+
+
+
+
+
+
+
 
 
 \end{document}

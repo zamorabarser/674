@@ -3,7 +3,7 @@
 
 \begin{document}
 
-    \begin{abstract}  Inverse images of regular values, products, covering spaces, orthogonal group  \end{abstract}
+    \begin{abstract}   \end{abstract}
     \maketitle
 
 \begin{example}
@@ -103,24 +103,49 @@ Then $M$ is a smooth manifold.
 
 
 \begin{example}
-Let $M$ be a smooth manifold and $\pi : \tilde{M} \to M$ a covering map with $\tilde{M}$ second countable. Show that $\tilde{M}$ admits a smooth structure for which $\pi$ is smooth. 
-\end{example}
-
-\begin{proof}
-    Homework.
-\end{proof}
-
-
-
-\begin{example}
     Let $M_n (\mathbb{R})$ denote the space of $n\times n$ real matrices and identify it with $\mathbb{R}^{n^2}$. Given $A \in M_n(\mathbb{R})$, we denote by $A^T $ its transpose. Then 
     \[      O  (n ) : = \{ A \in M_n (\mathbb{R}) \, \vert \, A A^{T}  = 1 \}         \]
     is a smooth manifold of dimension $n(n-1)/2$. 
 \end{example}
 
-\begin{proof}
-    Homework.
-\end{proof}
+
+\begin{proof}[Proof]
+        We identify $M_n (\mathbb{R}) = \mathbb{R}^{n^2}$ with $(\mathbb{R}^n)^n$, the set of $n$-tuples of elements of $\mathbb{R}^n$. Under this identification, $O (n)$ consists of the set of orthonormal bases.  Define 
+        \[    F :    (\mathbb{R}^n)^n \to \mathbb{R}^{n(n+1)/2}      \]
+        by
+        \[      F _{ij}(  \Vec{v}_1, \ldots,  \Vec{v}_n ) = \Vec{v}_i \cdot \Vec{v}_j - \delta _{ij}                 \]
+        for $1\leq i \leq j\leq n$, where $\delta_{ij}$ denotes the Kronecker delta. Then
+        \[        F^{-1} (0) = O (n) .                       \]
+        Fix $  p : =  (\Vec{v}_1, \ldots , \Vec{v}_n) \in O (n) ,              $        and $1 \leq i_0 \leq j_0 \leq n$. Consider the curve 
+        \[    \gamma ( t )  : = (  \Vec{v}_1 ,  \ldots , \Vec{v}_{j_0} + t \Vec{v}_{i_0} , \ldots , \Vec{v}_n )        .            \]
+        For $1 \leq i \leq j \leq n$, we have
+        \begin{align*}
+           F _{ij } (\gamma (t))  & =  ( \Vec{v}_i + t \,\delta_{ij_0}  \Vec{v}_{i_0} ) \cdot ( \Vec{v}_j + t \, \delta_{jj_0} \Vec{v}_{i_0} ) \\                   & = \Vec{v}_i \cdot \Vec{v}_j + t ( \delta_{ij_0} \Vec{v}_{i_0} \cdot \Vec{v}_j + t \delta_{jj_0} \Vec{v}_i \cdot \Vec{v}_{i_0} ) + t^2 \delta_{ij_0} \delta_{jj_0} \\
+           & = \delta_{ij} + t (\delta_{ij_0}\delta_{i_0j} + \delta_{jj_0}\delta_{ii_0}) + t^2 \delta_{ij_0} \delta_{jj_0}. 
+        \end{align*}
+        Since $i \leq j$ and $i_0 \leq j_0$, we have
+        \[      \delta_{ij_0}\delta_{i_0j} + \delta_{jj_0}\delta_{ii_0} = \begin{cases}
+            2 & \text{ if } i=i_0 =  j= j_0 \\
+            1 & \text{ if } i=i_0 < j= j_0 \\
+            0 & \text{ otherwise}
+        \end{cases}        .            \]
+        Therefore, 
+        \[  (F \circ \gamma )'_{ij} (0) = \begin{cases}
+            2 & \text{ if } i=i_0 =  j= j_0 \\
+            1 & \text{ if } i=i_0 < j= j_0 \\
+            0 & \text{ otherwise}
+        \end{cases}              .                    \]
+        Since $\gamma (0) = p$, by the chain rule we have 
+        \[  d_p F (\gamma' (0)) _{ij} = (F \circ \gamma ) '_{ij} (0)  =   \begin{cases}
+            2 & \text{ if } i=i_0 =  j= j_0 \\
+            1 & \text{ if } i=i_0 < j= j_0 \\
+            0 & \text{ otherwise}
+        \end{cases}   .                           \]
+        This shows that the vector in $\mathbb{R}^{n(n+1)/2}$ that is $1$ in the $(i_0, j_0)$ coordinate and $0$ in all other coordinates is in the image of $d_pF$. Therefore $d_pF $ is surjective. Since $p$ was arbitrary, $O (n) $ is a smooth manifold of dimension $n(n-1)/2$.
+        
+        \end{proof}
+
+
 
 
 
