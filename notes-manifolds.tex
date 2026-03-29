@@ -6,7 +6,7 @@
     \begin{abstract} Charts, atlases, smooth structures, and smooth manifolds.   \end{abstract}
     \maketitle
 
-    A reference for this material is 
+    A reference for this material is Chapter 1 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
 
     \begin{definition}[Topological manifold]
         Let $n \in \mathbb{N}$.  An  \emph{$n$-dimensional topological manifold} is a second-countable Hausdorff topological space $M$ such that each point $p \in M$ has an open neighborhood homeomorphic to an open set in $\mathbb{R}^n$.
@@ -25,6 +25,11 @@
     \begin{proposition}
         Being compatible is an equivalence relation in the set of charts.
     \end{proposition}
+
+    \begin{proof}
+        Homework.
+    \end{proof}
+
     
     \begin{definition}[Smooth atlas]
         Let $M$ be a  topological manifold. A \emph{smooth atlas} is a collection of compatible charts $\mathcal{A} = \{  (U_i , \varphi_i ) \} _{i \in I } $  with 
@@ -39,6 +44,11 @@
         Any smooth atlas $\mathcal{A}$ is contained in a unique smooth structure $\mathcal{S}$. Moreover, $\mathcal{S}$ consists precisely of the charts compatible with all charts in $\mathcal{A}$.
     \end{proposition}
 
+    \begin{proof}
+        Homework.
+    \end{proof}
+
+
     \begin{definition}[Smooth manifold]
         A smooth manifold is a pair $(M, \mathcal{S})$ with  $M$ a topological manifold and  $\mathcal{S}$ a smooth structure on $M$.
     \end{definition}
@@ -50,12 +60,15 @@
     is smooth. We denote by $C^{\infty}(M)$ the set of smooth functions $f : M \to \mathbb{R}$. 
     \end{definition}
 
-    \begin{proposition}
+    \begin{proposition} [Smoothness is local]
     Let $(M, \mathcal{S})$ be a smooth manifold, $\mathcal{A} \subset \mathcal{S}$ a smooth atlas, and  $f : M \to \mathbb{R}^m$ a function. Assume that for any chart $(U, \varphi)$ in $\mathcal{A}$, the composition 
     \[     f \circ \varphi ^{-1} : \varphi (U ) \to \mathbb{R}^m        \]
     is smooth.  Then $f$ is smooth.     
     \end{proposition}
     
+    \begin{proof}
+    Exercise. Use that the change of coordinates is smooth the chain rule.         
+    \end{proof}
 
 
     
