@@ -22,15 +22,15 @@
         is a smooth atlas on $S$. 
     \end{proposition}
 
-    \begin{proof}
+    \begin{solution}
         Exercise. 
-    \end{proof}
+    \end{solution}
 
     \begin{example}[Local graphs]
         Let $S \subset \mathbb{R}^{k + m }$ be a set that is locally a $k$-dimensional graph (see Example \ref{ex:local-graph} in the Examples section of part I). Then $S$ is a $k$-dimensional submanifold of $\mathbb{R}^{k+m}$.   
     \end{example}
 
-    \begin{proof}
+    \begin{solution}
         By hypothesis, for each $p \in S$, there is a linear isomorphism $L : \mathbb{R}^{k+m} \to \mathbb{R}^{k+m}$, open sets $U \subset \mathbb{R}^k $, $V \subset \mathbb{R}^m$, and a smooth function $f \in C^{\infty}(U ; \mathbb{R}^m)$ such that $L(p) \in U \times V$ and 
         \[     L (S ) \cap (U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^k \times \mathbb{R}^m \, \vert \, x \in U \}  .     \]
         Let $W : = L ^{-1} ( U \times V ) \subset \mathbb{R}^{k + m } $ and $\varphi : W \to \mathbb{R}^{k + m}$ given by 
@@ -55,7 +55,7 @@
              \varphi ( W)  \cap (\mathbb{R}^k \times \{ 0 ^m\}) \subset  \varphi (S \cap W ).
         \end{equation}
         Combining \eqref{eq:graph-is-submanifold-1} with \eqref{eq:graph-is-submanifold-2}, we conclude \eqref{eq:submanifold}. Since $p\in S$ was arbitrary,  $S$ is a $k$-dimensional submanifold of $\mathbb{R}^{k + m}$.
-    \end{proof}
+    \end{solution}
 
 
     \begin{example}[Images of embeddings]
@@ -108,26 +108,26 @@
         Let $M^m$, $N^n$ be smooth manifolds, $F : M \to N$ a submersion, and $q \in N$. Then $F^{-1} (q) \subset M$ is an $(m-n)$-dimensional submanifold.
     \end{example}
 
-    \begin{proof}
+    \begin{solution}
         Let $p \in F^{-1} (q)$, $(V, \psi _2 )$ a chart of $N$ with $\psi _2 (q) = 0$, and  $(\Omega , \psi _1 )$ a chart of $M $ around $p$ with $F(\Omega ) \subset V$. By hypothesis, the linear map
         \[    d_q \psi _2 \circ d _p F \circ d_{\psi_1(p)} \psi_1 ^{-1} : \mathbb{R}^m \to \mathbb{R}^n                                    \]
         is surjective. By the implicit function theorem, $\psi _1 ( F^{-1}(q) \cap \Omega )$ is locally a graph in $\psi _1 (\Omega )$. By the first example, $F^{-1}(q) \cap \Omega$ is an $(m-n)$-dimensional submanifold of $M$. Finally, being a submanifold is a local property, so the result follows.
-    \end{proof}
+    \end{solution}
 
     \begin{example}[Preimage of regular point]
         Let $M^m$, $N^n$ be smooth manifolds, $F : M \to N$ a smooth map, and $q \in N$ such that $d_pF : T_p M \to T_{q}N$ is surjective for all $p \in F^{-1}(q)$. Then $F^{-1} (q) \subset M$ is an $(m-n)$-dimensional submanifold.
     \end{example}
 
-    \begin{proof}
+    \begin{solution}
         Proof is identical to the one of the previous example.
-    \end{proof}
+    \end{solution}
 
     \begin{example}[Level sets of constant rank maps]
         Let $r \in \mathbb{N}$ and $F : N^n \to M^m$ a smooth map with $\text{rank} ( d_p F ) = r $ for all $p\in N$. Then for all $q \in M $, the preimage $F^{-1}(q) \subset N $ is a smooth $(n-r)$-dimensional submanifold.
     \end{example}
 
-    \begin{proof}
+    \begin{solution}
         Can be found in Sections 4 and 5 of the book. Specifically, Theorem 5.12.
-    \end{proof}
+    \end{solution}
 
 \end{document}

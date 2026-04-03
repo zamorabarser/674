@@ -10,13 +10,13 @@
 $\mathbb{R}^n$ is a smooth manifold in a canonical way. %That is, there is a unique smooth structure such that for each open set $U \subset \mathbb{R}^n$, the inclusion $U \hookrightarrow \mathbb{R}^n$ is a chart.  
 \end{example}
 
-\begin{proof}
+\begin{solution}
     $\mathbb{R}^n$ is a metric space,  hence Hausdorff.   The set of balls with rational radius and center with rational coordinates forms a countable sub-basis of the topology of $\mathbb{R}^n$, so it is second countable. 
     
     The identity map $\text{Id}_{\mathbb{R}^n} : \mathbb{R}^n \to \mathbb{R}^n$ is a chart. Since the domain is everything, and any chart is compatible with itself, the set containing this chart is a smooth atlas. More specifically, $\mathcal{A} : = \{ (\mathbb{R}^n, \text{Id}_{\mathbb{R}^n} ) \}$ is a smooth atlas of the topological manifold $\mathbb{R}^n$. 
     
     Therefore, there is a unique smooth structure containing this chart. Note that for each open set $U \subset \mathbb{R}^n$, the inclusion $U \hookrightarrow \mathbb{R}^n$ belongs to this smooth structure.
-\end{proof}
+\end{solution}
 
 
 
@@ -24,9 +24,9 @@ $\mathbb{R}^n$ is a smooth manifold in a canonical way. %That is, there is a uni
 Let $M$ be an $n$-dimensional smooth manifold and $U \subset M$ an open set. Then $U$ is an $n$-dimensional smooth manifold. 
 \end{example}
 
-\begin{proof}[Proof sketch]
+\begin{solution}
     Let $\mathcal{S} = \{ (U_i, \varphi _i ) \} _{i \in I }$ be the smooth structure of $M$. Then $\mathcal{S}_U : = \{ ( U \cap U_i , \varphi_i \vert _{U \cap U_i}  ) \} _{i \in I }$ is a smooth atlas on $U$ (it is actually a smooth structure). 
-\end{proof}
+\end{solution}
 
 
 \begin{example}[Locally a graph] \label{ex:local-graph} Let $M\subset \mathbb{R}^{n+m}$ be a set that is locally the graph of a smooth function. That is, for each $p \in M$, there is a linear isomorphism $L : \mathbb{R}^{n+m} \to \mathbb{R}^{n+m}$, open sets $U \subset \mathbb{R}^n $, $V \subset \mathbb{R}^m$, and a smooth function $f : U \to \mathbb{R}^n$ such that $L(p) \in U\times V$ and
@@ -36,7 +36,7 @@ Then $M$ is a smooth manifold.
 
 
 
-\begin{proof}
+\begin{solution}
     Let $L : \mathbb{R}$, $U$, $V$, and $f$ as above. Define
     \[ \varphi  : M  \cap L^{-1} (U \times V) \to U \]
     as 
@@ -60,7 +60,7 @@ Then $M$ is a smooth manifold.
     which is the composition of the smooth functions
     \[       x \mapsto ( x, f(x) ) \mapsto L ^{-1} (x, f(x)) \mapsto \hat{L} ( L ^{-1} (x,f(x)) ) \mapsto \pi (  \hat{L}  ( L^{-1}  (x, f(x))  )  ).                            \]
     Therefore the charts $\varphi$ and $\psi $ are compatible, proving our claim. 
-    \end{proof}
+    \end{solution}
 
 
     \begin{example}[Level sets]
@@ -68,9 +68,9 @@ Then $M$ is a smooth manifold.
     \end{example}
 
 
-    \begin{proof}
+    \begin{solution}
     By the Implicit Function Theorem, this is covered by the  above example
-    \end{proof}
+    \end{solution}
 
 
 
@@ -78,7 +78,7 @@ Then $M$ is a smooth manifold.
         Let $M$ and $N$ be smooth manifolds of dimension $m$ and $n$, respectively. Then $M \times N$ is a smooth manifold of dimension $m + n$ in a canonical way.
     \end{example}
 
-    \begin{proof}
+    \begin{solution}
         For each chart $(U, \varphi)$ of $M$ and each chart $(V, \psi) $ of $N$, we consider the map
         \[    \varphi \otimes \psi : U \times V \to \varphi (U) \times \psi (V)  \subset \mathbb{R}^{n+m}       \]
         given by 
@@ -98,16 +98,16 @@ Then $M$ is a smooth manifold.
              & =  ( \varphi ' \circ \varphi ^{-1} (x) , \psi ' \circ \psi ^{-1} (y) ) .
         \end{align*}
         Since the maps $\varphi ' \circ \varphi ^{-1}$ and $\psi ' \circ \psi ^{-1}$ are smooth, the change of coordinates is smooth.
-    \end{proof}
+    \end{solution}
 
 
 
 \begin{example}[Covering spaces] Let $M$ be a smooth manifold and $\pi : \tilde{M} \to M$ a covering map with $\tilde{M}$ second countable. Show that $\tilde{M}$ admits a smooth structure for which $\pi$ is smooth. 
 \end{example}
 
-\begin{proof}
+\begin{solution}
     Homework.
-\end{proof}
+\end{solution}
 
 
 
@@ -116,18 +116,18 @@ Then $M$ is a smooth manifold.
     is a smooth manifold of dimension $n^2-1$. 
 \end{example}
 
-\begin{proof}
+\begin{solution}
     Homework.
-\end{proof}
+\end{solution}
 
 \begin{example}[Orthogonal group]   Given $A \in M_n(\mathbb{R})$, we denote by $A^T $ its transpose. Then 
     \[      O  (n ) : = \{ A \in M_n (\mathbb{R}) \, \vert \, A A^{T}  = \text{Id} \, \}         \]
     is a smooth manifold of dimension $n(n-1)/2$. 
 \end{example}
 
-\begin{proof}
+\begin{solution}
     Homework.
-\end{proof}
+\end{solution}
 
 
 
@@ -141,9 +141,9 @@ is a smooth atlas making $M \# N $ a smooth manifold.
 
 \end{example} 
 
-\begin{proof}
+\begin{solution}
     Exercise.
-\end{proof}
+\end{solution}
 
 
 

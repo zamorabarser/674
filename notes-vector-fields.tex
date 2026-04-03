@@ -3,7 +3,7 @@
 
 \begin{document}
 
-    \begin{abstract} Vector fields, global derivations,  locality, Lie brackets. 
+    \begin{abstract} Vector fields, global derivations,  locality. 
     \end{abstract}
     \maketitle
 
@@ -30,8 +30,8 @@
         For each vector field $V$, the map $ f \mapsto \tilde{V} f $ is a global derivation. Conversely, for any global derivation $L$, there is a vector field $V$ with $\tilde{V} = L$. 
     \end{theorem}
 
-    \begin{proof}[Proof of first part]
-        Fix $V$ a vector field. By defintion of vector field, for each smooth function $f$, the function $\tilde{V}f$ is also smooth. Also, for any $x \in M$, one has 
+\begin{solution}
+For the first part, fix $V$ a vector field. By defintion of vector field, for each smooth function $f$, the function $\tilde{V}f$ is also smooth. Also, for any $x \in M$, one has 
         \begin{align*}
             \tilde{V}(fg) (x) & = V(x) (fg) \\
                     & = [ V(x) (f)] g(x) + f(x) [V(x)( g)] \\
@@ -39,23 +39,30 @@
                     & = [ ( \tilde{V}f) g + f (\tilde{V}g) ] (x) .
         \end{align*}
         Since $x$ was arbitrary, we have  $\tilde{V}(fg) = (\tilde{V}f)g + f (\tilde{V}g)$. 
-    \end{proof}
 
-    For the second part, we need a series of lemmas. 
+For the second part, notice that for any $p \in M$, the map $L_p: C^{\infty} \to \mathbb{R}$ given by $L_p (f) : = L(f)(p)$ is a derivation at $p$. Lnearity of $L_p$ is immediate, and for the Leibniz rule:
+\begin{align*}
+    L_p(fg) & = L(fg)(p) \\
+    & = L(f) (p) g (p) + f(p) L(g)(p) \\
+    & = L_p (f) g(p) + f(p) L_p (g) .
+\end{align*}    
+If we define $V : M \to TM$ by $V(p) : = L_p$, then by construction $\tilde{V} = L$. 
+\end{solution}
+
 
     \begin{proposition}[Derivative of a constant]
-        Let $L \in \mathfrak{X}(M)$ and $c \in C^{\infty}(M)$ a constant function. Then $Lc = 0$.
+        Let $V \in \mathfrak{X}(M)$ and $c \in C^{\infty}(M)$ a constant function. Then $V c = 0$.
     \end{proposition}
-    \begin{proof}
+    \begin{solution}
         Exercise. Similar to the section on tangent vectors.
-    \end{proof}
+    \end{solution}
 
     \begin{proposition}[Derivations are local]\label{pro:global-local}
-        Let $L \in \mathfrak{X}(M)$ and $f, g \in C^{\infty }(M)$ that agree on an open set $U$. Then $Lf$ and $Lg$ agree on $U$.
+        Let $V \in \mathfrak{X}(M)$ and $f, g \in C^{\infty }(M)$ that agree on an open set $U$. Then $Vf$ and $Vg$ agree on $U$.
     \end{proposition}
-    \begin{proof}
+    \begin{solution}
         Exercise. Similar to the section on tangent vectors.
-    \end{proof}
+    \end{solution}
 \begin{comment}
       \begin{proof}
         Let $x \in U$ and choose $\rho \in C^{\infty}(M)$ a bump function around $x$ supported in $U$. Then
@@ -79,11 +86,11 @@
             \item The function $L^U(f) $ is smooth.
             \item The map $f \mapsto L^U (f)$ is a global derivation on $U$.
         \end{itemize}
-        
+        $L^U$ is called the \emph{restriction of $L$ to $U$}.
     \end{proposition}
 
 
-    \begin{proof}
+    \begin{solution}
         The first item follows from Proposition \ref{pro:global-local}. For fixed $x \in U$, if $\rho _x $ is identically $1$ on the open set $V \subset U$, then $\rho_x$ is also a bump function around $y$ for any $y \in V$.  This implies that $L ^U (f) $ coincides with $L (f \rho _x)$ in $V$, so it is smooth. Since $x$ was arbitrary, we conclude $L^U(f) \in C^{\infty} (U)$. 
 
         To prove the last item, take $f,g \in C^{\infty}(U)$  and $x \in U$. Notice that $\rho _x^2 $ is also a bump function around $x$ supported in $U$. Therefore
@@ -93,7 +100,84 @@
             & = L^U (f) (x) g(x) + f(x) L^U(g) (x).
         \end{align*}
         This proves that $L^U$ is a global derivation on $U$.
+
+    \begin{proposition}[Smoothness of vector fields]
+        Let $V  :  M \to TM $ with $\pi \circ V = \text{Id}_M$. For a $(U, \varphi)$  and $p \in U$, we can write 
+        \[    V (p ) = \sum_{i = 1 } ^n V^i (p) \partial _i \vert _p      \]
+        for some functions $V^i : U \to \mathbb{R}$. Then $V \in \mathfrak{X}(M)$ if and only if for any chart $(U, \varphi )$ the functions $V^i: U \to \mathbb{R} $ are smooth. 
+    \end{proposition}
+
+    \begin{solution}
+        If $V \in \mathfrak{X}(M)$, then $V^U \in \mathfrak{X}(U)$, and for each $j \in \{ 1, \ldots , n \}$ when we apply $V^U$ to the $j$-th coordinate function we have
+        \[      V^U (x_j) = \sum_{i = 1} ^n \, \delta_{ij} \cdot  V^i = V^j   \in C^{\infty} (U) .   \]
+    \end{solution}
+        On the other hand, if $f \in C^{\infty} (M)$ and the functions $V^i : U \to \mathbb{R}$ are smooth for some chart $(U, \varphi )$, then 
+        \[  \tilde{V} (f) \vert _U   = \sum _{i = 1} ^n V^i  \partial _i f   \in C^{\infty} (U) .   \]
+        Since smoothness is a local condition, $\tilde{V}(f)$ is smooth. 
+    \end{solution}
+
+
+    \begin{corollary}[Smoothness of vector fields again]
+        Let $V  :  M \to TM $ with $\pi \circ V = \text{Id}_M$. Then $V \in \mathfrak{X} (M)$ if and only if $V$ is smooth. 
+    \end{corollary}
+
+    \begin{proof}
+        Let $(U, \varphi) $ a chart of $M$ and $(\pi ^{-1} (U) , \tilde{\varphi}) $ the corresponding chart of $TM$. Then the map $\tilde{\varphi} \circ V \circ \varphi ^{-1}$ is given by
+        \[       \tilde{\varphi} (V (\varphi ^{-1})) (x)  = ( x, V^1 (x)  , \ldots , V^n (x)  )   .   \]
+        This is smooth if and only if the $V^i$'s are smooth.
     \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 \end{document}

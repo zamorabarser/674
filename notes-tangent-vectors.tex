@@ -21,10 +21,10 @@
         is a derivation at $p$.
     \end{proposition}
 
-    \begin{proof}
+    \begin{solution}
         Exercise.
         %$L_{\gamma}$ is linear because taking derivatives is linear. The Leibniz rule follows from the classical one. 
-    \end{proof}
+    \end{solution}
 
     \begin{theorem}[Equivalence of definitions]\label{thm:tpm-definitions}
         The map $\gamma \mapsto L_{\gamma}$ defined in Proposition \ref{prop:curve-to-derivation} is a surjective function from the set of smooth curves passing through $p$ at $0$ to $T_pM$. Moreover, $T_pM$ is an $n$-dimensional vector space.
@@ -36,7 +36,7 @@
         For a constant function $c \in C^{\infty}(M)$, one has $L (c) = 0$. 
     \end{proposition}
 
-    \begin{proof}
+    \begin{solution}
         \begin{align*}
             L(c) & = L ( 1 \cdot c) \\
             & = L (1) c + 1 \cdot  L (c) \\
@@ -44,12 +44,12 @@
             & = 2 L (c) .
         \end{align*}
         This is only possible if $L(c) = 0$.
-    \end{proof}
+    \end{solution}
     
     \begin{proposition}[Locality] \label{prop:locality-of-derivatives}
         If $f,g \in C^{\infty} (M)$ agree in a neighborhood of $p$, then $L(f) = L (g)$. 
     \end{proposition}
-    \begin{proof}
+    \begin{solution}
         Let $U \subset M$ be an open neighborhood of $p$ where $f$ and $g$ agree. Let $\rho \in C^{\infty} (M)$ be a bump function around $p$ supported inside of $U$. Then 
         \[ f-g \equiv (f -g) ( 1 - \rho ) \] 
         (check this!), and
@@ -60,7 +60,7 @@
             & = L(f-g) (0) - (0) L (1 - \rho ) \\
             & = 0. 
         \end{align*}
-    \end{proof}
+    \end{solution}
 
     \begin{proposition}[Restriction of derivations]\label{prop:restriction-of-derivatives}
         Let $ U \subset M$ be open containing $p$. For each $f\in C^{\infty}(U)$, define 
@@ -68,22 +68,22 @@
         where $\tilde{f} \in C^{\infty} (M) $ is a function such that $f = \tilde{f} $ in a neighborhood of $p$. This is a well-defined derivation $L^U  \in T_p U $. 
     \end{proposition}
 
-    \begin{proof}
+    \begin{solution}
         For $f \in C^{\infty} (U)$, the function $\tilde{f} \in C^{\infty}(M)$ can be obtained by multiplying $f$ by a bump function around $p$ supported inside of $U$. Proposition \ref{prop:locality-of-derivatives} implies that $L^U $ does not depend on the choice of $\tilde{f}$. The linearity and Leibniz rule for $L^U$ follow from the corresponding properties for $L$.  
-    \end{proof}
+    \end{solution}
 
     \begin{proposition}[Restriction of derivations is injective] The map $L \mapsto L^U$ is a linear isomorphism from $T_pM$ to $T_pU$.
     \end{proposition}
 
-    \begin{proof}
+    \begin{solution}
  %       If $L(f) \neq 0$, then $L^U (f\vert _U ) = L (f) \neq 0$. This means 
   %      \[ [ L \neq 0 ] \Rightarrow [L^U \neq 0]. \] 
         For any $D \in T_pU$, one can define $\tilde{D} \in T_pM$ by
         \[      \tilde{D} (f) : = D (f \vert _ U ).                 \]
         It is straightforward to show that $D \mapsto \tilde{D}$ is the inverse of $L \mapsto L^U$.
-    \end{proof}
+    \end{solution}
 
-    \begin{proof}[Proof of Theorem \ref{thm:tpm-definitions}] 
+    \begin{proof}[Proof of Theorem \ref{thm:tpm-definitions}]  
         Let $(U, \varphi)$ be a chart with $\varphi (p) = 0$ and $\varphi (U) = B_1(0)$.  For each $i \in \{ 1, \ldots , n \}$, notice that $\partial _i \vert _p : C^{\infty}(U) \to \mathbb{R}$ given by 
         \[      \partial_i \vert _p (f) : =  \partial _i ( f  \circ \varphi ^{-1}  ) (p)      \]
         is a derivation at $p$. Moreover, $\partial_i \vert _p = L _{\gamma_i}$, where $\gamma_i (t) = \varphi ^{-1} ( t e_i)$. We will show that 
@@ -110,8 +110,6 @@
          &= \sum _{i = 1} ^n L^U (x_i) \, \partial_i  f (p).
     \end{align*}
     This proves \eqref{eq:derivation-is-partials}. The fact that \eqref{eq:tpm-basis} is linearly independent is left as an exercise.
-
-    
     \end{proof}    
         
 \end{document}
