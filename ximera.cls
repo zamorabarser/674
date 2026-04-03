@@ -281,7 +281,6 @@
 
       \newtheorem{theorem}{\GetTranslation{Theorem}}
 
-      \newtheorem{sm-proof}{\GetTranslation{Proof}}
 
       \newtheorem{algorithm}{\GetTranslation{Algorithm}}
 
@@ -326,6 +325,8 @@
       \newtheorem{procedure}{\GetTranslation{Procedure}}
 
       \newtheorem{remark}{\GetTranslation{Remark}}
+      
+      \newtheorem{pproof}{\GetTranslation{Proof}}
 
       \newtheorem{summary}{\GetTranslation{Summary}}
 
