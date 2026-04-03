@@ -3,11 +3,51 @@
 
 \begin{document}
 
-    \begin{abstract}  A reference for this material is   \end{abstract}
+    \begin{abstract}  Differential of a smooth function. Immersions, submersions, and embeddings.   \end{abstract}
     \maketitle
 
+        A reference for this material is Chapters 3 and 4  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
 
+    \begin{definition}[Differential of a map]
+        Let $M$, $N$ be smooth manifolds and $f : M \to N$ a smooth map. The \emph{derivative or differential} of $f$ is the map $f_{\ast} : TM \to TN$ given by
+        \[      f_{\ast} D (h) : = D (h \circ f )                          \]
+        for $D \in TM$. 
+    \end{definition}
 
+    \begin{proposition}[Differential is well-defined and linear]
+        For $p\in M$, the map $f_{\ast} $ sends $T_pM$ linearly to $T_{f(p)}N$. We call this map $d_pf : = f_{\ast} \vert _{T_pM}$.  
+    \end{proposition}
+    \begin{proof}
+        Let $L \in T_pM$, and $h_1, h_2 \in C^{\infty} (N)$. Then 
+        \begin{align*}
+            f_{\ast} L (h_1h_2) & = D ( (h_1 h_2 ) \circ f ) \\
+            & = L ( (h_1 \circ f) (h_2 \circ f) )\\
+            & = L(  h_1 \circ f ) ( h_ 2 \circ f  ) (p) + ( h_ 1 \circ f  ) (p) L(  h_2 \circ f ) \\
+            & = [ f_{\ast} L(h_1)] h_2 (f(p)) + h_1 (f(p)) [f_{\ast} L (h_2)].
+        \end{align*}
+        This shows that $f_{\ast} L$ is a derivation at $f(p)$.
+    \end{proof}
 
+    \begin{proposition}[Differential in terms of curves]
+        For a curve $\gamma : (- \varepsilon , \varepsilon ) \to M$  one has 
+        \[   f_{\ast} L_{\gamma} = L_{ f \circ \gamma }  .  \]
+    \end{proposition}
+    \begin{proof}
+        By definition, for $h \in C^{\infty}(N)$, one has
+        \begin{align*}
+            f_{\ast} L_{\gamma} (h) & =  L_{\gamma} (  h \circ f  )  \\
+            & = ( h \circ f \circ \gamma )' (0) \\
+            & = L_{f \circ \gamma } (h) .
+        \end{align*}
+    \end{proof}
+
+    \begin{definition}
+        Let $f : M \to N$ be a smooth map
+        \begin{itemize}
+            \item $f$ is called a \emph{submersion} if $d_p f$ is surjective for all $p \in M$.
+            \item $f$ is called an \emph{immersion} if $d_p f$ is injective for all $p \in M$.
+            \item $f$ is called an \emph{embedding} if it is both an immersion and a topological embedding.
+        \end{itemize}
+    \end{definition}
 
 \end{document}

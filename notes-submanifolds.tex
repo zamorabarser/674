@@ -1,0 +1,133 @@
+\documentclass{ximera}
+\title{Submanifolds}
+
+\begin{document}
+
+    \begin{abstract}  Submanifolds. Examples given by  embeddings and level sets.   \end{abstract}
+    \maketitle
+
+        A reference for this material is Chapter 5  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+    \begin{definition}[Submanifold]
+        Let $M$ be an $n$-dimensional smooth manifold, $k \in \mathbb{N}$, and $S \subset M$. We say that $S$ is a \emph{$k$-dimensional submanifold of $M$} if for any $p \in S$ there is a chart $(W, \varphi)$ of $M$ such that  $p \in W$ and
+        \begin{equation}\label{eq:submanifold}
+               \varphi (S \cap W ) = \varphi (W) \cap (  \mathbb{R}^k \times \{ 0^{n-k} \} ),   
+        \end{equation}
+        where $0^{n-k} \in \mathbb{R}^{n-k}$ denotes the zero vector.
+    \end{definition}
+
+    \begin{proposition}[Submanifold is smooth manifold]
+        Let $M$ be an $n$-dimensional manifold, $S \subset M$ a $k$-dimensional submanifold, and $\mathcal{A}$ the set of charts $(W, \varphi)$ of $M$ satisfying \eqref{eq:submanifold}. Then the set 
+        \[   \mathcal{A}^S : =   \{ ( W \cap S , \varphi\vert _{W \cap S}  ) \, \vert \, (W, \varphi) \in \mathcal{A} )                                    \]
+        is a smooth atlas on $S$. 
+    \end{proposition}
+
+    \begin{proof}
+        Exercise. 
+    \end{proof}
+
+    \begin{example}[Local graphs]
+        Let $S \subset \mathbb{R}^{k + m }$ be a set that is locally a $k$-dimensional graph (see Example \ref{ex:local-graph} in the Examples section of part I). Then $S$ is a $k$-dimensional submanifold of $\mathbb{R}^{k+m}$.   
+    \end{example}
+
+    \begin{proof}
+        By hypothesis, for each $p \in S$, there is a linear isomorphism $L : \mathbb{R}^{k+m} \to \mathbb{R}^{k+m}$, open sets $U \subset \mathbb{R}^k $, $V \subset \mathbb{R}^m$, and a smooth function $f \in C^{\infty}(U ; \mathbb{R}^m)$ such that $L(p) \in U \times V$ and 
+        \[     L (S ) \cap (U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^k \times \mathbb{R}^m \, \vert \, x \in U \}  .     \]
+        Let $W : = L ^{-1} ( U \times V ) \subset \mathbb{R}^{k + m } $ and $\varphi : W \to \mathbb{R}^{k + m}$ given by 
+        \[     \varphi ( L^{-1} (x, y ) ) = (x , y - f (x ) ).                     \]
+        On one hand, if $p \in S \cap  W $, then $L(p) \in L(S ) \cap (U \times V )$, so $L (p ) = (x,f(x)) $ for some $x \in U$. Hence
+        \begin{align*}
+            \varphi (p) & = \varphi ( L^{-1} (x, f(x)) ) \\
+            & = (x , f(f) - f(x)) \\
+            & = (x,0). 
+        \end{align*}
+        This implies  
+        \begin{equation}\label{eq:graph-is-submanifold-1}
+            \varphi (S \cap W) \subset \varphi (W) \cap (\mathbb{R}^k \times \{ 0 ^m\}). 
+        \end{equation}
+        On the other hand, if $(x,0^{m}) \in  \varphi (W )  \cap ( \mathbb{R}^k  \times  \{ 0^{m} \}  )$, one has 
+        \begin{align*}
+            \varphi ^{-1} (x, 0 ^m ) & = L^{-1} (x , f(x) + 0 ^m) \\
+            & = L^{-1} (x, f(x)) ,
+        \end{align*}
+        which belongs to $S \cap W$. This implies 
+        \begin{equation}\label{eq:graph-is-submanifold-2}
+             \varphi ( W)  \cap (\mathbb{R}^k \times \{ 0 ^m\}) \subset  \varphi (S \cap W ).
+        \end{equation}
+        Combining \eqref{eq:graph-is-submanifold-1} with \eqref{eq:graph-is-submanifold-2}, we conclude \eqref{eq:submanifold}. Since $p\in S$ was arbitrary,  $S$ is a $k$-dimensional submanifold of $\mathbb{R}^{k + m}$.
+    \end{proof}
+
+
+    \begin{example}[Images of embeddings]
+        Let $S$ be a smooth $k$-dimensional manifold, $M$ a smooth $n$-dimensional manifold, and $f : S \to M$ be a smooth embedding. Then $f(S) \subset M$ is a $k$-dimensional manifold. 
+    \end{example}
+
+\begin{comment}
+     \begin{proof}
+        Let $p \in S$, $(U , \psi _1)$  a chart of $S$ around $p$ with $\psi_1 (p) = 0$, and $(V, \psi _2) $ a chart of $M$ around $f(p)$. Since $f$ is a topological embedding, we can assume $f(U) = f(S) \cap V$.  
+        
+        
+        By hypothesis, the vector subspace $d_p f (T_pS) \leq T_{f(p)} M $ is $k$-dimensional, and since $d_{f(p)} \psi_2 $ is an isomorphism, the vector subspace 
+        \[  Z : =   d_{f(p)} \psi_2 (    d_p f (T_pS)   ) \leq \mathbb{R}^n     \]
+        is $k$-dimensional. Let $\Vec{v}_1 , \ldots , \Vec{v}_{n-k} \in \mathbb{R}^n $ be a basis of a complement of $Z$.  Let $ h : \psi _1 (U ) \times \mathbb{R}^{n-k}  \to  \mathbb{R}^n $ be given  by
+        \[   h (  x_1, \ldots , x_k , a_1, \ldots , a_{n-k}   )  : = \psi_2 (f ( \psi_1 ^{-1}  ( x_1, \ldots , x_k  ))) + \sum_{j = 1} ^{n-k} a_j \Vec{v}_j.       \]
+        Note that the partial derivatives 
+        \[     \frac{\partial h }{\partial x_1} (0) , \ldots, \frac{\partial h }{ \partial x_n } (0)                        \]
+        span $Z$, and the partial derivatives
+        \[     \frac{\partial h }{\partial a_1} (0) , \ldots, \frac{\partial h }{ \partial a_{n-k} } (0)                        \]
+        span a complement of $Z$. Therefore, by the inverse function theorem, $h$ is a local diffeomorphism. This means there are $W_0 \subset \mathbb{R}^k$, $W_1 \subset \mathbb{R}^{n-k}$ open sets such that $h$ restricted to $W_0 \times W_1$ is a diffeomorphism. By shrinking both $W_0$ and $W_1$, we can guarantee 
+        \[ h(W_0 \times \{ 0 \} ) =  \psi_2 (f  (U)) \cap   h (W_0 \times W_1) . \] 
+        Then we can define $W : = \psi _2 ^{-1} (h (W_ 0 \times W_1))$, and $\varphi : W \to \mathbb{R}^n$ by 
+        \[      \varphi : = h^{-1} \circ \psi _2  .  \]
+        It is left as an exercise to check that the chart $(W , \varphi)$ satisfies the condition in the definition of submanifold.
+    \end{proof}
+\end{comment}
+
+
+\begin{proof}[Proof in the case $M = \mathbb{R}^n$]
+        Fix $p \in S$.  By hypothesis, the vector subspace 
+        \[ V : =  d_p f (T_p S)  \leq \mathbb{R}^n  \] 
+        is $k$-dimensional.  Let $\Vec{v}_1 , \ldots , \Vec{v}_{n-k} \in \mathbb{R}^n $ be a basis of a complement of $V$.  Let $(U,\psi ) $ be a chart of $S$ around $p$ with $\psi (p) = 0 $, and  define $ h : \psi (U ) \times \mathbb{R}^{n-k}  \to  \mathbb{R}^n $   by
+        \[   h (  x_1, \ldots , x_k , a_1, \ldots , a_{n-k}   )  : =  f ( \psi ^{-1}  ( x_1, \ldots , x_k  )) + \sum_{j = 1} ^{n-k} a_j \Vec{v}_j.       \]
+        Note that the partial derivatives 
+        \[     \frac{\partial h }{\partial x_1} (0) , \ldots, \frac{\partial h }{ \partial x_n } (0)                        \]
+        span $V$, and the partial derivatives
+        \[     \frac{\partial h }{\partial a_1} (0) , \ldots, \frac{\partial h }{ \partial a_{n-k} } (0)                        \]
+        span a complement of $V$. Therefore, by the inverse function theorem, $h$ is a local diffeomorphism.      This means there are $W_0 \subset \mathbb{R}^k$, $W_1 \subset \mathbb{R}^{n-k}$ open sets containing $0$ such that $h$ restricted to $W_0 \times W_1$ is a diffeomorphism. Since $f$ is a topological embedding, after shrinking both $W_0$ and $W_1$, we can guarantee 
+        \begin{equation}\label{eq:submanifold-embedding}
+            f  (S)  \cap   h (W_0 \times W_1)  = h(W_0 \times \{ 0 \} ) .  
+        \end{equation}
+        Then we can define $W : =  h (W_ 0 \times W_1) $, and $\varphi : W \to \mathbb{R}^n$ by $ \varphi : = h^{-1}  $.   By \eqref{eq:submanifold-embedding}, the chart  $(W , \varphi)$ satisfies the condition in the definition of submanifold. Since $p \in S $ was arbitrary, $f(S) \subset \mathbb{R}^n$ is a $k$-dimensional submanifold.
+    \end{proof}
+
+    \begin{proof}[Proof of the general case]
+        Exercise.
+    \end{proof}
+
+    \begin{example}[Level sets of submersions]
+        Let $M^m$, $N^n$ be smooth manifolds, $F : M \to N$ a submersion, and $q \in N$. Then $F^{-1} (q) \subset M$ is an $(m-n)$-dimensional submanifold.
+    \end{example}
+
+    \begin{proof}
+        Let $p \in F^{-1} (q)$, $(V, \psi _2 )$ a chart of $N$ with $\psi _2 (q) = 0$, and  $(\Omega , \psi _1 )$ a chart of $M $ around $p$ with $F(\Omega ) \subset V$. By hypothesis, the linear map
+        \[    d_q \psi _2 \circ d _p F \circ d_{\psi_1(p)} \psi_1 ^{-1} : \mathbb{R}^m \to \mathbb{R}^n                                    \]
+        is surjective. By the implicit function theorem, $\psi _1 ( F^{-1}(q) \cap \Omega )$ is locally a graph in $\psi _1 (\Omega )$. By the first example, $F^{-1}(q) \cap \Omega$ is an $(m-n)$-dimensional submanifold of $M$. Finally, being a submanifold is a local property, so the result follows.
+    \end{proof}
+
+    \begin{example}[Preimage of regular point]
+        Let $M^m$, $N^n$ be smooth manifolds, $F : M \to N$ a smooth map, and $q \in N$ such that $d_pF : T_p M \to T_{q}N$ is surjective for all $p \in F^{-1}(q)$. Then $F^{-1} (q) \subset M$ is an $(m-n)$-dimensional submanifold.
+    \end{example}
+
+    \begin{proof}
+        Proof is identical to the one of the previous example.
+    \end{proof}
+
+    \begin{example}[Level sets of constant rank maps]
+        Let $r \in \mathbb{N}$ and $F : N^n \to M^m$ a smooth map with $\text{rank} ( d_p F ) = r $ for all $p\in N$. Then for all $q \in M $, the preimage $F^{-1}(q) \subset N $ is a smooth $(n-r)$-dimensional submanifold.
+    \end{example}
+
+    \begin{proof}
+        Can be found in Sections 4 and 5 of the book. Specifically, Theorem 5.12.
+    \end{proof}
+
+\end{document}

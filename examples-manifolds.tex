@@ -3,7 +3,7 @@
 
 \begin{document}
 
-    \begin{abstract}  Inverse images of regular values, products, covering spaces, orthogonal group  \end{abstract}
+    \begin{abstract}  Inverse images of regular values, products, covering spaces, classical groups, connected sums.  \end{abstract}
     \maketitle
 
 \begin{example}
@@ -29,7 +29,7 @@ Let $M$ be an $n$-dimensional smooth manifold and $U \subset M$ an open set. The
 \end{proof}
 
 
-\begin{example}[Locally a graph] Let $M\subset \mathbb{R}^{n+m}$ be a set that is locally the graph of a smooth function. That is, for each $p \in M$, there is a linear isomorphism $L : \mathbb{R}^{n+m} \to \mathbb{R}^{n+m}$, open sets $U \subset \mathbb{R}^n $, $V \subset \mathbb{R}^m$, and a smooth function $f : U \to \mathbb{R}^n$ such that $L(p) \in U\times V$ and
+\begin{example}[Locally a graph] \label{ex:local-graph} Let $M\subset \mathbb{R}^{n+m}$ be a set that is locally the graph of a smooth function. That is, for each $p \in M$, there is a linear isomorphism $L : \mathbb{R}^{n+m} \to \mathbb{R}^{n+m}$, open sets $U \subset \mathbb{R}^n $, $V \subset \mathbb{R}^m$, and a smooth function $f : U \to \mathbb{R}^n$ such that $L(p) \in U\times V$ and
 \[      L (M) \cap ( U \times V  ) = \{ (x,f(x)) \in \mathbb{R}^n \times \mathbb{R}^m  \, \vert \,  x \in U \}  . \]
 Then $M$ is a smooth manifold. 
 \end{example}
@@ -127,6 +127,22 @@ Then $M$ is a smooth manifold.
 
 \begin{proof}
     Homework.
+\end{proof}
+
+
+
+\begin{example}[Connected sum]   Let $M$, $N$ be connected smooth  $n$-dimensional manifolds, $(U, \varphi )$ a chart of $M$, and $(V, \psi)$ a chart of $N$ such that 
+\[    \varphi (U) = \psi (V) = B_2 (0) \subset \mathbb{R}^n .  \]
+Define the topological space 
+\[      M \# N : = ( (M \backslash \varphi ^{-1} ( \overline{B}_1 (0)  ) ) \cup (N \backslash  \psi ^{-1} (\overline{B}_1(0) ) )    ) / \sim ,                              \]
+where $\sim$ identifies $\varphi ^{-1} (x)$ with $\psi ^{-1} \left( \frac{3 - \Vert x \Vert }{\Vert x \Vert } \, x  \right)$ for $x \in B_2 (0) \backslash \overline{B}_1(0)$. Let $\mathcal{A}_M$ denote the set of charts $(W, \alpha)$ of $M$ with $W \cap \varphi ^{-1} (\overline{B}_1(0)) = \emptyset$ and $\mathcal{A}_N$ the set of charts $(Z, \beta)$ of $N$ with $Z \cap \psi ^{-1} (\overline{ B}_1(0)) = \emptyset $. Finally, define $U ' : = \varphi ^{-1} (B_2 (0) \backslash \overline{B}_1(0))$ and $V ' : = \psi ^{-1} (B_2(0) \backslash \overline{B}_1(0))$. Then the set
+\[       \mathcal{A}_M \cup \mathcal{A}_N \cup \{ (U', \varphi\vert _{U'} ) , (V', \psi \vert_{V'})   \}   \]
+is a smooth atlas making $M \# N $ a smooth manifold. 
+
+\end{example} 
+
+\begin{proof}
+    Exercise.
 \end{proof}
 
 

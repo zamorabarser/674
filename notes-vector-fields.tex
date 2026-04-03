@@ -3,11 +3,97 @@
 
 \begin{document}
 
-    \begin{abstract} Basic properties of vector fields, including locality. A reference for this material is   \end{abstract}
+    \begin{abstract} Vector fields, global derivations,  locality, Lie brackets. 
+    \end{abstract}
     \maketitle
 
 
+    A reference for this material is Chapter 8 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+    \begin{definition}[Vector field]
+        Let $M$ be a smooth manifold and $\pi : TM \to M$ its tangent bundle. We say a function $V : M \to TM$ is a \emph{vector field} if $\pi \circ V = \text{Id}_M$ and for each smooth function $f \in C^{\infty}(M)$, the function $\tilde{V}f : M \to \mathbb{R} $ defined as
+        \[      \tilde{V}f (x) : = V(x) (f)    \]
+        is smooth. 
+    \end{definition}
+
+    \begin{remark}
+        By an abuse of notation, we usually denote $\tilde{V}$ simply by $V$. 
+    \end{remark}
+
+    \begin{definition}[Global derivation]\label{thm:global-derivations}
+        Let $M$ be a smooth manifold. A \emph{global derivation} is a linear map $ L : C^{\infty} (M)  \to C^{\infty}(M) $ such that 
+        \[   L(fg) = L(f) g + f L(g)       \]
+        for all $f,g \in C^{\infty}(M)$.  We denote by $\mathfrak{X}(M)$ the vector space of global derivations.
+    \end{definition}
+
+    \begin{theorem}[Vector fields are global derivations]
+        For each vector field $V$, the map $ f \mapsto \tilde{V} f $ is a global derivation. Conversely, for any global derivation $L$, there is a vector field $V$ with $\tilde{V} = L$. 
+    \end{theorem}
+
+    \begin{proof}[Proof of first part]
+        Fix $V$ a vector field. By defintion of vector field, for each smooth function $f$, the function $\tilde{V}f$ is also smooth. Also, for any $x \in M$, one has 
+        \begin{align*}
+            \tilde{V}(fg) (x) & = V(x) (fg) \\
+                    & = [ V(x) (f)] g(x) + f(x) [V(x)( g)] \\
+                    & = [ \tilde{V}f (x) ] g(x) + f(x) [\tilde{V}g (x)] \\
+                    & = [ ( \tilde{V}f) g + f (\tilde{V}g) ] (x) .
+        \end{align*}
+        Since $x$ was arbitrary, we have  $\tilde{V}(fg) = (\tilde{V}f)g + f (\tilde{V}g)$. 
+    \end{proof}
+
+    For the second part, we need a series of lemmas. 
+
+    \begin{proposition}[Derivative of a constant]
+        Let $L \in \mathfrak{X}(M)$ and $c \in C^{\infty}(M)$ a constant function. Then $Lc = 0$.
+    \end{proposition}
+    \begin{proof}
+        Exercise. Similar to the section on tangent vectors.
+    \end{proof}
+
+    \begin{proposition}[Derivations are local]\label{pro:global-local}
+        Let $L \in \mathfrak{X}(M)$ and $f, g \in C^{\infty }(M)$ that agree on an open set $U$. Then $Lf$ and $Lg$ agree on $U$.
+    \end{proposition}
+    \begin{proof}
+        Exercise. Similar to the section on tangent vectors.
+    \end{proof}
+\begin{comment}
+      \begin{proof}
+        Let $x \in U$ and choose $\rho \in C^{\infty}(M)$ a bump function around $x$ supported in $U$. Then
+        \[       (f - g) = (f-g) (1- \rho)      \]
+        and 
+        \begin{align*}
+            L(f-g) (x) & = L((f-g)(1 - \rho)) (x) \\
+            & = L (f-g) (x) (1 - \rho (x)) + (f(x) - g(x) ) L (1- \rho) (x)  \\
+            & = 0 + 0 = 0 .
+        \end{align*}
+    \end{proof}
+\end{comment}
+  
+
+    \begin{proposition}[Restriction of global derivations]
+        Let $U \subset M$ be an open set,  $L \in  \mathfrak{X}(M) $, and for each $x \in U$, a bump function $\rho _x \in C^{\infty}(M)$ around $x$ and supported in $U$.  For each $f \in C^{\infty}(U)$, define $L^U (f) : U \to \mathbb{R}$ by
+        \[    L^U (f) (x) : = L (f \rho _x) (x) .                       \]
+        Then
+        \begin{itemize}
+            \item The number $L^U (f) (x)$ does not depend on the choice of $\rho _x$. 
+            \item The function $L^U(f) $ is smooth.
+            \item The map $f \mapsto L^U (f)$ is a global derivation on $U$.
+        \end{itemize}
+        
+    \end{proposition}
 
 
+    \begin{proof}
+        The first item follows from Proposition \ref{pro:global-local}. For fixed $x \in U$, if $\rho _x $ is identically $1$ on the open set $V \subset U$, then $\rho_x$ is also a bump function around $y$ for any $y \in V$.  This implies that $L ^U (f) $ coincides with $L (f \rho _x)$ in $V$, so it is smooth. Since $x$ was arbitrary, we conclude $L^U(f) \in C^{\infty} (U)$. 
 
+        To prove the last item, take $f,g \in C^{\infty}(U)$  and $x \in U$. Notice that $\rho _x^2 $ is also a bump function around $x$ supported in $U$. Therefore
+        \begin{align*}
+            L^U(fg) (x) & = L ( fg \rho_x^2) (x) \\
+            & = L (f \rho_x ) (x) g(x) \rho _x (x) + f(x) \rho _x (x) L (g \rho _x ) (x) \\
+            & = L^U (f) (x) g(x) + f(x) L^U(g) (x).
+        \end{align*}
+        This proves that $L^U$ is a global derivation on $U$.
+    \end{proof}
+
+    
 \end{document}

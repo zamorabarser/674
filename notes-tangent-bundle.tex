@@ -3,9 +3,31 @@
 
 \begin{document}
 
-    \begin{abstract} The tangent bundle as a smooth manifold. A reference for this material is   \end{abstract}
+    \begin{abstract} The tangent bundle as a smooth manifold.    \end{abstract}
     \maketitle
 
+        A reference for this material is Chapter 3 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+
+        \begin{definition}[Tangent bundle]
+            Let $M$ be a smooth $n$-dimensional manifold. The \emph{tangent bundle of $M$} is defined as the set
+            \[   TM : = \bigsqcup_{p \in M} T_pM    .   \]
+        \end{definition}
+
+        $TM$ has a natural structure of smooth manifold. We now present an atlas.  Let $\pi : TM \to M $ be the function with $\pi (T_pM) = \{ p \}$ for all $p \in M$.  For each chart $(U, \varphi) $ of $M$, one can produce the chart $(\pi ^{-1} (U) , \tilde{\varphi})$ of $TM$ with 
+        \[     \tilde{\varphi} \left(  \sum_{i = 1 }^n  a_i \, \partial_i \vert _x  \right) : = (  \varphi (x) , a_1, \ldots , a_n ) .       \]
+        We now check that the change of coordinates is smooth. To do that, we need to be more specific with our notation. Pick two charts $(U,\varphi)$, $(V, \psi)$  of $M$. We need to show that $\tilde{\psi} \circ \tilde{\varphi} ^{-1}$ is smooth. 
+
+        On $\varphi (U) $ we use coordinates $(x^1, \ldots , x^n)$, and on $\psi (V) $ we use coordinates $(y^1 , \ldots , y^n)$. By the chain rule, for each $j \in \{ 1,\ldots , n \} $ we have 
+        \[         \frac{\partial \,\,\, }{\partial x^j} = \sum_{ i = 1 } ^n  \frac{\partial y^i}{\partial x ^j} \frac{\partial \,\, }{\partial y^i} .            \]
+        Therefore, whenever defined, 
+        \begin{align*}
+            \tilde{\psi} \circ \tilde{\varphi} ^{-1} (x , a_1, \ldots , a_n)  & = \tilde{\psi } \left( \sum _{ j = 1 } ^n a_j  \frac{\partial }{\partial x^j  } \Big\vert _{ \varphi ^{-1} (x) }   \right) \\
+            & =  \tilde{\psi } \left( \sum _{ j = 1 } ^n  \sum _{i = 1 } ^n a_j  \frac{\partial y^i}{\partial x ^j} \frac{\partial \,\, }{\partial y^i}  \Big\vert _{ \varphi ^{-1} (x) }   \right) \\
+            & =  \tilde{\psi } \left( \sum _{ i = 1 } ^n  \sum _{j  = 1 } ^n a_j  \frac{\partial y^i}{\partial x ^j} \frac{\partial \,\, }{\partial y^i}  \Big\vert _{ \varphi ^{-1} (x) }   \right ) \\
+            & =   \left( \psi ( \varphi ^{-1} (x)) ,  \sum _{j  = 1 } ^n a_j  \frac{\partial y^1}{\partial x ^j}  ,  \ldots ,   \sum _{j  = 1 } ^n a_j  \frac{\partial y^n}{\partial x ^j}  \right)  .
+        \end{align*}
+    This expression depends smoothly on $x$, $a_1$, $\ldots$, $a_n$, so the change of coordinates is smooth. Therefore, the charts of the form $(\pi ^{-1} (U) , \tilde{\varphi})$ define a smooth structure on $TM$. 
 
 
 
