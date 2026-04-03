@@ -19,9 +19,9 @@
     \end{proposition}
 
     
-    \begin{proof}
+    \begin{sm-proof}
      Exercise.         Use the definition and the chain rule.           
-    \end{proof}
+    \end{sm-proof}
 
     
     \begin{definition}[Diffeomorphism]
@@ -49,7 +49,24 @@
     \end{proposition}
 
     \begin{proof}
-        Homework.
+         We start by constructing functions from $\mathbb{R}$ to $\mathbb{R}$. 
+    \begin{align*}
+              f_0(x)    & : = \begin{cases}
+            e^{1/x}  & \text{ if } x > 0 \\
+            0 & \text{ if } x \leq 0
+        \end{cases}           \\
+     f_1 (x) &: = f_0 (x) f_0 (1-x)  \\
+      f _2 (x) &: = \int_ 0 ^x f_1 (t) \, dt      \\
+      f_3 (x) & : =   [   f_2 (1)  - f_2 (x - 1 )  ] / f_2 (1)    
+    \end{align*}
+    This allows us to define $f_4 \in C^{\infty}(\mathbb{R}^n)$ as
+    \[    f_4 (x) : = f_3 (\, \vert x \vert  \, ) .                        \]
+    Now take a chart $(V, \psi ) $ around $x$ with $\psi (p) = 0$ and $\psi (U \cap V )$  containing $B_3 (0)$. With this,  define $f : M \to \mathbb{R}$ as
+    \[ f(x ) : = \begin{cases}
+        f_4 (\psi (x) ) & \text{ if } x \in V\\
+       0 & \text{ otherwise} 
+    \end{cases} \] 
+    You may feel like we're done, but you still need to check that $f$ is smooth outside of $V$. This uses the fact that $M$ is Hausdorff and is left as an exercise (we finally used that hypothesis!). 
     \end{proof}
 
     \begin{corollary}
@@ -70,7 +87,7 @@
             \item For each $x \in M$, one has
             \[      \sum_{i \in I} \rho _i (x) = 1  .            \]
         \end{itemize}
-    Note that the sum in the last item of Theorem \ref{thm:pou} makes sense since only finitely many summands are finite. 
+    Note that the sum in the last item of Theorem \ref{thm:pou} makes sense since only finitely many summands are non-zero. 
     \end{theorem}
 
 

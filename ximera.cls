@@ -281,6 +281,8 @@
 
       \newtheorem{theorem}{\GetTranslation{Theorem}}
 
+      \newtheorem{sm-proof}{\GetTranslation{Proof}}
+
       \newtheorem{algorithm}{\GetTranslation{Algorithm}}
 
       \newtheorem{axiom}{\GetTranslation{Axiom}}
