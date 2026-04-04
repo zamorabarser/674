@@ -121,15 +121,31 @@ If we define $V : M \to TM$ by $V(p) : = L_p$, then by construction $\tilde{V} =
         Let $V  :  M \to TM $ with $\pi \circ V = \text{Id}_M$. Then $V \in \mathfrak{X} (M)$ if and only if $V$ is smooth. 
     \end{corollary}
 
-    \begin{proof}
+    \begin{solution}
         Let $(U, \varphi) $ a chart of $M$ and $(\pi ^{-1} (U) , \tilde{\varphi}) $ the corresponding chart of $TM$. Then the map $\tilde{\varphi} \circ V \circ \varphi ^{-1}$ is given by
         \[       \tilde{\varphi} (V (\varphi ^{-1})) (x)  = ( x, V^1 (x)  , \ldots , V^n (x)  )   .   \]
         This is smooth if and only if the $V^i$'s are smooth.
-    \end{proof}
+    \end{solution}
 
+    \begin{definition}
+        Let $f : M \to N$ be smooth, $X \in \mathfrak{X}(M)$, and $Y \in \mathfrak{X}(N)$. We say $X$ and $Y$ are $f$-related if
+        \[    f_{\ast} X(p) = Y(f(p))     \]
+        for all $p \in M$. 
+        \end{definition}
 
-
-
+    \begin{proposition}
+        $X$ and $Y$ are $f$-related if and only if for all $h \in C^{\infty}(N)$ one has
+        \[     (Yh) \circ f = X( h \circ f).      \]
+    \end{proposition}
+    \begin{solution}    
+        For each $p \in M$, 
+        \begin{align*}
+              [ f_{\ast} X (p) ] (h) & = X(p) (h \circ f)   = X ( h \circ f  ) (p)  , \\
+              Y(f(p)) ( h ) & = (Yh) ( f(p)) .
+        \end{align*}
+        Hence $f_{\ast} X(p) = Y(f(p))$ if and only if $X (h \circ f) (p) = (Yh) ( f(p)) $. Quantifying over $p$ we get the result.
+    \end{solution}
+    
 
 
 

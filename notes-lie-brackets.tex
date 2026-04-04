@@ -1,0 +1,156 @@
+\documentclass{ximera}
+\title{Lie brackets}
+
+\begin{document}
+
+    \begin{abstract} Lie brackets of vector fields. Fields commute if and only if their flows commute.  \end{abstract}
+    \maketitle
+
+   A reference for this material is Section 9 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+
+
+    \begin{proposition}[Lie bracket]
+        Let $M$ be a smooth manifold, and $X,Y \in \mathfrak{X}(M)$. Then the map $[X,Y] : C^{\infty} (M) \to C^{\infty}(M)$ given by 
+        \[   [X,Y] (f) : = XY f - YXf   \]
+        is a global derivation. The vector field $[X,Y]$ is called the \emph{Lie bracket} of $X$ and $Y$.  
+    \end{proposition}
+    \begin{solution}
+        For $f,g \in C^{\infty}(M)$, one has
+        \begin{align*}
+            [X,Y] (fg)  = & \,  XY(fg) - YX (fg) \\
+            = & \, X( (Yf)g + f (Yg) ) - Y ( (Xf)g + f (Xg) ) \\
+            = &  \, (XYf) g + (Yf )(Xg) + (Xf)(Yg) + f (XYg)\\
+              & \, \,\,\, - (YXf)g - (Xf )(Yg) - (Yf)(Xg) - f (YX g) \\
+            = &  \, (  XY f - YXf  ) g + f( XY g - YX g ) \\
+            = & \, ( [X,Y] f) g + f ([X,Y] g) .
+        \end{align*}
+    Also, in a chart $(U, \varphi)$ one has 
+    \[    X (x) = \sum _{i = 1} ^n X^i (x) \partial _i \vert _x , \hspace{1.5cm} Y (x) = \sum_{j = 1} ^n Y^j (x) \partial _j \vert _x .                                   \]
+    Then
+    \begin{align*}
+        [X,Y] f =  & \,  \sum_{i = 1 } ^n \sum_{j = 1} ^n [  X^i \partial_i ( Y^j \partial _j f  )  - Y^j \partial_j ( X^i \partial_i f )  ]\\
+         = & \,   \sum_{i = 1 } ^n \sum_{j = 1} ^n [  X^i (\partial_i Y^j) \partial_j f - Y^j (\partial_j X^i ) \partial_i f ] \\
+        & \,\,\, + \sum_{i = 1 } ^n \sum_{j = 1} ^n  X^i Y^j (\partial_i \partial_j f - \partial _j \partial_i f)\\
+        = & \, \sum_{i = 1} ^n \left[   \sum_{j = 1 }^n (  X^j \partial_j Y^i - Y^j \partial_j X^i ) \right] \partial_i f .
+    \end{align*}
+    This shows that the $i$-th component of the vector field $[X,Y]$ is 
+    \[         \sum_{j = 1 }^n (  X^j \partial_j Y^i - Y^j \partial_j X^i )   .    \]
+    \end{solution}
+
+    \begin{proposition}[Properties of Lie bracket]
+        Let $f , g \in C^{\infty}(M)$ and $\mathfrak{X}(M)$, and $X,Y,Z \in \mathfrak{X}(M)$. Then
+        \begin{itemize}
+            \item $[Y,X] = - [X,Y]$.
+            \item $[fX, gY] =  fg [X,Y] + f(Xg)Y - g (Yf) X. $
+            \item $[X,[Y,Z]] + [Y, [Z,X] ] + [Z, [X,Y]] = 0$. 
+        \end{itemize}
+    \end{proposition}
+
+    \begin{solution}
+        Exercise.
+    \end{solution}
+
+    \begin{proposition}[Lie bracket is Lie derivative]\label{pro:lie-derivative}
+        Let $X,Y \in \mathfrak{X}(M) $, $p \in M$, and $\Phi^X : W \times (- \varepsilon , \varepsilon ) \to M$ the flow of $X$ around $p$. Then 
+        \begin{equation}\label{eq:lie-derivative}
+               [X,Y] (p)  = \lim_{h \to 0 } \frac{ (\Phi_{-t}^X )_{\ast} Y(\Phi_t^X(p)) - Y(p) }{h}  .
+        \end{equation}
+    \end{proposition}
+
+    \begin{solution}
+        Fix $f \in C^{\infty}(M)$ and let $ h : ( -  \delta  , \delta ) \times (-  \delta  ,  \delta  )  \to \mathbb{R} $ be given by 
+        \begin{align*}
+            h (s,t)  : &  = \, ( \Phi_{-t} ^X  )_{\ast} Y (\Phi _s ^X (p)) (f)   \\
+            &  = \, Y( \Phi _s^X (p)  ) (  f \circ \Phi_{-t} ^X  ) \\
+            & = \, \frac{\partial }{ \partial u } \Big \vert _{u = 0} f ( \Phi _{-t}^X \Phi ^Y _u \Phi ^X _s (p)) ,
+        \end{align*}
+       where $\Phi^Y_u$ is the flow of $Y$.  We compute
+        \begin{align*}
+            \frac{\partial h}{\partial s} (0,0) & = \frac{\partial }{\partial s} \Big \vert _{s = 0} Y ( \Phi ^X _s (p)   ) (f) \\
+            & = \frac{\partial }{\partial s} \Big \vert _{s = 0} Yf (\Phi ^X _s (p )) \\
+           & =   X Y f ( p ) 
+        \end{align*}
+        \begin{align*}
+            \frac{\partial h}{\partial t} (0,0)   & = \frac{\partial }{\partial t} \Big \vert _{t = 0}\frac{\partial }{\partial u} \Big \vert _{u = 0}   f (  \Phi ^X _{-t}  ( \Phi ^Y _u (p)  )) \\
+           & = \frac{\partial }{\partial u} \Big \vert _{u = 0}\frac{\partial }{\partial t} \Big \vert _{t = 0}   f (  \Phi ^X _{-t}  ( \Phi ^Y _u (p)  )) \\
+           & = \frac{\partial }{\partial u} \Big \vert _{u = 0}  [ -  Xf  ( \Phi ^Y _u (p)) ] \\
+           & = - YXf (p)
+        \end{align*}
+        Then by the chain rule, one has
+        \begin{align*}
+            \frac{d}{dv} \Big \vert _{v= 0} h (v,v) & = \frac{\partial h}{\partial s} (0,0) + \frac{\partial h}{\partial t} (0,0)  \\
+            & = X Y f ( p ) -  YXf (p) \\
+            & = [X,Y]  (p) f.
+        \end{align*}
+        Finally, note that the right hand side of \eqref{eq:lie-derivative}  applied to $f$ also equals $\frac{d}{dv} \Big \vert _{v= 0} h (v,v)$.  Since $f$ was arbitrary, the result follows. 
+     \end{solution}
+    
+
+    \begin{proposition}[Commutators of flows]
+        Let $X,Y \in \mathfrak{X}(M)$, $p \in M$, and $\Phi ^X : W \times (-\varepsilon , \varepsilon ) \to M$, $\Phi ^Y : W \times (- \varepsilon , \varepsilon ) \to M$ their respective flows around $p$. Then the following are equivalent:
+        \begin{itemize}
+            \item $[X,Y] = 0$ in a neighborhood of $p$.
+            \item $\Phi_s^X \Phi_t^Y = \Phi_t^Y \Phi_s^X $ for small enough $s$ and $t$ in a neighborhood of $p$. 
+        \end{itemize}   
+    \end{proposition}
+
+    \begin{solution}
+        Assume $[X,Y] = 0$ in a neighborhood of $p$. By Proposition \ref{pro:lie-derivative}, for $x$ near $p$, the vector  
+        \[    ( \Phi ^X _{-t} )_{\ast} Y (\Phi _t^X (x))     \]
+        does not depend on $t$ for small $t$. Hence
+        \[        (  \Phi ^X _{t} )_{\ast} Y(x)  = Y ( \Phi ^X_t (x) )  .   \]
+        Let $\gamma (s) : = \Phi ^Y_s (x)$. Then 
+        \begin{align*}
+            \frac{\partial }{\partial s} \Big \vert _{s = 0 } \left[ \Phi ^X_t ( \gamma (s)  )   \right] & = (\Phi ^X_t)_{\ast} \gamma ' (s) \\
+            & = (\Phi ^X_t)_{\ast}  Y (\gamma (s) ) \\
+            & = Y ( \Phi ^X_t (\gamma (s))) .
+        \end{align*}
+        This implies that $s \mapsto \Phi^X_t (\gamma (s) )$ is the flow line of $Y$ starting at $\Phi^X_t (x)$. Therefore
+%        \begin{align*}
+ %           \Phi ^Y_s (  \Phi_t ^X (x)  ) & = \Phi^X_t ( \gamma (s) ) \\
+  %          & = \Phi^X_t ( \Phi _s ^Y  (x) ).
+   %     \end{align*}
+   \[            \Phi ^Y_s (  \Phi_t ^X (x)  )  = \Phi^X_t ( \gamma (s) )        = \Phi^X_t ( \Phi _s ^Y  (x) ). \]
+        
+        
+        Now assume $\Phi _s ^X \Phi_t ^Y = \Phi _t^Y \Phi _s ^X$ for small enough $s$ and $t$ in a neighborhood of $p$ and let $x$ in such neighborhood. For $f \in C^{\infty}(M)$, one then has
+        \begin{align*}
+            XY f(x) & = X(x) (Yf) \\
+            & = \frac{\partial}{\partial s} \Big\vert _{s = 0} Yf ( \Phi ^X_s (x) ) \\
+            & = \frac{\partial}{\partial s} \Big\vert _{s = 0} \frac{\partial}{\partial t} \Big\vert _{t = 0}  f  ( \Phi ^Y _t (\Phi ^X _s (x) )  ) \\
+            & = \frac{\partial}{\partial t} \Big\vert _{t = 0} \frac{\partial}{\partial s} \Big\vert _{s = 0}   f  ( \Phi ^X _s (\Phi ^Y _t (x) )  ) \\
+            & = \frac{\partial}{\partial t} \Big\vert _{t = 0} Xf ( \Phi ^Y_t (x) ) \\
+            & = Y(x) (Xf) \\
+            & = YX f (x). 
+        \end{align*}
+        This shows $[X,Y](x) = 0$. 
+
+        
+    \end{solution}
+
+    \begin{proposition}
+        Let $f: M \to N$ smooth, $X, Y \in \mathfrak{X}(M)$, and $V, W \in \mathfrak{X}(N)$ such that $X$ and $V$ are $f$-related, and $Y$ and $W$ are $f$-related. Then $[X, Y]$ and $[V, W]$ are $f$-related.
+    \end{proposition}
+
+    \begin{solution}
+        Let $\alpha \in C^{\infty}(N)$. Then
+        \begin{align*}
+            XY ( \alpha \circ f ) & = X ( ( W \alpha ) \circ f  ) \\
+            & = ( VW \alpha ) \circ f ,
+        \end{align*}
+        \begin{align*}
+            YX ( \alpha \circ f ) & = Y ( ( V \alpha ) \circ f  ) \\
+            & = ( WV \alpha ) \circ f .
+        \end{align*}
+        Therefore
+        \[   [X,Y] (\alpha \circ f)  = ( [V,W] \, \alpha  ) \circ f  .  \]
+        Since $\alpha $ was arbitrary, we deduce $[X,Y]$ and $[V,Y]$ are $f$-related. 
+    \end{solution}
+
+    
+
+
+
+
+\end{document}
