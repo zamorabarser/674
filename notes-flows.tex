@@ -88,7 +88,7 @@
 
         For $j \in \{ 1, 2 \} $, define $\alpha _j : (- \delta , \delta ) \to \mathbb{R}^n $ as
         \[       \alpha _j (s) : = \varphi ( \gamma _j (\varepsilon_0 + s) ).     \]
-        Then
+        Then $\alpha_1 (0) = \alpha _2 (0)$ and
         \begin{align*}
             \alpha_j ' (s) & = \varphi _{\ast} (  \gamma_j ' (\varepsilon_0 + s)   ) \\
             & = \varphi _{\ast} V (  \gamma _j ( \varepsilon_0 + s ) ) \\
@@ -133,12 +133,12 @@
 
 
     \begin{remark}
-        If $\Phi : W \times (- \varepsilon , \varepsilon ) \to M$ is the flow of $X$ and $f \in C^{\infty}(M)$, then
-        \[   Xf (p) =   X (p) f =  \frac{d}{dt} \Big \vert _{t = 0} f ( \Phi _t (p) ) .          \]
+        If $\Phi : W \times (- \varepsilon , \varepsilon ) \to M$ is the flow of $V$ and $f \in C^{\infty}(M)$, then
+        \[   Vf (p) =   V (p) f =  \frac{d}{dt} \Big \vert _{t = 0} f ( \Phi _t (p) ) .          \]
     \end{remark}
 
     \begin{proposition}
-        Let $f: M \to N$ be smooth, $X \in \mathfrak{X}(M)$, and $Y \in \mathfrak{X}(N)$ such that $X$ and $Y$ are $f$-related. If $\gamma : I \to M$ is a flow line of $X$, then $f\circ \gamma $ is a flow line of $Y$.
+        Let $f: M \to N$ be smooth, $X \in \mathfrak{X}(M)$, and $V \in \mathfrak{X}(N)$ such that $X$ and $V$ are $f$-related. If $\gamma : I \to M$ is a flow line of $X$, then $f\circ \gamma $ is a flow line of $V$.
     \end{proposition}
 
     \begin{solution}
@@ -146,7 +146,7 @@
         \begin{align*}
             (f \circ \gamma )' (t) & = f_{\ast} ( \gamma ' (t) ) \\
             & = f_{\ast} X(\gamma (t)) \\
-            & = Y (f (\gamma (t ))) .
+            & = V (f (\gamma (t ))) .
         \end{align*}
     \end{solution}
 

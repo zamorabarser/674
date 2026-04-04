@@ -13,12 +13,12 @@
         \begin{equation}\label{eq:submanifold}
                \varphi (S \cap W ) = \varphi (W) \cap (  \mathbb{R}^k \times \{ 0^{n-k} \} ),   
         \end{equation}
-        where $0^{n-k} \in \mathbb{R}^{n-k}$ denotes the zero vector.
+        where $0^{n-k} \in \mathbb{R}^{n-k}$ denotes the zero vector. The difference $n-k$ is called the \emph{codimension} of $S$ in $M$.
     \end{definition}
 
     \begin{proposition}[Submanifold is smooth manifold]
         Let $M$ be an $n$-dimensional manifold, $S \subset M$ a $k$-dimensional submanifold, and $\mathcal{A}$ the set of charts $(W, \varphi)$ of $M$ satisfying \eqref{eq:submanifold}. Then the set 
-        \[   \mathcal{A}^S : =   \{ ( W \cap S , \varphi\vert _{W \cap S}  ) \, \vert \, (W, \varphi) \in \mathcal{A} )                                    \]
+        \[   \mathcal{A}^S : =   \{ ( S \cap W , \varphi\vert _{W \cap S}  ) \, \vert \, (W, \varphi) \in \mathcal{A} )                                    \]
         is a smooth atlas on $S$. 
     \end{proposition}
 
@@ -32,10 +32,12 @@
 
     \begin{solution}
         By hypothesis, for each $p \in S$, there is a linear isomorphism $L : \mathbb{R}^{k+m} \to \mathbb{R}^{k+m}$, open sets $U \subset \mathbb{R}^k $, $V \subset \mathbb{R}^m$, and a smooth function $f \in C^{\infty}(U ; \mathbb{R}^m)$ such that $L(p) \in U \times V$ and 
-        \[     L (S ) \cap (U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^k \times \mathbb{R}^m \, \vert \, x \in U \}  .     \]
+        \begin{equation}\label{eq:local-graph}
+           L (S ) \cap (U \times V)  = \{ (x, f(x) ) \in \mathbb{R}^k \times \mathbb{R}^m \, \vert \, x \in U \}  .    
+        \end{equation}
         Let $W : = L ^{-1} ( U \times V ) \subset \mathbb{R}^{k + m } $ and $\varphi : W \to \mathbb{R}^{k + m}$ given by 
         \[     \varphi ( L^{-1} (x, y ) ) = (x , y - f (x ) ).                     \]
-        On one hand, if $p \in S \cap  W $, then $L(p) \in L(S ) \cap (U \times V )$, so $L (p ) = (x,f(x)) $ for some $x \in U$. Hence
+        On one hand, if $p \in S \cap  W $, then $L(p) \in L(S ) \cap (U \times V )$. By \eqref{eq:local-graph}, we then have  $L (p ) = (x,f(x)) $ for some $x \in U$. Hence
         \begin{align*}
             \varphi (p) & = \varphi ( L^{-1} (x, f(x)) ) \\
             & = (x , f(f) - f(x)) \\
@@ -50,7 +52,7 @@
             \varphi ^{-1} (x, 0 ^m ) & = L^{-1} (x , f(x) + 0 ^m) \\
             & = L^{-1} (x, f(x)) ,
         \end{align*}
-        which belongs to $S \cap W$. This implies 
+        which belongs to $S \cap W$. By \eqref{eq:local-graph}, this implies 
         \begin{equation}\label{eq:graph-is-submanifold-2}
              \varphi ( W)  \cap (\mathbb{R}^k \times \{ 0 ^m\}) \subset  \varphi (S \cap W ).
         \end{equation}
@@ -59,7 +61,7 @@
 
 
     \begin{example}[Images of embeddings]
-        Let $S$ be a smooth $k$-dimensional manifold, $M$ a smooth $n$-dimensional manifold, and $f : S \to M$ be a smooth embedding. Then $f(S) \subset M$ is a $k$-dimensional manifold. 
+        Let $S$ be a smooth $k$-dimensional manifold, $M$ a smooth $n$-dimensional manifold, and $f : S \to M$ be a smooth embedding. Then $f(S) \subset M$ is a $k$-dimensional submanifold. 
     \end{example}
 
 \begin{comment}
@@ -93,7 +95,7 @@
         \[     \frac{\partial h }{\partial x_1} (0) , \ldots, \frac{\partial h }{ \partial x_n } (0)                        \]
         span $V$, and the partial derivatives
         \[     \frac{\partial h }{\partial a_1} (0) , \ldots, \frac{\partial h }{ \partial a_{n-k} } (0)                        \]
-        span a complement of $V$. Therefore, by the inverse function theorem, $h$ is a local diffeomorphism.      This means there are $W_0 \subset \mathbb{R}^k$, $W_1 \subset \mathbb{R}^{n-k}$ open sets containing $0$ such that $h$ restricted to $W_0 \times W_1$ is a diffeomorphism. Since $f$ is a topological embedding, after shrinking both $W_0$ and $W_1$, we can guarantee 
+        span a complement of $V$. Therefore, by the inverse function theorem, $h$ is a local diffeomorphism around $0$.      This means there are $W_0 \subset \mathbb{R}^k$, $W_1 \subset \mathbb{R}^{n-k}$ open sets containing $0$ such that $h$ restricted to $W_0 \times W_1$ is a diffeomorphism. Since $f$ is a topological embedding, after shrinking both $W_0$ and $W_1$, we can guarantee 
         \begin{equation}\label{eq:submanifold-embedding}
             f  (S)  \cap   h (W_0 \times W_1)  = h(W_0 \times \{ 0 \} ) .  
         \end{equation}
@@ -123,7 +125,7 @@
     \end{solution}
 
     \begin{example}[Level sets of constant rank maps]
-        Let $r \in \mathbb{N}$ and $F : N^n \to M^m$ a smooth map with $\text{rank} ( d_p F ) = r $ for all $p\in N$. Then for all $q \in M $, the preimage $F^{-1}(q) \subset N $ is a smooth $(n-r)$-dimensional submanifold.
+        Let $r \in \mathbb{N}$ and $F : M^m \to N^n$ a smooth map with $\text{rank} ( d_p F ) = r $ for all $p\in M$. Then for all $q \in N $, the preimage $F^{-1}(q) \subset M $ is a smooth $(m-r)$-dimensional submanifold.
     \end{example}
 
     \begin{solution}

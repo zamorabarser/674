@@ -15,7 +15,7 @@
     The \emph{tamgenet space to $M$ at $p$} is defined as the set of linear functions $L : C^{\infty } (M) \to \mathbb{R} $ such that $L(fg) = L (f) g(p) + f(p)L(g)$ for all $ f,g \in C^{\infty}(M) $.         Elements of $T_pM$ are called the \emph{derivations at $p$} or \emph{tangent vectors at $p$}.
     \end{definition}
 
-    \begin{proposition}\label{prop:curve-to-derivation}[Curves define derivations]
+    \begin{proposition}[Curves define derivations]\label{prop:curve-to-derivation}
         Let $\gamma : I \to M$ be a smooth curve with $0 \in I$ and $\gamma (0) = p$. The map $L_{\gamma} : C^{\infty}(M) \to \mathbb{R}$ given by
         \[       L_{\gamma} (f) : = (f \circ \gamma )' (0)                  \]
         is a derivation at $p$.
@@ -69,7 +69,7 @@
     \end{proposition}
 
     \begin{solution}
-        For $f \in C^{\infty} (U)$, the function $\tilde{f} \in C^{\infty}(M)$ can be obtained by multiplying $f$ by a bump function around $p$ supported inside of $U$. Proposition \ref{prop:locality-of-derivatives} implies that $L^U $ does not depend on the choice of $\tilde{f}$. The linearity and Leibniz rule for $L^U$ follow from the corresponding properties for $L$.  
+        For $f \in C^{\infty} (U)$, the function $\tilde{f} \in C^{\infty}(M)$ can be obtained by multiplying $f$ by a bump function around $p$ supported inside of $U$. Proposition \ref{prop:locality-of-derivatives} implies that $L^U (f) $ does not depend on the choice of $\tilde{f}$. The linearity and Leibniz rule for $L^U$ follow from the corresponding properties for $L$.  
     \end{solution}
 
     \begin{proposition}[Restriction of derivations is injective] The map $L \mapsto L^U$ is a linear isomorphism from $T_pM$ to $T_pU$.
@@ -83,9 +83,15 @@
         It is straightforward to show that $D \mapsto \tilde{D}$ is the inverse of $L \mapsto L^U$.
     \end{solution}
 
+
+    \begin{remark}
+        For a chart $(U , \varphi ) $ and $f \in C^{\infty}(U)$, by an abuse of notation, we often identify $f$ with $f \circ \varphi$. Because of this, we sometimes  write $\partial_i f$ instead of $\partial _i (f \circ \varphi ^{-1} ) \circ \varphi $. 
+    \end{remark}
+
+
     \begin{proof}[Proof of Theorem \ref{thm:tpm-definitions}]  
         Let $(U, \varphi)$ be a chart with $\varphi (p) = 0$ and $\varphi (U) = B_1(0)$.  For each $i \in \{ 1, \ldots , n \}$, notice that $\partial _i \vert _p : C^{\infty}(U) \to \mathbb{R}$ given by 
-        \[      \partial_i \vert _p (f) : =  \partial _i ( f  \circ \varphi ^{-1}  ) (p)      \]
+        \[      \partial_i \vert _p (f) : =  \partial _i  f  (p)      \]
         is a derivation at $p$. Moreover, $\partial_i \vert _p = L _{\gamma_i}$, where $\gamma_i (t) = \varphi ^{-1} ( t e_i)$. We will show that 
         \begin{equation}\label{eq:tpm-basis}
               \{   \partial_1 \vert _p , \ldots,   \partial_n \vert _p    \}      
@@ -109,7 +115,21 @@
         & = 0 + \sum _i ^n \left[   L ^U( x_i ) \, h_i (0)  + 0   \cdot  L^U (h_i)    \right] \\
          &= \sum _{i = 1} ^n L^U (x_i) \, \partial_i  f (p).
     \end{align*}
-    This proves \eqref{eq:derivation-is-partials}. The fact that \eqref{eq:tpm-basis} is linearly independent is left as an exercise.
+    This proves \eqref{eq:derivation-is-partials}.     To see that \eqref{eq:tpm-basis} is linearly independent, assume  
+    \[ \sum_{i = 1} ^n c_i \partial_i \vert _p  = 0\] 
+    for some scalars $c_1, \ldots , c_n$. Then
+    \begin{align*}
+        0 & =  \sum_{i = 1} ^n c_i \partial_i \vert _p \left( \sum_{j =1 }^n c_j x_j \right)  \\
+        & =  \sum_{i = 1} ^n  \sum_{j =1 }^n c_i c_j  \partial_i \vert _p x_j  \\
+        & = \sum_{i = 1} ^n  \sum_{j =1 }^n c_i c_j \delta_{ij} \\
+        & = \sum _{i = 1 }^n c_i ^2 .
+    \end{align*}
+    This would mean $c_1 = \ldots = c_n = 0$. 
+    
+      We finally note that for any scalars $a_1, \ldots , a_n$, we have 
+      \[ \sum_{i = 1} ^n a_i \partial_i \vert _p  =  L_{\gamma} \] 
+      with 
+    \[  \gamma (t) : = \varphi ^{-1} (  ta_1, \ldots , ta_n) .   \]
     \end{proof}    
         
 \end{document}

@@ -10,8 +10,8 @@
 
     \begin{definition}[Differential of a map]
         Let $M$, $N$ be smooth manifolds and $f : M \to N$ a smooth map. The \emph{derivative or differential} of $f$ is the map $f_{\ast} : TM \to TN$ given by
-        \[      f_{\ast} D (h) : = D (h \circ f )                          \]
-        for $D \in TM$. 
+        \[      f_{\ast} L (h) : = L (h \circ f )                          \]
+        for $L \in TM$ and $h \in C^{\infty}(N)$. 
     \end{definition}
 
     \begin{proposition}[Differential is well-defined and linear]
@@ -20,7 +20,7 @@
     \begin{solution}
         Let $L \in T_pM$, and $h_1, h_2 \in C^{\infty} (N)$. Then 
         \begin{align*}
-            f_{\ast} L (h_1h_2) & = D ( (h_1 h_2 ) \circ f ) \\
+            f_{\ast} L (h_1h_2) & = L ( (h_1 h_2 ) \circ f ) \\
             & = L ( (h_1 \circ f) (h_2 \circ f) )\\
             & = L(  h_1 \circ f ) ( h_ 2 \circ f  ) (p) + ( h_ 1 \circ f  ) (p) L(  h_2 \circ f ) \\
             & = [ f_{\ast} L(h_1)] h_2 (f(p)) + h_1 (f(p)) [f_{\ast} L (h_2)].
