@@ -9,19 +9,20 @@
 
 
 \begin{exercise}
-    Let $M$ be an $n$-dimensional topological manifold. Show that being compatible is an equivalence relation in the set of charts of $M$.
-    %\begin{hint}
-    %    Chain rule.
-    %\end{hint}
+    Let $M$ be an $n$-dimensional topological manifold and charts $(U, \varphi )$ and $(V, \psi )$. Assume there is a collection of charts $\{ (U_i, \varphi _i ) \} _{i \in I} $  such that for each $i \in I$, the chart $(U_i, \varphi_i ) $ is compatible with both $(U, \varphi) $ and $(V, \psi)$. If 
+    \[    U \cap V \subset \bigcup_{i \in I} U_i ,  \]
+    then $U$ and $V$ are compatible. 
+
+    \begin{remark}
+        Before, I claimed that compatibility of charts was an equivalence relation. This is false. For example, the ``empty chart'' $(\emptyset , \emptyset )$ is compatible with all charts!
+    \end{remark}
 \end{exercise}
 
 
 \begin{exercise}
     Let $M$ be an $n$-dimensional topological manifold and $\mathcal{A}$ a smooth atlas. Show that there is a unique smooth structure $\mathcal{S}$ containing $\mathcal{A}$. Moreover, show that $\mathcal{S}$ consists precisely of the charts compatible with all charts in $\mathcal{A}$.
 
-%\begin{hint}
- %   Use Zorn's Lemma to show there is at least one smooth structure $\mathcal{S}$ containing $\mathcal{A}$. Let $\mathcal{S}'$ denote the set of charts compatible with all charts in $\mathcal{A}$. Show that $\mathcal{S} \subset \mathcal{S}'$ and deduce $\mathcal{S} = \mathcal{S}'$.
-%\end{hint}
+
 \end{exercise}
 
 
