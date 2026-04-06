@@ -25,7 +25,6 @@
         Let $V  \in \mathfrak{X} (M)$  and $f \in C^{\infty} (M)$. Then the function $\tilde{V}f : M \to \mathbb{R}$ given by 
         \[       \tilde{V}f (x) : = V(x) (f)    \]
         is smooth. Moreover, the map $f \mapsto \tilde{V}f$ is a global derivation.
-    \end{proposition}
 
     \begin{solution}
         Consider  $(U, \varphi)$ a chart of $M$ and  $(\pi ^{-1}(U), \tilde{\varphi}) $ the corresponding chart of $TM$. In these coordinates, $V$ is given by 
@@ -43,10 +42,13 @@
                     & = [ ( \tilde{V}f) g + f (\tilde{V}g) ] (x) .
         \end{align*}    
     \end{solution}
-    \begin{proposition}[Global derivations are vector fields]\label{pro:derivations-vector-fields}
-        For any global derivation $L : C^{\infty}(M) \to C^{\infty}(M)$, there is a vector field $V  \in \mathfrak{X}(M)$ with $\tilde{V} = L$. 
     \end{proposition}
 
+    
+    \begin{proposition}[Global derivations are vector fields]\label{pro:derivations-vector-fields}
+        For any global derivation $L : C^{\infty}(M) \to C^{\infty}(M)$, there is a vector field $V  \in \mathfrak{X}(M)$ with $\tilde{V} = L$. 
+
+        
     \begin{solution} 
     For any $p \in M$, the map $L_p: C^{\infty}(M) \to \mathbb{R}$ given by $L_p (f) : = L(f)(p)$ is a derivation at $p$. Lnearity of $L_p$ is immediate, and for the Leibniz rule:
     \begin{align*}
@@ -70,6 +72,8 @@
     Since $L(h_j)$ is smooth, so is $V^j$ around $p$. Since $p$ was arbitrary, $V$ is smooth. 
     \end{solution}
 
+    \end{proposition}
+
 
 
     \begin{definition}
@@ -81,7 +85,8 @@
     \begin{proposition}
         $X$ and $Y$ are $f$-related if and only if for all $h \in C^{\infty}(N)$ one has
         \[     (\tilde{Y}h) \circ f = \tilde{X}( h \circ f).      \]
-    \end{proposition}
+
+    
     \begin{solution}    
         For each $p \in M$, 
         \begin{align*}
@@ -90,7 +95,8 @@
         \end{align*}
         Hence $f_{\ast} X(p) = Y(f(p))$ if and only if $\tilde{X} (h \circ f) (p) = (\tilde{Y}h) ( f(p)) $ for all $h \in C^{\infty}(N)$. Quantifying over $p$ we get the result.
     \end{solution}
-    
+        \end{proposition}
+
 
     \begin{remark}
         From now on, for $V \in \mathfrak{X}(M)$, we often denote $\tilde{V} $ simply by $V$.

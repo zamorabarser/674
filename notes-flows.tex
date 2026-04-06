@@ -43,7 +43,6 @@
         \item For all $x \in W $ and $t \in (- \varepsilon , \varepsilon )$, one has 
         \[     \frac{\partial}{\partial t} \Phi (x,t) = V(\Phi (x,t)) .       \]
     \end{itemize}
-    \end{theorem}
     \begin{solution}
         Choose $(U, \varphi)$ a chart around $p$ and let $\hat{V} = (V^1 , \ldots , V^n) : \varphi (U) \to \mathbb{R}^n $ be given by 
         \[     V (  x  )  =  \sum _{i = 1 }^n V^i (\varphi (x)) \partial _i \vert _x  .       \]
@@ -72,15 +71,15 @@
             & = V ( \Phi (x, t) ) .
         \end{align*}
     \end{solution}
-
+    \end{theorem}
+    
 
 
     \begin{theorem}[Flow lines are unique]\label{thm:flow-line-uniqueness-manifolds}
         Let $V  \in \mathfrak{X} (M) $ and $\gamma _1 , \gamma _2  : (- \varepsilon , \varepsilon ) \to M$ two smooth curves with $\gamma _1 (0) = \gamma _2 (0) $  and 
         \[        \gamma _i ' (t) = V (\gamma _i (t) )  \]
         for all $i \in \{ 1, 2 \}$ and all $t \in (- \varepsilon  , \varepsilon )$. Then $\gamma _1 = \gamma_2$. 
-    \end{theorem}
-
+    
     \begin{solution}
         Let 
         \[ \varepsilon_0 : = \sup  \{ t \geq 0 \,\vert \,  \gamma_1 (s) = \gamma _2 (s) \text{ for all } s \in [0,t] \} .  \]
@@ -97,6 +96,7 @@
         \end{align*}
         Hence by Theorem \ref{thm:flow-line-uniqueness}, $\alpha_1 = \alpha _2 $ in their domains of definition. This means that $\gamma _1 = \gamma _2$ slightly beyond $\varepsilon_0$, contradicting its maximality. 
     \end{solution}
+\end{theorem}
 
 
     \begin{remark}
@@ -105,7 +105,6 @@
 
     \begin{theorem}[Escape of flow lines]
         If $ T : = \sup I_p   < \infty $ and $t_i \in I_p$ with $t_i \to T$, then the sequence $\gamma _p (t_i) $ diverges to infinity. This means that for any compact set $K \subset M$, $\gamma _p (t_i )\notin K$ for $i$ large enough.  
-    \end{theorem}
 
     \begin{solution}
         Assuming the contrary, there is a compact set $K$ containing infinitely many of the $\gamma _p (t_i)$'s. By compactness, after taking a subsequence, we can assume $\gamma _p (t_i) \to q$ for some $q \in K$. Let $W \subset M$ containing $q$, $\varepsilon > 0 $, and $ \Phi : W \times (- \varepsilon , \varepsilon  ) \to M$  given by Theorem \ref{thm:e-and-u-manifolds}. 
@@ -116,6 +115,8 @@
         \[        \alpha (t) : = \Phi (  \gamma_p (t_i) , t - t_i )  .     \]
         Since both $\gamma_p$ and $\alpha$ are flow lines of $V$ and they agree at time $t_i$, they agree in the intersection of their domains. This allows one to define $\gamma_p$ up  to time $t_i + \varepsilon > T $, which is a contradiction. 
     \end{solution}
+    \end{theorem}
+
         
     \begin{corollary}[Flows on compact manifolds]
         Let $M$ be a compact manifold and $V \in \mathfrak{X}(M)$. Then there is a smooth map $\Phi : M \times \mathbb{R} \to M$ with 
@@ -125,11 +126,11 @@
         \item For all $x \in M $ and $t \in \mathbb{R}$, one has 
         \[     \frac{\partial}{\partial t} \Phi (x,t) = V(\Phi (x,t)) .       \]
         \end{itemize}
-    \end{corollary}
 
     \begin{solution}
         If the flow is not defined for all time, then a sequence of points of $M$ diverges to infinity. This is imposible if $M$ is compact.
     \end{solution}
+    \end{corollary}
 
 
     \begin{remark}
@@ -139,7 +140,6 @@
 
     \begin{proposition}
         Let $f: M \to N$ be smooth, $X \in \mathfrak{X}(M)$, and $V \in \mathfrak{X}(N)$ such that $X$ and $V$ are $f$-related. If $\gamma : I \to M$ is a flow line of $X$, then $f\circ \gamma $ is a flow line of $V$.
-    \end{proposition}
 
     \begin{solution}
         For each $t \in I$, one has
@@ -149,6 +149,7 @@
             & = V (f (\gamma (t ))) .
         \end{align*}
     \end{solution}
+    \end{proposition}
 
 
 

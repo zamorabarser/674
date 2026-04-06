@@ -15,8 +15,7 @@
     \end{definition}
 
     \begin{proposition}[Differential is well-defined and linear]
-        For $p\in M$, the map $f_{\ast} $ sends $T_pM$ linearly to $T_{f(p)}N$. We call this map $d_pf : = f_{\ast} \vert _{T_pM}$.  
-    \end{proposition}
+        For $p\in M$, the map $f_{\ast} $ sends $T_pM$ linearly to $T_{f(p)}N$. We call this map $d_pf : = f_{\ast} \vert _{T_pM}$. 
     \begin{solution}
         Let $L \in T_pM$, and $h_1, h_2 \in C^{\infty} (N)$. Then 
         \begin{align*}
@@ -26,12 +25,12 @@
             & = [ f_{\ast} L(h_1)] h_2 (f(p)) + h_1 (f(p)) [f_{\ast} L (h_2)].
         \end{align*}
         This shows that $f_{\ast} L$ is a derivation at $f(p)$.
-    \end{solution}
+    \end{solution} 
+    \end{proposition}
 
     \begin{proposition}[Differential in terms of curves]
         For a curve $\gamma : (- \varepsilon , \varepsilon ) \to M$  one has 
         \[   f_{\ast} L_{\gamma} = L_{ f \circ \gamma }  .  \]
-    \end{proposition}
     \begin{solution}
         By definition, for $h \in C^{\infty}(N)$, one has
         \begin{align*}
@@ -40,7 +39,8 @@
             & = L_{f \circ \gamma } (h) .
         \end{align*}
     \end{solution}
-
+\end{proposition}
+    
     \begin{definition}
         Let $f : M \to N$ be a smooth map
         \begin{itemize}

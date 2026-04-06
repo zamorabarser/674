@@ -14,7 +14,6 @@
         Let $M$ be a smooth manifold, and $X,Y \in \mathfrak{X}(M)$. Then the map $[X,Y] : C^{\infty} (M) \to C^{\infty}(M)$ given by 
         \[   [X,Y] (f) : = XY f - YXf   \]
         is a global derivation. The vector field $[X,Y]$ is called the \emph{Lie bracket} of $X$ and $Y$.  
-    \end{proposition}
     \begin{solution}
         For $f,g \in C^{\infty}(M)$, one has
         \begin{align*}
@@ -37,7 +36,9 @@
     This shows that the $i$-th component of the vector field $[X,Y]$ is 
     \[         \sum_{j = 1 }^n (  X^j \partial_j Y^i - Y^j \partial_j X^i )   .    \]
     \end{solution}
+\end{proposition}
 
+    
     \begin{proposition}[Properties of Lie bracket]
         Let $f , g \in C^{\infty}(M)$ and $\mathfrak{X}(M)$, and $X,Y,Z \in \mathfrak{X}(M)$. Then
         \begin{itemize}
@@ -45,18 +46,17 @@
             \item $[fX, gY] =  fg [X,Y] + f(Xg)Y - g (Yf) X. $
             \item $[X,[Y,Z]] + [Y, [Z,X] ] + [Z, [X,Y]] = 0$. 
         \end{itemize}
-    \end{proposition}
-
+    
     \begin{solution}
         Exercise.
     \end{solution}
+\end{proposition}
 
     \begin{proposition}[Lie bracket is Lie derivative]\label{pro:lie-derivative}
         Let $X,Y \in \mathfrak{X}(M) $, $p \in M$, and $\Phi^X : W \times (- \varepsilon , \varepsilon ) \to M$ the flow of $X$ around $p$. Then 
         \begin{equation}\label{eq:lie-derivative}
                [X,Y] (p)  = \lim_{h \to 0 } \frac{ (\Phi_{-t}^X )_{\ast} Y(\Phi_t^X(p)) - Y(p) }{h}  .
         \end{equation}
-    \end{proposition}
 
     \begin{solution}
         Fix $f \in C^{\infty}(M)$ and let $ h : ( -  \delta  , \delta ) \times (-  \delta  ,  \delta  )  \to \mathbb{R} $ be given by 
@@ -85,6 +85,7 @@
         \end{align*}
         Finally, note that the right hand side of \eqref{eq:lie-derivative}  applied to $f$ also equals $\frac{d}{dv} \Big \vert _{v= 0} h (v,v)$.  Since $f$ was arbitrary, the result follows. 
      \end{solution}
+    \end{proposition}
     
 
     \begin{proposition}[Commutators of flows]
@@ -93,7 +94,6 @@
             \item $[X,Y] = 0$ in a neighborhood of $p$.
             \item $\Phi_s^X \Phi_t^Y = \Phi_t^Y \Phi_s^X $ for small enough $s$ and $t$ in a neighborhood of $p$. 
         \end{itemize}   
-    \end{proposition}
 
     \begin{solution}
         Assume $[X,Y] = 0$ in a neighborhood of $p$. By Proposition \ref{pro:lie-derivative}, for $x$ near $p$, the vector  
@@ -125,13 +125,12 @@
             & = YX f (x). 
         \end{align*}
         This shows $[X,Y](x) = 0$. 
-
-        
     \end{solution}
+    \end{proposition}
+
 
     \begin{proposition}
         Let $f: M \to N$ smooth, $X, Y \in \mathfrak{X}(M)$, and $V, W \in \mathfrak{X}(N)$ such that $X$ and $V$ are $f$-related, and $Y$ and $W$ are $f$-related. Then $[X, Y]$ and $[V, W]$ are $f$-related.
-    \end{proposition}
 
     \begin{solution}
         Let $\alpha \in C^{\infty}(N)$. Then
@@ -147,6 +146,7 @@
         \[   [X,Y] (\alpha \circ f)  = ( [V,W] \, \alpha  ) \circ f  .  \]
         Since $\alpha $ was arbitrary, we deduce $[X,Y]$ and $[V,Y]$ are $f$-related. 
     \end{solution}
+    \end{proposition}
 
     
 
