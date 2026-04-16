@@ -6,6 +6,48 @@
     \begin{abstract}  Due April 25.  \end{abstract}
     \maketitle
 
+    In each exercise, you can use the previous exercises/items. 
+
+\begin{exercise}
+Let $M$ be a smooth manifold and $V \in \mathfrak{X}(M)$ a vector field. Assume there is $\varepsilon > 0$, a collection $\{ W_i \} _{i \in I}$ of open sets of $M$, and a collection of maps $ \{ \Phi_i : W_i \times (-\varepsilon , \varepsilon ) \to M  \} _{i \in I } $ such that $\Phi_i$ is a local flow of $V$ and 
+\[      M \subset \bigcup _{i \in I} W_i  .     \]
+Show that there is a flow $\Phi : M \times \mathbb{R} \to M$ of $V$ (defined everywhere for all time). 
+\end{exercise}
+
+
+\begin{exercise}
+Let $M$ be a smooth manifold and $V \in \mathfrak{X}(M)$ a vector field. The \emph{support} supp$(V)$ of $V$ is defined as the topological closure of the set 
+\[    \{ x \in M \, \vert \, V( x) \neq 0 \} .   \]
+Show that if supp$(V)$ is compact, then there is a flow $\Phi : M \times \mathbb{R} \to M$ of $V$ (defined everywhere for all time).
+\end{exercise}
+
+\begin{exercise}
+Let $M$ be a connected smooth manifold. Show that for any points $p , q \in M$ there is a diffeomorphism $f : M \to M$ with $f(p) = q$. 
+\end{exercise}
+
+\begin{definition}
+Let $G$ be a smooth manifold and a group. We say $G$ is a \emph{Lie group} if both the multiplication $G \times G \to G$ and the inverse map $G \to G$ are smooth.    
+\end{definition}
+
+
+\begin{exercise}
+ Let $G$ be a Lie group.
+\begin{itemize}
+    \item Show that for each $g \in G$, the map $L_g : G \to G$ given by $L_g(h) : = gh$ is a diffeomorphism.
+    \item Fix $v \in T_eG$. For each $g \in G$, define $V(g) \in T_gG$ as 
+    \[ V(g) : = (L_g)_{\ast}(v).\] 
+    Show that $V$ is a smooth vector field and that $V$ is $L_h$-related to itself for each $h \in G$. 
+    \item Take $V \in \mathfrak{X}(G)$ as in the previous item. Show that there is a flow  $\Phi : G \times \mathbb{R} \to G$ of $V$  (defined everywhere for all time).
+    \item With $V\in \mathfrak{X}(G)$ as in the previous exercises, take the flow line $\gamma : \mathbb{R} \to G$ with $\gamma (0) = e$. Show that $\gamma $ is a group morphism from $\mathbb{R} $ to $G$. We write
+    \[  \exp (t v) : = \gamma (t) .                    \]
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+    Show that $GL(n;\mathbb{R}) : = \{ A \in M_n (\mathbb{R}) \, \vert \, \det (A) \neq 0 \} $ is a Lie group. Then show that for any $A \in M_n(\mathbb{R}) = T_{Id} GL(n; \mathbb{R})$ one has 
+        \[      \exp ( A ) =  e ^A .      \]
+\end{exercise}
+
 
 
 
