@@ -1,0 +1,132 @@
+\documentclass{ximera}
+\title{Vector bundles and trivializations}
+
+\begin{document}
+
+    \begin{abstract} A reference for this material is Chapter 10  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.  \end{abstract}
+    \maketitle
+
+
+\begin{definition}
+ Let $M$ be a smooth manifold and $k \in \mathbb{N}$. The \emph{trivial vector bundle}  of rank $k$ over $M$ is the product manifold $M \times \mathbb{R}^k$ equipped with the projection $\pi : M \times \mathbb{R}^k \to M $. 
+
+ A \emph{section} of this vector bundle is a smooth map $s : M \to  M \times \mathbb{R}^k$ with $\pi \circ s = Id_M$. The set of all sections is denoted by $\Gamma (M \times \mathbb{R}^k)$.    
+\end{definition}
+
+\begin{remark}
+$\Gamma ( M \times \mathbb{R}^k) $ is naturally a $C^{\infty}(M)$-module. It can also be  naturally identified with the set of smooth functions $f : M \to \mathbb{R}^k$.  
+\end{remark}
+
+\begin{definition}
+
+ Let $M$ be a smooth manifold and $k \in \mathbb{N}$. A \emph{vector bundle} of rank $k$ over $M$ is a smooth manifold $E$ equipped with a smooth map $\pi : E \to M$ and a collection of pairs $\{ ( U _i, \psi _i ) \} _{i \in I }$ such that:
+ \begin{itemize}
+     \item $\{ U_i \} _{i \in I }$ is an open cover of $M$. 
+     \item For each $i$, $\psi _ i : \pi ^{-1} (U_i) \to U _i \times \mathbb{R}^k$ is a diffeomorphism with $\pi \circ \psi _i = \pi $, where we also denote by $\pi$ the projection onto the first coordinate $U_i \times \mathbb{R}^k \to U_i$.
+     \item For each $x \in U_i \cap U_j$, the map 
+     \[ \psi _j \circ \psi _i ^{-1} :  \{ x \} \times \mathbb{R}^k  \to \{ x \} \times \mathbb{R}^k  \] 
+     is a linear isomorphism. 
+ \end{itemize}
+A \emph{section} of $E$ is a smooth map $s : M \to  E $ with $\pi \circ s = Id_M$. The set of all sections is denoted by $\Gamma (E)$.   
+\end{definition}
+
+
+
+\begin{remark}
+    By the third property, for each $x \in M$, the preimage $E_x : = \pi ^{-1} (x)$ has a vector space structure inherited from the map $\psi_i $. Because of this, $\Gamma (E)$ is a $C^{\infty} (M)$-module. 
+\end{remark}
+
+\begin{example}
+Let $M$ be an $n$-dimensional smooth manifold. Then the tangent bundle $\pi : TM \to M$ is a vector bundle of rank $n$.    
+\end{example}
+
+
+\begin{theorem}
+        For any general construction in linear algebra, there is an analogous construction for vector bundles. This includes: Hom, the dual vector space, the direct sum, the tensor product, the tensor algebra, the exterior algebra, and the Clifford algebra.
+\end{theorem}
+
+
+\begin{example}
+    For any vector bundles $E, F  $ over $M$,  there  are vector bundles  $E \oplus F ,$ $ E\otimes F,  $ $ Hom (E, F)$ over $M$ with
+    \begin{gather*}
+        (E \oplus F) _x =  E_x \oplus F_x  , \hspace{1.2cm} (E \otimes F) _x = E_x \otimes _{\mathbb{R}} F_x  , \\
+          Hom(E,F)_x = Hom_{\mathbb{R}}(E_x, F_x)
+    \end{gather*}
+    for all $x \in M$.
+\end{example}
+
+
+
+
+
+\begin{example}
+    For any vector bundle $E \to M$,  there is a vector bundle  $E^{\ast} \to M$  with $ ( E^{\ast} )_x  = (E_x)^{\ast}$ for all $x \in M$. 
+\end{example}
+
+
+\begin{example}
+    The \emph{cotangent bundle} is the vector bundle $T^{\ast}M \to M$ with 
+    \[ (T^{\ast}M)_x : =  T_x^{\ast}M    : = (T_xM)^{\ast}\text{  for all }x \in M. \]
+\end{example}
+
+
+
+
+\begin{definition}
+    Let $E,F \to M$ be two vector bundles. A \emph{morphism} between $E$ and $F$ is a smooth map $\varphi : E \to F $ with $\pi \circ \varphi  = \pi $, and such that $\varphi : E_x \to F_x$ is a linear map for each $x \in M$.     
+    
+    We say that $\varphi$ is a \emph{vector bundle isomorphism} if it is also a diffeomorphism, or equivalently, $\varphi : E_x \to F_x$ is a linear isomorphism for all $x \in M$. In such a case, we say that $E$ and $F$ are \emph{isomorphic} and we write $E \cong F$.
+\end{definition}
+
+\begin{theorem}
+     For any natural isomorphism in linear algebra, there is an analogous isomorphism for vector bundles. 
+\end{theorem}
+
+
+\begin{example}
+     For any vector bundle $E$ over $M$, we have
+    \[    E  \cong E^{\ast \ast }    \]
+\end{example}
+
+\begin{example}
+    For any vector bundles $E_1, E_2, E_3  $ over $M$, the direct sum and tensor product are commutative, associative, and distributive:
+    \begin{gather*}
+    E_1 \oplus E_2 \cong E_2 \oplus E_1 , \hspace{3cm} E_1 \otimes E_2 \cong E_2 \otimes E_1 , \\
+       ( E_1 \oplus E_2) \oplus E_3 \cong E_1 \oplus (E_2 \oplus E_3) , \hspace{1cm} ( E_1 \otimes E_2) \otimes E_3 \cong E_1 \otimes (E_2 \otimes E_3) ,  \\
+       ( E_1 \oplus E_2) \otimes E_3 \cong ( E_1 \otimes E_2 ) \oplus (E_2 \otimes E_3) .
+    \end{gather*}
+\end{example}
+
+
+
+\begin{theorem}
+For any vector bundles $E, F $ over $M$, we have
+\begin{gather*}
+    \Gamma (E^{\ast}) \cong    \Gamma (E) ^{\ast}    \\
+     \Gamma (E \oplus F) = \Gamma (E) \oplus \Gamma (F)  ,  \\
+      \Gamma (E \otimes F) = \Gamma (E) \otimes _{C^{\infty}(M)} \Gamma (F)  , \\
+       \Gamma ( \, Hom ( E, F) \, ) \cong  Hom_{C^{\infty}(M)}( \, \Gamma (E) \, , \,  \Gamma (F) \, ) .
+       \end{gather*}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
