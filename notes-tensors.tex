@@ -6,9 +6,13 @@
     \begin{abstract} A reference for this material is   Jacobson, Nathan.  Basic algebra. I. Second edition. W. H. Freeman and Company, New York, 1985. xviii+499 pp. ISBN:0-7167-1480-9  \end{abstract}
     \maketitle
 
+    \begin{notation}
+        Throughout this section. Let $A$ be a commutative algebra.
+    \end{notation}
 
-\begin{definition}
-[$A$-bilinear maps] Let $V,$ $ W,$ $ X$ be $A$-modules. An $A$\emph{-bilinear function} is a distributive function $f: V \times W \to X$ with 
+
+\begin{definition}[$A$-bilinear maps] 
+Let $A$ be a commutative algebra and let $V,$ $ W,$ $ X$ be $A$-modules. An $A$\emph{-bilinear function} is a distributive function $f: V \times W \to X$ with 
 \[ f(av,w) = f(v,aw)= af(v,w) \] 
 for all $a \in A$, $v \in V$, and $w \in W$.  
 \end{definition}
@@ -20,7 +24,7 @@ for all $a \in A$, $v \in V$, and $w \in W$.
 
 
 \begin{definition}[Tensor products]
-Let $V$ and $W$ be $A$-modules. Their \emph{tensor product} is an $A$-module $V \otimes _A W$ equipped with an $A$-bilinear map $j : V \times W \to V \otimes _A W$ satisfying the following property:
+Let $A$ be a commutative algebra and let $V$ and $W$ be $A$-modules. Their \emph{tensor product} is an $A$-module $V \otimes _A W$ equipped with an $A$-bilinear map $j : V \times W \to V \otimes _A W$ satisfying the following property:
 \begin{itemize}
     \item For any $A$-module $X$ and any $A$-bilinear function $f : V \times W \to X$, there is a unique module morphism $\tilde{f} : V \otimes _A W \to X$ with 
     \[     f = \tilde{f} \circ j     .     \]
@@ -34,7 +38,7 @@ We denote $j (v,w)$ by $v \otimes w$.
 \end{notation}
 
 \begin{theorem}[Existence and uniqueness]
-Let $V$ and $W$ be $A$-modules. Then the tensor product $V \otimes  W$ exists and is unique up to module isomorphism. It is given by 
+Let $A$ be a commutative algebra and let $V$ and $W$ be $A$-modules. Then the tensor product $V \otimes  W$ exists and is unique up to module isomorphism. It is given by 
 \[   V \otimes  W =    \left\{ \sum_{i = 1}^k  a_i (v_i, w_i) \,\Big\vert \, a_i \in A, \, v_i \in V, \, w_i \in W \,  \right\} / span_A(S) ,    \]
 where $S$ is the set consisting of:
 \begin{itemize}
@@ -101,7 +105,7 @@ Let $V$ and $W$ be vector spaces.  If $V$ has basis $\{ e_i \} _{i \in I}$ and $
 
 
 \begin{theorem}[Duality]
-    Let $M$ and $N$ be $A$-modules. Consider the bilinear map 
+    Let $A$ be a commutative algebra, and let  $M$ and $N$ be $A$-modules. Consider the bilinear map 
     \[ \theta :  M^{\ast} \times N \to Hom _A (M , N) \] 
     given by 
     \[ \theta ( \lambda , y ) (x ) : = \lambda (x) y . \]

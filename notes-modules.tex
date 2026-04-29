@@ -16,6 +16,8 @@
     Let $A$ be a real vector space. We say $A$ is an \emph{algebra} if there is an $\mathbb{R}$-bilinear associative product $A \times A \to A$.  
     
     $A$ is \emph{unital} if it has a 1.
+
+    $A$ is commutative if $ab=ba$ for all $a,b \in A$.
 \end{definition}
 
 
@@ -73,12 +75,18 @@ is an algebra.
     A proper subset $I \subset A$ is an \emph{ideal} if it is a sub-vector space, and 
     \[  a b , \, ba \in I  \, \text{ for all } a \in A, b \in I .     \]
     We write $I \triangleleft A$ to denote that $I$ is an ideal.
-    \end{definition}
+
+ For any subset $S \subset A$, there is a smallest ideal of $A$ containing $S$, which coinides with the intersection of all the ideals containing $S$. 
+ 
+ \end{definition}
 
 \begin{example}[Functions vanishing on a set] Let $A = C(X)$ and $Y \subset X$ a nonempty subset. Then
     \[     I = \{ f \in C(X) \, \vert \, f (x) = 0  \text{ for all } x \in Y  \}       \]
     is an ideal of $A$.
 \end{example}
+
+
+
 
 \begin{example}[Polynomials of high degree] 
  If $A = \mathbb{R} [x_1, \ldots , x_n]$ and $k \in \mathbb{N}$, then the vector space of polynomials of degree $\geq k$ is an ideal of $A$.
@@ -136,7 +144,7 @@ $\mathfrak{X}(M)$ is a $C^{\infty}(M)$-module.
 
 
 \begin{definition}[Module morphisms]
-   Let $M$ and $N$ be two $A$-modules. A module morphism is a linear map $T : M \to N$ such that $aT = Ta $ for all $a \in A$. We denote by $Hom_A(M,N)$ the set of module morphisms from $M$ to $N$. This is again an $A$-module. 
+   Let $M$ and $N$ be two $A$-modules. A module morphism is a linear map $T : M \to N$ such that $aT = Ta $ for all $a \in A$. We denote by $Hom_A(M,N)$ the set of module morphisms from $M$ to $N$. If $A$ is commutative, this is again an $A$-module. 
 \end{definition}
 
 \begin{notation}

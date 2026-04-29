@@ -73,7 +73,7 @@ Let $M$ be an $n$-dimensional smooth manifold. Then the tangent bundle $\pi : TM
 
 
 \begin{definition}
-    Let $E,F \to M$ be two vector bundles. A \emph{morphism} between $E$ and $F$ is a smooth map $\varphi : E \to F $ with $\pi \circ \varphi  = \pi $, and such that $\varphi : E_x \to F_x$ is a linear map for each $x \in M$.     
+    Let $E,F \to M$ be two vector bundles. A \emph{morphism} between $E$ and $F$ is a smooth map $\varphi : E \to F $ with $\pi \circ \varphi  = \pi $  such that $\varphi : E_x \to F_x$ is a linear map for each $x \in M$.     
     
     We say that $\varphi$ is a \emph{vector bundle isomorphism} if it is also a diffeomorphism, or equivalently, $\varphi : E_x \to F_x$ is a linear isomorphism for all $x \in M$. In such a case, we say that $E$ and $F$ are \emph{isomorphic} and we write $E \cong F$.
 \end{definition}
@@ -102,11 +102,11 @@ Let $M$ be an $n$-dimensional smooth manifold. Then the tangent bundle $\pi : TM
 \begin{theorem}
 For any vector bundles $E, F $ over $M$, we have
 \begin{gather*}
-    \Gamma (E^{\ast}) \cong    \Gamma (E) ^{\ast}    \\
      \Gamma (E \oplus F) = \Gamma (E) \oplus \Gamma (F)  ,  \\
       \Gamma (E \otimes F) = \Gamma (E) \otimes _{C^{\infty}(M)} \Gamma (F)  , \\
        \Gamma ( \, Hom ( E, F) \, ) \cong  Hom_{C^{\infty}(M)}( \, \Gamma (E) \, , \,  \Gamma (F) \, ) .
        \end{gather*}
+In particular, we have  $    \Gamma (E^{\ast}) \cong    \Gamma (E) ^{\ast}  $, where the second dual is taken as a $C^{\infty}(M)$-module.
 \end{theorem}
 
 
