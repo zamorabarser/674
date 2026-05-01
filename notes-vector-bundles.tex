@@ -3,9 +3,10 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is Chapter 10  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.  \end{abstract}
+    \begin{abstract} Vector bundles, trivializations, basic constructions, basic properties. \end{abstract}
     \maketitle
 
+A reference for this material is Chapter 10  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8. 
 
 \begin{definition}
  Let $M$ be a smooth manifold and $k \in \mathbb{N}$. The \emph{trivial vector bundle}  of rank $k$ over $M$ is the product manifold $M \times \mathbb{R}^k$ equipped with the projection $\pi : M \times \mathbb{R}^k \to M $. 
@@ -19,7 +20,7 @@ $\Gamma ( M \times \mathbb{R}^k) $ is naturally a $C^{\infty}(M)$-module. It can
 
 \begin{definition}
 
- Let $M$ be a smooth manifold and $k \in \mathbb{N}$. A \emph{vector bundle} of rank $k$ over $M$ is a smooth manifold $E$ equipped with a smooth map $\pi : E \to M$ and a collection of pairs $\{ ( U _i, \psi _i ) \} _{i \in I }$ such that:
+ Let $M$ be a smooth manifold and $k \in \mathbb{N}$. A \emph{vector bundle} of rank $k$ over $M$ is a smooth manifold $E$ equipped with a smooth map $\pi : E \to M$ and a collection of pairs $\{ ( U _i, \psi _i ) \} _{i \in I }$, called \emph{(local) trivializations}, such that:
  \begin{itemize}
      \item $\{ U_i \} _{i \in I }$ is an open cover of $M$. 
      \item For each $i$, $\psi _ i : \pi ^{-1} (U_i) \to U _i \times \mathbb{R}^k$ is a diffeomorphism with $\pi \circ \psi _i = \pi $, where we also denote by $\pi$ the projection onto the first coordinate $U_i \times \mathbb{R}^k \to U_i$.
@@ -56,12 +57,77 @@ Let $M$ be an $n$-dimensional smooth manifold. Then the tangent bundle $\pi : TM
 \end{example}
 
 
+\begin{solution}
+We do the one of direct sum. The other two are similar, but the computations are a little more involved. Start by defining the set 
+\[    E \oplus F : = \bigsqcup _{x \in M} (E _x \oplus F_x)        \]
+and equip it with the map $\pi _{\oplus} : E \oplus F \to M$ that sends $(E _x \oplus F_x) $ to $x$. We now construct trivializations using the ones of $E$ and $F$. 
+
+Take local trivializations $(U , \psi )$ and $(U , \zeta )$ of $E $ and $F$, respectively. That is, $U \subset M$ is an open set, and 
+\begin{gather*}
+        \psi : \pi_E^{-1} (U) \to U \times \mathbb{R}^k  \\
+        \zeta : \pi_F^{-1} (U) \to U \times \mathbb{R}^{\ell} 
+\end{gather*} 
+diffeomorphisms, such that for each $x \in U$, the restrictions $\psi : E_x \to \{ x \} \times \mathbb{R}^k$ and $\zeta : F_ x \to \{ x \} \times \mathbb{R}^{\ell}$ are linear isomorphisms.  Then define 
+\[   \psi \oplus \zeta : \pi _{\oplus}^{-1} (U) \to U \times \mathbb{R} ^k \times \mathbb{R}^{\ell}    \]
+as
+ \[  ( \psi \oplus \zeta )( v, w )  : = (x , \psi _2 (v), \zeta _2 (w) ) ,                     \]
+where $v \in E_x$, $w \in F_x$, and $\psi _2$, $\zeta _2$ are the second coordinates of $\psi$ and $\zeta$, respectively. For each $x \in U$, the map $\psi \oplus \zeta : (E _x \oplus F_x) \to \{ x \} \times \mathbb{R}^{k + \ell }$ is a linear isomorphism. However, we need to check that when we consider other trivialization, the change of coordinates is smooth. 
+
+Take $(V \overline{\psi}) $, $(V, \overline{\zeta})$ two local trivializiations of $E$ and $F$. We need to check that the change of coordinates 
+\[  (\psi \oplus \zeta ) \circ (\overline{\psi} \oplus \overline{\zeta})^{-1} : (\overline{\psi} \oplus \overline{\zeta}) (\pi_{\oplus} ^{-1} (U \cap V) ) \to ( \psi \oplus \zeta ) (\pi_{\oplus} ^{-1} (U \cap V) )                       \]
+is smooth. This happens to be very easy.  Note that 
+\[  (\overline{\psi} \oplus \overline{\zeta}) (\pi_{\oplus} ^{-1} (U \cap V) ) =  ( \psi \oplus \zeta ) (\pi_{\oplus} ^{-1} (U \cap V) )   =   (U \cap V)  \times \mathbb{R}^k \times \mathbb{R}^{\ell}   .  \]
+Then
+\begin{align*}
+    (\psi \oplus \zeta ) & \circ (\overline{\psi} \oplus \overline{\zeta})^{-1}  (  x, \lambda_1, \ldots , \lambda_k , \mu _1, \ldots , \mu _{\ell} )   \\
+    & = (\psi \oplus \zeta ) ( \overline{\psi} ^{-1} (x, \lambda_1, \ldots , \lambda _k), \overline{\zeta}^{-1}(x, \mu_1, \ldots , \mu_{\ell}))    \\
+    & = (  x , \psi _2 ( \overline{\psi}^{-1} (x, \lambda_1, \ldots , \lambda _k) ) , \zeta _2 (\overline{ \zeta }^{-1} ( x, \mu _1, \ldots , \mu _ {\ell}   ) ) )    .
+\end{align*}
+Since $\psi $ and $\overline{\psi}$ are diffeomorphisms, the second coordinate depends smoothly on $x$ and the $\lambda_i$'s. Since $\zeta $ and $\overline{\zeta}$ are diffeomorphisms, the third coordinate depends smoothly on $x$ and the $\mu _i $'s.     
+\end{solution}
+
 
 
 
 \begin{example}
     For any vector bundle $E \to M$,  there is a vector bundle  $E^{\ast} \to M$  with $ ( E^{\ast} )_x  = (E_x)^{\ast}$ for all $x \in M$. 
 \end{example}
+
+
+\begin{solution}
+Start by defining the set
+\[     E^{\ast} : = \bigsqcup_{x \in M} (E_x)^{\ast}      \]
+and equip it with the map $\pi_{E^{\ast}}:  E ^{\ast} \to M$ that sends $(E_x)^{\ast}$ to $x$. We now construct trivializations using the ones of $E$.  
+
+
+Let $(U, \psi) $ be a local trivialization of $E$. That is, $U \subset M$ is an open set and $\psi : \pi_E ^{-1} (U ) \to U \times \mathbb{R}^k$ a diffeomorphism where $\psi : E_x \to \{ x \} \times \mathbb{R}^k$ is a linear isomorphism for all $x \in U$. For each $x \in U$, define $v_i  (x) = \psi ^{-1} (x,e_i)$, where $e_i = (0, \ldots , 1, \ldots , 0)$ is the $i$-th canonical vector. Let $\{ \eta ^1 (x), \ldots , \eta ^k(x) \} \subset E_x^{\ast}$ be the dual basis. 
+
+
+
+
+
+We can then define $\psi ^{\ast} : \pi _{E^{\ast}}^{-1}(U)  \to U \times \mathbb{R}^k$  by
+    \[    \psi ^{\ast} \Big(  \sum a_i \eta ^i (x) \Big) = ( x , a_1, \ldots , a_k ).                 \]
+For each $x \in U$, the map $\psi ^{\ast} : E_x^{\ast} \to \{ x \} \times  \mathbb{R}^k$  is a linear isomorphism. However, we need to check that when we consider other trivialization, the change of coordinates is smooth. 
+
+Consider other local trivialization $(V, \zeta)$. We need to check that 
+ \[\psi ^{\ast} \circ ( \zeta ^{\ast}  ) ^{-1} :  \zeta ^{\ast} (  \pi _{E^{\ast}}^{-1} (U \cap V) ) \to  \psi ^{\ast} (\pi _{E^{\ast}}^{-1} (U \cap V) ) )         \]
+is smooth. Note that 
+\[    \zeta ^{\ast} (  \pi _{E^{\ast}}^{-1} (U \cap V) ) = \psi ^{\ast} (\pi _{E^{\ast}}^{-1} (U \cap V) ) ) = (U \cap V ) \times \mathbb{R}^k  .        \]
+Let $w_j (x) : = \zeta ^{-1} (x,e_j)$ and $\{ \alpha ^1 (x) , \ldots , \alpha ^k (x) \} \subset E_x ^{\ast}$ the dual basis. For each $x \in U \cap V$, find a matrix $M (x) = (m_{ij} (x))_{ij}$ such that
+\[   w_j (x) = \sum _{i} m_{ij}(x) v_i (x)          .        \]
+Since  $\psi $ and $\zeta$ are diffeomorphisms, the change of charts is smooth, and each $m_{ij} : U \to \mathbb{R}$ is smooth.  If we denote the inverse matrix by $M^{-1}(x) = (m^{ij}(x))_{ij}$, we have (ommiting the dependence on $x$):
+\[     \sum _{i} m^{a i } \eta ^{i} (w_{b}) =  \sum _{i , \ell } m^{a i } \eta ^{i} (m_{\ell b} v_{\ell} ) = \sum_i  m^{ai} m_{ib} = \delta ^a_b ,                         \]
+where $\delta ^a _b $ equals $1$ if $a = b$ and $0$ if $a \neq b$.  Therefore
+\[     \alpha ^a = \sum _i m^{ai}\eta ^i .      \]
+Consequently, 
+\begin{align*}
+    \psi ^{\ast} (  (\zeta ^{-\ast}&)  ^{-1}  (x, \lambda _1  , \ldots , \lambda _k )  )  = \psi ^{\ast} \left(   \sum _i \lambda _i \alpha ^i  (x)  \right) \\
+    & = \psi ^{\ast} \left(   \sum _{i, \ell } \lambda _i  m^{i\ell } \eta  ^{\ell} (x)    \right)   \\
+    & = \left( x, \sum_{i } \lambda_i m^{i 1} , \ldots , \sum_i \lambda _i m^{ik} \right). 
+    \end{align*}
+    Since the matrix $M^{-1}$ depends smoothly on $x$, the last expression depends smoothly on $x$ and the  $\lambda_i$'s. 
+\end{solution}
 
 
 \begin{example}
@@ -100,15 +166,18 @@ Let $M$ be an $n$-dimensional smooth manifold. Then the tangent bundle $\pi : TM
 
 
 \begin{theorem}
-For any vector bundles $E, F $ over $M$, we have
+For any vector bundles $E, F $ over $M$, there are natural isomorphisms
 \begin{gather*}
-     \Gamma (E \oplus F) = \Gamma (E) \oplus \Gamma (F)  ,  \\
-      \Gamma (E \otimes F) = \Gamma (E) \otimes _{C^{\infty}(M)} \Gamma (F)  , \\
+     \Gamma (E \oplus F) \cong \Gamma (E) \oplus \Gamma (F)  ,  \\
+      \Gamma (E \otimes F) \cong \Gamma (E) \otimes _{C^{\infty}(M)} \Gamma (F)  , \\
        \Gamma ( \, Hom ( E, F) \, ) \cong  Hom_{C^{\infty}(M)}( \, \Gamma (E) \, , \,  \Gamma (F) \, ) .
        \end{gather*}
 In particular, we have  $    \Gamma (E^{\ast}) \cong    \Gamma (E) ^{\ast}  $, where the second dual is taken as a $C^{\infty}(M)$-module.
 \end{theorem}
 
+\begin{solution}
+    See for example Conlon Lawrence. Differentiable manifolds, a first course. Birkh\"auser, 1993.
+\end{solution}
 
 
 

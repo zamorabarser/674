@@ -1,18 +1,41 @@
 \documentclass{ximera}
-\title{Tensors}
+\title{Tensors on manifolds}
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is Chapter 12  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.  \end{abstract}
+    \begin{abstract}  Tensors on manifolds.   \end{abstract}
     \maketitle
 
+ A reference for this material is Chapter 12  of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8. 
 
 
 \begin{definition}
     The $(k,\ell)$\emph{-tensor bundle} over $M$ is defined as
-    \[    \mathcal{T} ^{k}_{\ell} (M) : = \underbrace{ TM \otimes \cdots \otimes TM }_{k  \text{ times}} \otimes  \underbrace{ T^{\ast}M \otimes \cdots \otimes T^{\ast}M}_{\ell \text{ times}} .                     \]
-    A section in $\Gamma (\mathcal{T}^k_{\ell})$ is called a \emph{tensor of type} $(k, \ell)$.     
+    \[    T ^{k}_{\ell} (M) : = \underbrace{ T^{\ast}M \otimes \cdots \otimes T^{\ast}M }_{k  \text{ times}} \otimes  \underbrace{ TM \otimes \cdots \otimes TM }_{\ell \text{ times}} .   
+    \]
+    We also denote
+    \[   \mathcal{T}^k_{\ell} (M) : = \Gamma ( T ^k_{\ell} (M) ).                 \]
+    A section in $\mathcal{T}^k_{\ell} (M)$ is called a \emph{tensor field of type} $(\ell ,  k )$. 
 \end{definition}
+Recall that the modules of sections are finitely-generated projective, so we have a natural isomorphism
+\[   \mathcal{T}^k_{\ell} (M) \cong Hom_{C^{\infty}(M)}  (  \mathfrak{X} (M ) ^{\otimes k} , \mathfrak{X} (M) ^{ \otimes  \ell}   )   .                 \]
+In other words, a tensor of type $(\ell, k)$ can be regarded as a multilinear function that takes $k$ vector fields and returns a linear combiation of tensor products of $\ell$ vector fields. 
+
+\begin{example}
+    Let $ F : \mathfrak{X} (M) \times \ldots \times \mathfrak{X} (M)  \to C^{\infty} (M) $ be a function that takes $k$ vector fields and returns a function.  It is a $C^{\infty}(M)$-module morphism if it is multilinear and for any $h \in C^{\infty } (M) $ and any vector fields $X_1, \ldots , X_k \in \mathfrak{X}(M)$, one has
+    \begin{align*}
+     F  (h X _1,   \ldots , X_k) & = F(X_1, hX_2, \ldots , X_k) \\
+     & = \ldots  \\
+     & = F(X_1, \ldots , hX_k ) \\
+      & = h F (X_1, \ldots , X_k) .   
+    \end{align*}
+    By the above discussion, this happens if and only if $F$ is associated to a tensor field $\tilde{F} \in \mathcal{T}^k_0(M)$. 
+\end{example}
+
+
+
+
+
 
 
 \end{document}

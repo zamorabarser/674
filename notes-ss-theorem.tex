@@ -3,9 +3,85 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Projective finitely-generated modules, and Serre-Swan Theorem. \end{abstract}
     \maketitle
 
+\begin{definition}
+    Let $A$ be a commutative algebra. An $A$-module $Q$ is called projective finitely-generated if there is another $A$-module $Q'$ with 
+    \[     Q \oplus Q' \cong A ^N   \]
+    for some $N \in \mathbb{N}$, where
+    \[    A^N = \underbrace{A \oplus \cdots \oplus A  }_{N \text{ times}}        \]
+    as $A$-module. 
+\end{definition}
+
+
+\begin{theorem}[Serre--Swan Theorem]
+Let $M$ be a smooth manifold. Then
+\begin{enumerate}
+    \item For any vector bunndle $\pi_E : E \to M$, the $C^{\infty} (M)$-module $\Gamma (E)$ is finitely-generated projective. 
+    \item For any projective finitely-generated $C^{\infty}(M)$-module $Q$, there is a vector bundle $\pi_E : E \to M$ with $Q \cong \Gamma (E)$ as $C^{\infty}(M)$-modules.
+\end{enumerate}
+\end{theorem}
+
+
+\begin{solution}
+For the first part, we do the case where there are finitely many trivializations $\{ (U_i, \psi _i ) \}_{i =1} ^m $ with $M = \cup _{i =1 }^m  U_i$ (this always happens for example if $M$ is compact). 
+
+Consider $\{ \rho _i \} _{i = 1 }^m$ a partition of unity subordinate to the cover. Let $N = m k$ and define 
+\[  \Phi : E \to M \times \mathbb{R}^N  = M \times \mathbb{R}^k \times \cdots \times \mathbb{R}^k      \]
+as 
+\[    \Phi (  (x, v ) ) = ( x , \rho _1 (x)  \psi _1 (v) , \ldots , \rho _m (x) \psi _m (v)  ) .            \]
+Note that while many of the entries in the above expression are not well defined (due to $v$ not being in the domain of $\psi _i$ for many $i$'s), for such $i$'s we have $\rho_i (x) = 0$ so we define that entry simply as $0$. 
+
+For each $x \in M$, we have $\psi _i (x) \neq 0$ for some $i$, so the map $\Phi : E_x \to \{ x \} \times \mathbb{R}^N$ is injective due to the $i$-th coordinate being non-zero for all non-zero $v \in E_x$. Then we can define 
+\[      Q' : = \{ s : M \to  \mathbb{R}^N  \, \vert \, s(x) \perp \Phi (E_x) \text{ for all }x \in M  \}  .       \]
+It is then not hard to check that the map 
+\[      \lambda : \Gamma (M) \oplus Q \to C^{\infty}(M ; \mathbb{R}^N)              \]
+given by 
+\[ \lambda ( t , s ) (x)  : =  ( \Phi ( t(x) ) +  s (x)  )  \]
+is an isomorphism of $C^{\infty}(M)$-modules.
+
+To deal with the general case, one needs to find a locally-finite collection of trivializations with bounded intersection number and follow a similar strategy. 
+
+
+
+A discussion regarding the second part and a much deeper conversation can be found in the book by Bruce Blackadar: "$K$-theory for operator algebras".
+
+\end{solution}
+
+
+\begin{theorem}[Duality]
+    Let $A$ be a commutative algebra, and let  $Q$ and $Z$ be projective finitely-generated $A$-modules. Consider the bilinear map 
+    \[ \theta :  Q^{\ast} \times Z \to Hom _A (Q , Z) \] 
+    given by 
+    \[ \theta ( \lambda , y ) (x ) : = \lambda (x) y . \]
+    Then the induced map  
+    \[      \tilde{\theta} : Q ^{\ast} \otimes _A Z \to Hom _A( Q,Z)             \]
+    is an isomorphism of $A$-modules. 
+\end{theorem}
+
+\begin{solution}
+    (We only give an outline).      First assume $Q=A^N$. For each $i \in \{ 1, \ldots , N \}$, let $e_i \in Q$ be the element $(0, \ldots , 1, \ldots , 0)$ that has $1$ in the $i$-th coordinate and $0$ everywhere else. Also let $\eta _i \in Q ^{\ast} $ be the projection onto the $i$-th coordinate. 
+
+    For any $f \in Hom _A (Q,Z)$ we define 
+    \[   \zeta (f) : = \sum _{i = 1} ^N \eta _i \otimes f(e_i) .                 \]
+    It is then easy to check that   $     \tilde{\theta} \circ \zeta = Id \text{ and }   \zeta \circ \tilde{\theta} = Id $      on their respective domains (For the second one, check first on elements of the form $\lambda \otimes y$). This shows that $\tilde{\theta}$ is an isomorphism.
+
+    For the general case, notice that if $Q \oplus Q ' = A ^N$, then we have splittings:
+    \begin{gather*}
+        (A^N)^{\ast} \otimes Z = (Q ^{\ast} \otimes Z ) \oplus ((Q')^{\ast} \otimes Z) \\
+        Hom _A (A^N , Z) = Hom _A(Q, Z) \oplus Hom_A (Q' , Z). 
+    \end{gather*}
+    From the first part, we have an isomorphism 
+    \[   (Q ^{\ast} \otimes Z ) \oplus ((Q') ^{\ast} \otimes Z)  =   Hom _A(Q, Z) \oplus Hom_A (Q' , Z)  .  \]
+    By how the isomorphism was constructed, it is block diagonal (it respects the sum). Therefore we have ismorphisms
+    \begin{gather*} Q^{\ast} \otimes Z   =   Hom _A(Q, Z) \\
+    (Q')^{\ast} \otimes Z   =   Hom _A(Q', Z)
+    \end{gather*}
+    
+
+    
+\end{solution}
 
 
 
