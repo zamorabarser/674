@@ -32,8 +32,31 @@ In other words, a tensor of type $(\ell, k)$ can be regarded as a multilinear fu
     By the above discussion, this happens if and only if $F$ is associated to a tensor field $\tilde{F} \in \mathcal{T}^k_0(M)$. 
 \end{example}
 
-
-
+A more direct way of seeing this is the following: for finite-dimensional vector spaces, we have a natural isomorphism
+\[     V^{\ast} \otimes W \cong Hom(V , W) .                   \]
+Iterating this, 
+\begin{align*}
+    V ^{\ast} \otimes \cdots \otimes V^{\ast} & \cong Hom ( V , V^{\ast} \otimes \cdots \otimes  V^{\ast} ) \\
+     & \cong Hom ( V ,  Hom ( V , V ^{\ast}  \otimes \cdots \otimes  V^{\ast} ) ) \\
+     & \cong Hom ( V ,  Hom ( V , Hom (V ,  V ^{\ast}  \otimes \cdots \otimes  V^{\ast} ) ) ) \\
+     & \ldots \\
+     & \cong  Hom (V , Hom (V, \ldots , Hom (V, \mathbb{R}) \cdots )) \\
+     & \cong Mult_{k} (V , \ldots , V ; \mathbb{R} ) \\
+     & \cong ( V \otimes \cdots \otimes V )^{\ast},
+\end{align*}
+where the last isomorphism comes from the fact that linear maps 
+\[ V \otimes \cdots \otimes V  \to \mathbb{R}  \] 
+are in one-to-one correspondence with $k$-multilinear maps 
+\[  V \times \cdots \times V \to \mathbb{R}. \] 
+This show that there is a natural isomorphism 
+\[    V ^{\ast} \otimes \cdots \otimes V^{\ast} \cong     ( V \otimes \cdots \otimes V )^{\ast}   .    \]
+These isomorphisms pass to  vector bundles, so for any vector bundle $E \to M $ we have
+\begin{align*}
+    Hom _{C^{\infty}(M)} ( & \mathfrak{X}(M )   \otimes \cdots \otimes   \mathfrak{X}(M) , \Gamma (E) ) \\
+    & \cong  \Gamma ( Hom ( TM \otimes \cdots \otimes TM ,  E )) \\
+    & \cong \Gamma( ( TM \otimes \cdots \otimes TM ) ^{\ast }  \otimes E ) \\
+    & \cong \Gamma ( T^{\ast}M \otimes \cdots \otimes T^{\ast} M \otimes E  ). 
+\end{align*}
 
 
 
