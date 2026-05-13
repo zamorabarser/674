@@ -3,9 +3,31 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Orientations.   \end{abstract}
     \maketitle
 
+    A reference for this material is Chapter 15 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+    \begin{definition}
+        Let $M$ be a smooth manifold. An atlas $\{ (U_i , \varphi _i )\}_{i \in I}$ is called an \emph{orientation} if for each $i,j \in I$, the change of coordinates map
+        \[  f_{ij}:  \varphi _i \circ \varphi _j ^{-1} : \varphi _j (U_i \cap U_j ) \to \varphi _i (U_i \cap U_j )      \]
+        is orientation preserving. That is, the matrix $  d_p f_{ij}   $ has positive determinant for all $p \in \varphi _j (U_i \cap U_j ) $. 
+
+        \begin{itemize}
+            \item A smooth manifold  is called \emph{oriented} if it is equipped with an orientation.
+            \item A smooth manifold is called \emph{orientable} if it admits an orientation.
+        \end{itemize}
+    \end{definition}
+
+
+    \begin{definition}In a manifold $M$ equipped with an orientation $\mathcal{A}$, we say a chart $(U, \varphi)$ is \emph{orientation compatible} if for all $(V, \psi ) \in \mathcal{A}$, the change of coordinates map between $\varphi $ and $\psi$ is orientation preserving. 
+    \end{definition}
+
+    
+
+    \begin{exercise}
+        Let $M$ be an $n$-dimensional smooth manifold. Show that $M$ is orientable if and only if there is $\omega \in \Omega ^n ( M)$ with $\omega (p) \neq 0$ for all $p \in M$.  
+    \end{exercise}
 
 
 

@@ -3,9 +3,106 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Antisymmetrization and forms.   \end{abstract}
     \maketitle
 
+    A reference for this material is Chapter 14 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+    Let $V$ be a finite-dimensional vector space. Then 
+    \[      (V \otimes \cdots \otimes V ) ^{\ast} \cong V^{\ast} \otimes \cdots \otimes V^{\ast} .                 \]
+    The left hand side is in correspondence with the set of $k$-multilinear maps
+    \[   V \times \cdots \times V \to \mathbb{R} . \]
+    The correspondence can be made a little more explicit. For $\alpha _1 , \ldots , \alpha _k \in V^{\ast}$, one has the multilinear map $V \times \cdots \times V \to \mathbb{R} $ given by
+    \[     (v_1, \ldots , v_k) \mapsto \alpha _1 (v_1) \cdots \alpha _k (v_k) .                  \]
+    This depends multilinearly on the $\alpha _i$'s and induces the isomorphism 
+    \[    V^{\ast} \otimes \cdots \otimes V^{\ast} \cong    Mult_k (V , \ldots , V ; \mathbb{R} ).     \]
+    Let $S_k$ denote the $k$-th symmetric group (the group of bijections of the set $\{ 1, \ldots , k \}$).
+    \begin{definition}
+        The \emph{antisymmetrization} map $A_k : (V^{\ast} )^{\otimes k} \to (V^{\ast} ) ^{\otimes k } $ is defined by
+        \[     A_k ( \alpha _1 \otimes \cdots \otimes \alpha _k  ) : = \frac{1}{k!} \sum _{\sigma \in S_k } \text{sign}  (\sigma)  \, \alpha _{\sigma (1) } \otimes \cdots \otimes \alpha _{\sigma (k)}  .        \]
+    \end{definition}
+    Note that for  $\eta \in (V^{\ast} )^{\otimes k}$, the effect of $A_k$ at the level of $k$-multilinear maps is
+    \begin{equation}\label{eq:antisymmetrization}
+         A_k (\eta) (v_1, \ldots , v_k) = \frac{1}{k!} \sum_{\sigma \in S_k } \text{sign} (\sigma)  \, \eta ( v_{\sigma (1)} , \ldots , v_{\sigma (k) } ).                        
+    \end{equation}
+    \begin{proposition}
+        For each $ \eta  \in (V^{\ast} ) ^{\otimes k}$, the multilinear map associated to $A_k (\eta)$ is antisymmetric. Moreover, if $\eta$ is already antisymmetric, then $A_k (\eta) = \eta$. 
+    \end{proposition}
+    \begin{solution}
+    Fix $v _1, \ldots , v_k \in V$ and $\tau \in S_k$. Then
+        \begin{align*}
+            A_k ( \eta  )(v_{\tau (1)}, \ldots , v_{\tau (k) })         & = \frac{1}{k!} \sum_{\sigma \in S_k} \text{sign}(\sigma) \, \eta (  v_{\sigma \tau (1)} , \ldots ,  v_{\sigma  \tau (k)}) \\
+            & = \frac{1}{k!} \sum _{\theta  \in S_k } \text{sign} (\tau ) \, \text{sign} (\theta) \, \eta (v_{\theta (1) } , \ldots , v_ {\theta (k )}) \\
+            & = \text{sign} (\tau )\, A_k ( \eta ) (v_1, \ldots , v_k) . 
+         \end{align*}
+        This shows $A_k (\eta) $ is antisymmetric. 
+    The second claim follows directly from \eqref{eq:antisymmetrization}.
+    \end{solution}
+    
+    We denote by  $\pi : (V^{\ast} )^{\otimes k} \to \Lambda ^k (V ^{\ast} ) $ the projection. We write
+    \[   \pi (\alpha _1 \otimes \cdots \otimes \alpha _k ) : = \frac{1}{k! } \alpha _1 \wedge \cdots \wedge \alpha _k  .   \]
+    \begin{proposition}
+        $\pi \circ A_k = \pi $.
+    \end{proposition}
+    \begin{solution}
+        \begin{align*}
+            \pi A_k ( \alpha _1  \otimes \cdots \otimes  \alpha_k )      & = \frac{1}{k!} \frac{1}{k!} \sum_{\sigma \in S_k} \text{sign}(\sigma) \, v_{\sigma (1) } \wedge \cdots \wedge v_{\sigma (k) } \\
+            & = \frac{1}{k!} \frac{1}{k!} \sum_{\sigma \in S_k}  v_{1 } \wedge \cdots \wedge v_{k } \\
+            & = \frac{1}{k!} v_{1 } \wedge \cdots \wedge v_{k } \\
+            & = \pi (  v_1 \otimes \cdots \otimes  v_k ).
+        \end{align*}
+    \end{solution}
+
+    \begin{theorem}
+        There is a natural isomorphism between $\Lambda ^k ( V^{\ast} ) $ and the space of  antisymmetric $k$-multilinear maps 
+        \[     V \times \cdots \times V \to \mathbb{R}    .     \]
+        Therefore we can identify them with each other.
+    \end{theorem}
+    \begin{solution}
+       The space of antisymmetric $k$-multilinear maps is precisely $A_k ( (V^{\ast })^{\otimes k} )$. Then 
+       \[     \pi (A_k (V^{\ast})^{\otimes k}) = \pi ( ( V^{\ast})^{\otimes k} ) = \Lambda ^k (V^{\ast} )   .      \]
+       This shows that $\pi$ is surjective. By the HW, the spaces have the same dimension, and $\Lambda ^k (V^{\ast} )$ has basis 
+       \[    \{  \eta _{i_1} \wedge \cdots \wedge \eta _{i_k} \,\vert \, 1 \leq i_1 < \cdots < i_k \leq n   \} ,         \]
+       where $\{ \eta _1, \ldots , \eta_n \} \subset V^{\ast} $ is the dual basis of a basis $\{ e_1, \ldots , e_n \} \subset V$.
+    \end{solution}
+
+It will be convenient to have the following in the future. 
+
+
+\begin{lemma}[Redundancy of antisymmetrization]
+    For $\omega \in  ( V ^{\ast} )^{\otimes k } $, $\eta \in ( V ^{\ast } ) ^{\otimes \ell }$, one has
+    \[   A_{k + \ell } ( \omega  \otimes \eta ) = A_{k + \ell } ( A_k (\omega) \otimes A_{\ell} (\eta) ).          \]
+\end{lemma}
+
+
+\begin{solution}
+    For $v_1 , \ldots , v_{k + \ell } \in V$, one has
+    \begin{align*}
+         &A_{k + \ell }  ( A_k (\omega) \otimes A_{\ell} (\eta) ) (v_1, \ldots , v_{k + \ell }) \\
+         & =  \frac{1}{(k+ \ell )! }  \sum_{\sigma \in S_{k + \ell} } \text{sign}(\sigma) \, A_k  (\omega )(  v_{ \sigma (1) } , \ldots , v_{\sigma  (k)}) A_{\ell } (\eta) ( v_{\sigma  (k + 1 )}, \ldots , v_{\sigma( k +  \ell )} ) \\
+         & =  \frac{1}{(k+ \ell )! \, k ! \, \ell !}  \sum_{\substack{\sigma \in S_{k + \ell} ,  \\ \tau \in S_k , \\ \theta \in S_{\ell}}} \text{sign}(\sigma) \, \text{sign}(\tau) \, \text{sign}(\theta) \, \omega (  v_{ \sigma \tau(1) } , \ldots , v_{\sigma \tau (k)}) \eta ( v_{\sigma  (k + \theta (1) )}, \ldots , v_{\sigma( k + \theta (\ell ))} ) \\
+         & = \frac{1}{(k + \ell )! } \sum_{\sigma \in S_{k + \ell} } \text{sign}(\sigma) \omega (v_{\sigma (1)}, \ldots , v_{\sigma (k)}) \eta (v_{\sigma (k + 1)}, \ldots , v_{\sigma (k + \ell )})\\
+         & = A_{k + \ell } (\omega \otimes \eta ) ( v_1, \ldots , v_{k + \ell }) .  
+    \end{align*}
+\end{solution}
+
+
+
+    \begin{definition}[Differential forms]
+        Let $M$ be a smooth manifold. For $k \in \mathbb{N}$, we denote
+        \[    \Omega ^k (M) : = \Gamma (  \Lambda ^k (  T^{\ast} M   )  )  .       \]
+        Elements of $\Omega ^k (M)$ are called \emph{differential $k$-forms}. 
+    \end{definition}
+
+    For $\omega \in \Omega ^k (M)$, in local coordinates we can write
+    \[     \omega = \sum _{1 \leq i_1 < \ldots < i_k \leq n } \omega_{i _1, \ldots , i_k} dx^{i_1} \wedge \cdots \wedge dx ^{i_k}     .   \]
+    Note that for $j_1, \ldots , j_k \in \{ 1, \ldots , n \}$, we have
+    \begin{align*}
+           dx^{i_1} \wedge & \cdots   \wedge dx^{i_k} (\tfrac{\partial}{\partial x ^{j_1}}, \ldots , \tfrac{\partial }{\partial x ^{j_k}})           \\
+           & =  k! A_k (dx^{i_1} \otimes \cdots   \otimes dx^{i_k} )  (\tfrac{\partial}{\partial x ^{j_1}}, \ldots , \tfrac{\partial }{\partial x ^{j_k}})  \\
+           & = \sum_{\sigma \in S_k} \text{sign}(\sigma) \, dx^{i_1} \left( \tfrac{\partial }{\partial x ^{j _{\sigma (1)}}} \right) \cdots  dx^{i_k} \left( \tfrac{\partial }{\partial x ^{j _{\sigma (k)}}} \right) . 
+    \end{align*}
+    If the sets $\{ i_1 , \ldots , i_k \}$ and $\{ j_1, \ldots , j_k \}$ are not the same, then each summand is zero. If the sets are the same, since the $i_{\ell}$'s are distinct, there is a unique element  $\sigma$ such that $j_{\sigma (1)} < \ldots < j_{\sigma (k)}$. In that case, that is the only summand that survives, and the result is $\text{sign}(\sigma) \in \{ -1, 1 \} $. 
 
 
 
