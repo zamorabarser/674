@@ -6,7 +6,103 @@
     \begin{abstract}  Due May 22.  \end{abstract}
     \maketitle
 
+\begin{exercise}
+    Let $\pi _E : E \to M$ and $\pi _F : F \to M$ be vector bundles, and 
+    \[ \varphi : \Gamma (E) \to \Gamma (F)  \] 
+    a  $C^{\infty}(M)$-module morphism.
+    \begin{itemize}
+        \item Show that for any $s \in \Gamma (E)$ the support of $\varphi (s) $ is contained in the support of $s$.  
+        \item Show that for any $s \in \Gamma (E)$ and any $p \in M$, the value $\varphi (s) (p) $ does only depend on $s (p)$ and not on the values of $s$ at other points. That is, if $t \in \Gamma (E)$ is such that $s (p) = t(p)$, then 
+    \[     \varphi (s) (p) = \varphi (t) (p)  .                     \]
+    \end{itemize}
+\end{exercise}
 
+\begin{exercise}
+    Let $\pi _E : E \to M$ be a  vector bundle of rank $k$. A \emph{metric} on $E$ is a collection of maps
+    \[    \{  \langle \cdot , \cdot \rangle _x : E_x \times E_x \to \mathbb{R} \} _{x \in M}            \]
+    such that $\langle \cdot , \cdot \rangle _x$ is an inner product on $E_x$ for each $x \in M$ and satisfying the additional property that if $s ,t  \in \Gamma (E)$, then the function  $\langle s , t \rangle : M \to \mathbb{R}$  given by 
+    \[    \langle s, t\rangle (x) : = \langle s(x) , t(x) \rangle _x       \]
+    is smooth. Show that $E$ admits a metric. \\
+
+    
+    \textbf{Hint:  }Note that if $E$ is trivial, we can simply use the inner product in $\mathbb{R}^k$.  Pick a collection of trivializations $\{ (U_i , \psi _i ) \} _{i \in I}$ such that the sets $U_i$ cover $M$ and use a partition of unity subordinated to this open cover. 
+
+\end{exercise}
+
+\begin{exercise}
+    Let $M$ be a smooth manifold, and $E = M \times \mathbb{R}^k $ the trivial rank $k$ vector bundle. 
+    \begin{itemize}
+        \item Let $a_{ij} \in C^{\infty}(M)$ be a collection of smooth functions with $i,j \in \{ 1, \ldots , k \}$. Show that the map $\Phi : \Gamma (E) \to \Gamma (E)$ given by 
+        \[   \Phi (f_1, \ldots , f_k) : = \left(   \sum _{i = 1} ^k a_{1i} f_i  , \ldots , \sum _{i = 1} ^k a_{ki} f_i  \right)   \]
+        for all $(f_1, \ldots , f_k ) \in \Gamma (E) = C^{\infty }(M ; \mathbb{R}^k)$ is a module morphism. 
+        \item Show that for any module morphism $\Phi : \Gamma (E) \to \Gamma (E)$, there is a collection of smooth functions $a_{ij} \in C^{\infty}(M)$ with $i,j \in \{ 1, \ldots , k \}$ such that  
+        \[   \Phi (f_1, \ldots , f_k) = \left(   \sum _{i = 1} ^k a_{1i} f_i  , \ldots , \sum _{i = 1} ^k a_{ki} f_i  \right)   \]
+        for all $(f_1, \ldots , f_k ) \in \Gamma (E) = C^{\infty }(M ; \mathbb{R}^k)$. 
+    \end{itemize}
+\end{exercise}    
+    
+
+\begin{exercise}
+    Let $M = N = \mathbb{R}^n$. For convenience, we denote by $(x_1, \ldots , x_n)$ the coordinates of $M$ and by $(y_1, \ldots, y_n)$ the coordinates of $N$. Let   $\varphi : M \to N $  be a diffeomorphism 
+    \[ \varphi(x_1, \ldots , x_n) = (y_1, \ldots , y_n), \] 
+    and we denote by   
+    \[   \Delta : C^{\infty}(N) \to C^{\infty } (N)     \]
+    the Laplacian differential operator. That is, 
+    \[        \Delta (f) : = \sum_{k = 1} ^{n} \frac{\partial ^2 f }{\partial y_k ^2} .                    \]
+    Let 
+    \[     L : C^{\infty} (M) \to C^{\infty } (M)           \]
+    be the map defined by 
+    \[    L (f) : =  \Delta ( f \circ \varphi ^{-1} ) \circ \varphi .        \]
+    Show that: 
+    \begin{itemize}
+        \item There are smooth functions 
+        \[ a_{ij }, b_j \in C^{\infty} (M) \] 
+        for $i , j \in  \{ 1 , \ldots , n \}$ such that $a_{ij} = a_{ji}$ for all $i,j$, and 
+    \[      L (f) = \sum_{i,j = 1 }^n a_{ij}  \frac{\partial ^2 f}{\partial x _i \partial x _j }  + \sum _{j = 1 } ^n    b_j \frac{\partial f }{\partial x _j}      \]
+    for all $f \in C^{\infty} (M)$. 
+    \item For each $x \in M$, we can identify $T^{\ast}_xM$ with $T^{\ast}_{y} N $ (thinking of $\varphi$ as a chart). Show that if 
+    \[        \sum _{ i = 1 } ^n \xi _i d x _i \vert _x = \sum _{ j =1} ^n \zeta _j d y_j \vert _y   ,      \]
+    then 
+    \[      \sum _{i, j = 1 } ^n a_{ij}(x) \xi _i \xi _j = \sum _{j = 1 }^n  \zeta _j  ^2 .         \]
+    In particular, the matrix $(a_{ij})_{ij}$ is positive definite. 
+    \end{itemize}
+
+
+    \textbf{Hint: }Recall that by the chain rule,  
+    \[     \frac{\partial}{\partial y _k } = \sum _{i = 1 }^ n \frac{\partial x _i }{ \partial y _k } \frac{\partial }{\partial x_i} .           \]
+    And consequently, 
+    \[     d y_j = \sum_{i = 1 } ^n \frac{\partial y_ j}{\partial x _i} d x_i  .                            \]
+        
+\end{exercise}
+
+\begin{exercise}
+    Let $\pi _{\ast} : T^{\ast} M \to M$ be the natural projection and $(\pi _{\ast}^{-1 }(U) , \hat{ \varphi}) $ a chart of $T^{\ast}M$. That is, we start with $(U, \varphi)$ a chart of $M$, and  the chart 
+    \[  \hat{ \varphi}  : \pi ^{-1}_{\ast} (U) \to  \varphi (U) \times \mathbb{R}^n   \] 
+    is given by 
+    \[    \hat{ \varphi} \left(  \sum _{i = 1 }^n a_i dx^i \vert _x   \right) : = (  x ^ 1 , \ldots , x^n , a_1, \ldots , a_n ),                   \]
+    where $\varphi ( x ) = (x_1, \ldots , x_n)$. For two functions $f, g \in C^{\infty }(T^{\ast}M)$, the \emph{Poisson bracket}
+    \[    \{ f , g \} \in C^{\infty}(T^{\ast}M )              \]
+    is defined to be the function given by the formula
+    \[     \{ f , g \} = \sum_{j = 1 } ^n \left(  \frac{\partial f }{\partial x ^j} \frac{\partial g}{\partial a _j }  - \frac{\partial g }{\partial x ^j} \frac{\partial f}{\partial a _j } \right)   .                      \]
+    Show that $\{ f, g \} $ does not depend on the chart $(U, \varphi )$, so it is well defined as a function $T^{\ast}M \to \mathbb{R}$. In other words, if $(V, \psi)$ is another chart of $M$ with $\psi (y) = (y_1, \ldots , y_n)$, and $(\pi_{\ast} ^{-1} (V) , \hat{\psi})$ is the corresponding chart with 
+    \[     \hat{\psi }   \left(  \sum _{j = 1 }^n b_j dy^j \vert _y   \right) : = (  y ^ 1 , \ldots , y^n , b_1, \ldots , b_n ),                       \]
+    then 
+    \[     \sum_{j = 1 } ^n \left(  \frac{\partial f }{\partial x ^j} \frac{\partial g}{\partial a _j }  - \frac{\partial g }{\partial x ^j} \frac{\partial f}{\partial a _j } \right)  = \sum_{j = 1 } ^n \left(  \frac{\partial f }{\partial y ^j} \frac{\partial g}{\partial b _j }  - \frac{\partial g }{\partial y ^j} \frac{\partial f}{\partial b _j } \right)                               \]
+    on $\pi_{\ast} ^{-1} (U \cap V)$. \\
+
+    \textbf{Hint: }From the chain rule, we have 
+    \[        \frac{\partial }{\partial y ^j} = \sum _{i = 1} ^n  \frac{\partial x ^i }{ \partial y ^j}  \frac{\partial }{\partial x ^i }  ,       \]
+    so 
+    \[         d y_j = \sum_{i = 1 } ^n \frac{\partial y_ j}{\partial x _i} d x_i    ,    \]
+    and consequently, 
+    \[      a_ i = \sum _{k=1}^n b_k \frac{\partial y ^k}{\partial x ^i }.                      \]
+    First show that
+    \[       \frac{\partial a _i}{\partial b_j} = \frac{\partial y ^ j}{\partial x ^i} ,          \hspace{2cm} \frac{\partial x^i }{\partial b _j } = 0 ,         \]
+    and 
+    \[       \frac{\partial a_i}{\partial y ^j} = \sum _{k,\ell = 1 }^n   b_k \frac{\partial x ^{\ell}}{ \partial y ^j} \frac{\partial ^2  y ^k }{ \partial x ^{\ell } \partial x ^{i}} .                    \]
+    Then apply the chain rule as if there is no tomorrow.
+\end{exercise}
+    
 
 
 
