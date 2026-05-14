@@ -3,8 +3,171 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Everything generalizes to manifolds with boundary. \end{abstract}
     \maketitle
+
+
+    A reference for this material is Chapter 1 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+    \begin{notation}
+        For  $n \in \mathbb{N}$, we denote 
+        \begin{align*}
+            \mathbb{H}^n & : = \{ (x_1, \ldots , x_n ) \in \mathbb{R}^n \, \vert \, x_1 > 0  \} , \\
+            \overline{\mathbb{H}^n} &: = \{ (x_1, \ldots , x_n ) \in \mathbb{R}^n \, \vert \, x_1 \geq 0  \} ,\\
+            \partial \mathbb{H}^n & : = \{ (x_1, \ldots , x_n ) \in \mathbb{R}^n \, \vert \, x_1 =  0  \} .
+        \end{align*}
+         
+    \end{notation}
+
+    \begin{definition}[Manifold with boundary]
+        An $n$-dimensional \emph{manifold with boundary} is a second-countable Hausdorff topological space $M$ such that each point $p\in M$ admits an open neighborhood $U \subset M$ and a homeomorphism $\varphi : U \to \varphi (U ) \subset \mathbb{R}^n$ where $\varphi (U) $ is an open subset of $\overline{\mathbb{H}}^n$.     Pairs $(U, \varphi)$ as above are called \emph{charts}.
+    \end{definition}
+
+
+    \begin{definition}
+    Let $A \subset \overline{\mathbb{H}^n}$ be an open set. We say a function $f : A \to \mathbb{R}^k$ is \emph{smooth} if there is an open set $U \subset \mathbb{R}^n$ containing $A$ and a smooth function $\tilde{f} : U \to \mathbb{R}^k$ with $\tilde{f} \vert _A = f$. 
+    \end{definition}
+
+
+    \begin{definition}[Compatible charts]
+        We say two charts $(U, \varphi )$ and $(V, \psi)$ are \emph{compatible} if the maps
+        \begin{align*}
+             \varphi \circ \psi ^{-1} &: \psi (U \cap V) \to \varphi (U \cap V)               , \\
+             \psi \circ \varphi ^{-1} &: \varphi (U \cap V ) \to \psi (U \cap V)
+        \end{align*}
+        are smooth. 
+    \end{definition}
+
+    \begin{remark}
+        Smooth atlases and smooth structures for manifolds with boundary are defined just like they were defined for manifolds with no boundary. From now on, we reserve the word ``chart'' for a chart belonging to the smooth structure.
+    \end{remark}
+
+\begin{definition}[Boundary]
+    Let $M$ be a smooth $n$-dimensional manifold with boundary. The \emph{boundary} is defined as the set 
+\[     \partial M : =  \bigcup   \varphi ^{-1} ( \partial  \mathbb{H}^n   )   ,   \]
+where the union is taken over all charts $(U,\varphi)$.
+\end{definition}
+
+\begin{proposition}
+    Let $(U,\varphi) $ be a chart. Then
+\[     U \cap \partial M = \varphi ^{-1} (  \partial  \mathbb{H}^n   )     .      \]
+\end{proposition}
+
+\begin{solution}
+Exercise. The contention $\supseteq$  is trivial. For the other one, use the inverse function theorem. For a manifold with boundary that is not necessarily smooth, the proposition is still true, but it is more difficult. 
+\end{solution}
+
+
+\begin{remark}
+    Smooth functions $f: M \to \mathbb{R}$ are defined in the usual way. The same is true for tangent spaces $T_pM$, vector fields, and forms $\Omega ^k (M)$.   Bump functions and partitions of unity still work equally well.  The theory of flows is a little different because you can fall off the edge! 
+\end{remark}
+
+
+
+\begin{proposition}[Boundary is a manifold]
+    Let $\mathcal{A}$ be a smooth structure on a smooth $n$-dimensional manifold with boundary  $M$. Then the set 
+    \[  \mathcal{A}_{\partial } : =  \{  ( U \cap \partial M  ,  \varphi \vert _{U \cap \partial M}  ) \, \vert (U ,\varphi) \in \mathcal{A} \}   \] 
+    is a smooth structure on $\partial M$ (if we delete the first component of each $\varphi \vert _{U \cap \partial M }$, since it is identically zero). With this smooth structure, the inclusion 
+    \[ j _{\partial M} : \partial M \to M \]  
+    is smooth. 
+\end{proposition}
+
+\begin{solution}
+Exercise. 
+\begin{comment}
+The first part is left as an exercise. To check the second part, assume $\mathcal{A}$ is oriented, take  $(U, \varphi)$, $(V, \psi ) \in \mathcal{A}$, and $p \in U \cap V \cap \partial M $. Denote 
+\[  f = (f_1, \ldots , f_n ) : \psi \circ \varphi  : \varphi (U \cap V) \to \psi (U \cap V) .                  \]
+Since $f( \partial  \mathbb{H}^n  ) \subset \partial  \mathbb{H}^n  $, we have 
+\[    \frac{\partial f_1}{\partial x_2} ( p)  = \ldots = \frac{\partial f_1}{\partial x_{n}} (p)  = 0      ,           \]
+   where as usual we denote $\varphi (p) $ simply by $p$. Since $f (\varphi (U \cap V) \cap \mathbb{H}^n ) \subset \mathbb{H}^n $, we also have
+   \[    \frac{\partial f_1}{\partial x_1} (p) > 0   .     \]
+   
+   
+   This implies that the matrix $d_p f$ is given by 
+   \[   d_p f =    
+   \begin{pmatrix}
+       \tfrac{\partial f_1}{\partial x_1} (p) & 0 \\
+     \ast &  d _p (f_{\partial} ) 
+   \end{pmatrix},
+   \]
+   where 
+   \[   f _{\partial} : = (f_2, \ldots , f_n) \vert _{\varphi (U \cap V)  \cap \partial \mathbb{H}^n } .                 \]
+   By hypothesis, the determinant of $d_p f$ is positive, so the determinant of $d_p (f_{\partial})$ is also positive. Since $\varphi $ and $\psi$ were arbitrary, the proposition is proven. 
+\end{comment}
+\end{solution}
+
+
+
+
+\begin{definition}[Orientation]
+    Let $M$ be a smooth $n$-dimensional manifold with boundary. An \emph{orientation} on $M$ is an equivalence class of forms $\eta \in \Omega ^n (M) $ with $\eta (p) \neq 0$ for all $p \in M$, where we say that two such forms are equivalent if one of them can be obtained from the other one by multiplying it by a positive smooth function. 
+    
+    
+    We say a manifold is \emph{oriented} if it is equipped with an orientation, and given an orientation, the forms in this equivalence class are called \emph{orientation forms}.  
+\end{definition}
+
+ 
+
+
+\begin{definition}[Integrals with boundary (globally)]
+Let $M$ be an oriented smooth $n$-dimensional manifold with boundary,  $\eta \in \Omega ^n (M)$ an orientation form form, and $\omega \in \Omega ^n (M)$ with compact support. Let $\{ ( U_i , \varphi _i )  \}_{i \in I}$ be a finite set of charts that cover the support of $\omega$, and $\{ \rho _i \} _{i \in I}$ a corresponding partition of unity.  If each $U_i$ is connected, then the \emph{integral} of $\omega$ is defined as 
+\[   \int_M \omega : = \sum _{i \in I} (-1) ^{\theta _i} \int_{\mathbb{H}^n}  (\varphi ^{-1}_i) ^{\ast} \rho _i \omega     ,  \]
+where $\theta _i = 0 $ if $(\varphi_i^{-1} ) ^{\ast} \eta (\partial _1, \ldots , \partial _n ) > 0 $, and $\theta _i = 1 $ if $(\varphi_i^{-1} ) ^{\ast} \eta (\partial _1, \ldots , \partial _n ) < 0 $.
+\end{definition}
+
+\begin{proposition}
+    The integral does not depend on the collection of charts nor partition of unity.
+\end{proposition}
+
+\begin{solution}
+    Same as in the non-boundary case. 
+\end{solution}
+
+
+
+\begin{definition}[Outward pointing vector]
+    Let $M$ be a smooth $n$-dimensional   manifold with boundary. An \emph{outward-pointing} vector is a vector field $V \in \mathfrak{X}(M)$ such that for any chart $(U , \varphi)$ and any $p \in U \cap \partial M$, one has
+    \[      V ( \varphi_1 ) (p )  < 0  ,              \]
+    where $\varphi = (\varphi _1, \ldots , \varphi _n)$. 
+\end{definition}
+
+
+\begin{proposition}
+    Let $M$ be a smooth $n$-dimensional   manifold with boundary. Then there is at least one outward pointing vector.
+\end{proposition}
+
+\begin{solution}
+   Exercise.    In $\overline{\mathbb{H}}^n$, one can take $V = - \partial _1$. In a manifold, one can construct one using a partion of unity. 
+\end{solution}
+
+
+\begin{definition}[Orientation of boundary]
+    Let $M$ be an oriented smooth $n$-dimensional manifold with boundary, $\eta \in \Omega ^n (M) $ an orientation form, and $V \in \mathfrak{X}(M)$ an outward-pointing vector field. The \emph{Stokes orientation} of $\partial M$ is defined to be the one of the form 
+    \[   ( j_{\partial M} ) ^{\ast} \iota _V \eta    \in \Omega ^{n-1} (\partial M),                 \]
+    where  $\iota _V \eta \in \Omega ^{n-1} (M)$ is defined as
+    \[   \iota _V \eta (X_1, \ldots , X_{n-1}) : = \eta (V, X_1, \ldots , X_{n-1})  .            \]
+\end{definition}
+
+\begin{proposition}
+    The Stokes orientation is indeed an orientation. That is, the form $- ( j_{\partial M} ) ^{\ast} \iota _V \eta $ never vanishes on $\partial M$. 
+\end{proposition}
+
+
+\begin{example}
+Let $M = \overline{\mathbb{H}}^n$, $\partial M = \partial \mathbb{H}^n$, and consider the orientation form 
+\[     \eta : = dx^1 \wedge \cdots \wedge dx^n  .          \]
+Working with the outward-pointing vector 
+\[      V = - \tfrac{\partial }{\partial x_1} ,       \]
+the Stokes orientation form is then given by 
+\[   \iota _V \eta =  - \,\, dx^2 \wedge \cdots \wedge dx^n  .       \]
+\end{example}
+
+
+
+
+
+
+
 
 
 

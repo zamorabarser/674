@@ -3,8 +3,71 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Integration of forms on $\mathbb{R}^n$ and on manifolds.   \end{abstract}
     \maketitle
+
+    A reference for this material is Chapter 16 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+    
+
+\begin{definition}[Integrals on $\mathbb{R}^n$]
+    Let $\omega \in \Omega ^n (\mathbb{R}^n)$ be a form with expression 
+    \[  \omega = f \, dx^1 \wedge \cdots \wedge dx^n   .          \] 
+    If $\omega $ has compact support, and $U \subset \mathbb{R}^n$ is an open set containing the support of $\omega$, we define
+    \[      \int_{U}  \omega \,  : =  \int_{U} f  .    \]
+\end{definition}
+
+\begin{theorem}[Change of variables]
+Let $\omega \in \Omega ^n (\mathbb{R}^n)$ be a form with compact support,  $U , V \subset \mathbb{R}^n$ open sets with $\text{supp}(\omega ) \subset V $, and $\varphi : U \to V$ an orientation-preserving diffeomorphism. Then 
+\[      \int_{U} \varphi ^{\ast} \omega = \int_{V} \omega .                   \]
+\end{theorem}
+
+\begin{solution}
+For convenience, we write $(x^1, \ldots , x^n)$ for the coordinates in $U$ and $(y^1, \ldots , y^n)$ for the coordinates in $V$. 
+Write 
+\[      \omega = f \, dy^1 \wedge \cdots \wedge dy^n   .          \] 
+Notice that 
+\[      \varphi ^{\ast} dy ^j = \sum_{i =1 } ^n \frac{\partial y ^j }{\partial x^i } dx ^i                \]
+Then 
+\begin{align*}
+          \varphi ^{\ast} \omega & = ( f \circ \varphi )  \, \varphi ^{\ast }dy^1 \wedge \cdots \wedge \varphi ^{\ast}  dy^n \\
+          & =  (f \circ \varphi ) \sum _{i_1,  \ldots, i_n  = 1 } ^n \frac{\partial y ^1}{\partial x ^{i_1}} \cdots \frac{\partial y ^n}{\partial x ^{i_n}}   dx^{i_1} \wedge \cdots \wedge dx ^{i_n} \\
+          & = (f \circ \varphi ) \sum _{\sigma \in S_n} \text{sign}(\sigma)\, \frac{\partial y ^{\sigma (1)}}{\partial x ^1} \cdots \frac{\partial y ^{\sigma (n)}}{\partial x ^n}   dx^1 \wedge \cdots \wedge dx ^n  \\
+          & = (f \circ \varphi ) \text{det} (d\varphi ) dx^1 \wedge \cdots \wedge dx ^n \\
+          & = (f \circ \varphi ) \vert  \text{det} (d\varphi ) \vert  dx^1 \wedge \cdots \wedge dx ^n,
+  \end{align*}
+where the absolute value appeared because $\varphi$ is orientation-preserving.  Integrating, 
+\begin{align*}
+    \int_U \varphi ^{\ast} \omega & = \int_{U} (f \circ \varphi ) \vert  \text{det} (d\varphi ) \vert \\
+    & = \int_V f \\
+    & = \int _V \omega. 
+\end{align*}
+
+
+\begin{definition}[Integrals on manifolds]
+    Let $M$ be an oriented smooth $n$-dimensional manifold and  $\omega \in \Omega ^n (M)$ with compact support. Let $\{ (U_i , \varphi_i )\} _{i \in I}$ be a finite collection of charts that are compatible with the orientation of $M$ and 
+    \[     \text{supp} (\omega) \subset \bigcup _{i \in I} U_i .       \]
+    Let $\{ \rho _i \} _{i \in I}$ be a partition of unity subordinated to the cover. Then the \emph{integral} of $\omega $ is defined by 
+    \[      \int_M \omega  : = \sum _{i \in I} \int_{\mathbb{R}^n} ( \varphi _i ^{-1} ) ^{\ast} (  \rho _i \omega ).              \]
+\end{definition}
+
+\begin{proposition}[Integral is well defined]
+    The integral above does not depend on the cover used nor the partition of unity used. 
+\end{proposition}
+
+\begin{solution}
+    Exercise. Use the change of variables theorem. 
+\end{solution}
+
+
+
+
+    
+\end{solution}
+
+
+
+
+
 
 
 

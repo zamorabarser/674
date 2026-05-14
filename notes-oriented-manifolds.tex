@@ -8,27 +8,40 @@
 
     A reference for this material is Chapter 15 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
 
-    \begin{definition}
-        Let $M$ be a smooth manifold. An atlas $\{ (U_i , \varphi _i )\}_{i \in I}$ is called an \emph{orientation} if for each $i,j \in I$, the change of coordinates map
-        \[  f_{ij}:  \varphi _i \circ \varphi _j ^{-1} : \varphi _j (U_i \cap U_j ) \to \varphi _i (U_i \cap U_j )      \]
-        is orientation preserving. That is, the matrix $  d_p f_{ij}   $ has positive determinant for all $p \in \varphi _j (U_i \cap U_j ) $. 
+    \begin{definition}[Orientation]
+        Let $M$ be a smooth manifold. An atlas $\mathcal{A} $ is said to be  \emph{oriented} if for each $ (U, \varphi) , (V, \psi ) \in \mathcal{A}$, the change of coordinates map
+        \[   \psi  \circ \varphi   ^{-1} : \varphi  (U \cap V ) \to \psi (U \cap V )      \]
+        is orientation preserving. That is, the matrix $  d_p (\psi \circ \varphi  ^{-1} )   $ has positive determinant for all $p \in \varphi  (U \cap U ) $. 
 
         \begin{itemize}
-            \item A smooth manifold  is called \emph{oriented} if it is equipped with an orientation.
+            \item An \emph{orientation} is a maximal oriented atlas.
+            \item A smooth manifold  is called \emph{oriented} if it is equipped with an orientation. 
             \item A smooth manifold is called \emph{orientable} if it admits an orientation.
         \end{itemize}
     \end{definition}
 
 
-    \begin{definition}In a manifold $M$ equipped with an orientation $\mathcal{A}$, we say a chart $(U, \varphi)$ is \emph{orientation compatible} if for all $(V, \psi ) \in \mathcal{A}$, the change of coordinates map between $\varphi $ and $\psi$ is orientation preserving. 
+    \begin{definition}[Orientation compatible] In a manifold $M$ equipped with an orientation $\mathcal{A}$, we say a chart $(U, \varphi)$ is \emph{orientation compatible} if for all $(V, \psi ) \in \mathcal{A}$, the change of coordinates map between $\varphi $ and $\psi$ is orientation preserving. 
     \end{definition}
 
     
 
+
+    \begin{definition}[Orientation form]
+        Let $M$ be a smooth oriented $n$-dimensional manifold and $\omega \in \Omega ^n (M)$. We say that $\omega$ \emph{determines the orientation} if for any chart $(U , \varphi )$ compatible with the orientation, 
+        \[    \omega ( \partial _1  , \ldots , \partial _n   )  > 0      \]
+        everywhere on $U$. 
+    \end{definition}
+
+
     \begin{exercise}
-        Let $M$ be an $n$-dimensional smooth manifold. Show that $M$ is orientable if and only if there is $\omega \in \Omega ^n ( M)$ with $\omega (p) \neq 0$ for all $p \in M$.  
+        Let $M$ be an $n$-dimensional manifold with smooth structure $\mathcal{A}$. Show that:
+        \begin{itemize}
+            \item For any orientation, there is $\omega \in \Omega ^n (M)$ that determines the orientation.
+            \item If $\omega \in \Omega ^n (M)$ satisfies $\omega (p) \neq 0$ for all $p \in M$, then the set 
+            \[   \{   (U , \varphi )   \in \mathcal{A}  \, \vert  (\varphi ^{-1} )^{\ast} \omega (\partial _1  , \ldots , \partial _n ) > 0  \, \text{ everywhere in } \varphi (U) \}                \]
+            is an orientation on $M$.
+        \end{itemize}
     \end{exercise}
-
-
 
 \end{document}

@@ -3,10 +3,76 @@
 
 \begin{document}
 
-    \begin{abstract} A reference for this material is   \end{abstract}
+    \begin{abstract} Stokes Theorem  \end{abstract}
     \maketitle
 
 
 
+
+    A reference for this material is Chapter 16 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
+
+\begin{theorem}[Stokes] 
+Let $M$ be an oriented smooth $n$-dimensional manifold with boundary and $\omega \in \Omega ^{n-1} (M)$ with compact support. Then
+\[     \int_M d \omega = \int_{\partial M} \omega ,                \]
+ where $\partial M$ is equipped with the Stokes orientation.   
+\end{theorem}
+
+
+
+\begin{solution}
+    We first do it in the case where $M = \overline{\mathbb{H}^n}$ with orientation form
+    \[   \eta = dx^1 \wedge \cdots \wedge dx^n .            \] 
+    In this case, we have 
+    \[    \omega = \sum_{i = 1} ^n  f_i  \, dx^1 \wedge \cdots \wedge \widehat{dx^i} \wedge \cdots  \wedge dx^n    ,      \]
+    and 
+    \begin{align*}
+         d \omega & = \sum _{i = 1} ^n \frac{\partial f_i}{\partial x^i} \, dx^i \wedge dx^1 \wedge \cdots \wedge \widehat{dx^i} \wedge \cdots \wedge dx^n         \\
+         & =  \sum _{i = 1} ^n (-1 )^{i-1} \frac{\partial f_i}{\partial x^i} \,   dx^1  \wedge \cdots \wedge dx^n .
+    \end{align*}
+    Let $R > 0 $ large enough so that the support of $\omega$ is contained in the box
+    \[     [ 0 , R ] \times [-R , R ] \times [-R , R ] \times \cdots \times [-R,R]  \subset \mathbb{R}^n .                 \]
+    Using Funini's theorem, we can integrate the $i$-th summand first with respect to $x^i$, so we get
+    \begin{align*}
+        \int_M d \omega & = \int_{\mathbb{H}^n} \sum _{i = 1} ^n  \frac{\partial f_i}{\partial x^ i} \\
+        & = \int_{-R } ^R \cdots \int_{-R}^R\int_{0 } ^R \frac{\partial f_1}{\partial x^1} \,\, dx^1 dx^2 \ldots dx^n  \\
+        & \, + \sum _{i = 1} ^n (-1 )^{i-1} \int _{-R}^R \cdots \int_{0 } ^R \int_{-R}^R \frac{\partial f_i}{\partial x^i}\,\, dx^i dx^1 \ldots \widehat{dx^i} \ldots dx^n \\
+        & = \int_{-R}^R \cdots \int_{-R}^R [f_1 (R,x^2, \ldots , x^n) - f_1(0,x^2, \ldots , x^n)] \, dx^2 \ldots dx^2 \\
+        & = - \int_{\mathbb{R}^{n-1}} f_1 ( 0, \ast , \ldots , \ast )  .
+    \end{align*}
+    To compute the other integral, we use the chart $\varphi : \partial M \to \mathbb{R}^{n-1}$ given by 
+    \[   \varphi (0, x^2, \ldots , x^n) = (x^2, \ldots , x^n)                \]
+    with inverse
+    \[   \varphi ^{-1} (y^1, \ldots , y^{n-1}) = (0, y^1 , \ldots , y^{n-1} )  .              \]
+    Using $V = - \tfrac{\partial}{\partial x^1}$ as an outward-pointing vector, we have
+    \begin{align*}
+     ( \varphi ^{-1}) ^{\ast} \iota _V \eta ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \eta ( V , ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
+     & = \eta ( - \tfrac{\partial }{\partial x ^{1}} , \tfrac{\partial }{\partial x ^{2}} ,  \ldots , \tfrac{\partial }{\partial x ^{n}}  )\\
+     & = -1 .
+    \end{align*}
+    We also have 
+    \begin{align*}
+     ( \varphi ^{-1}) ^{\ast} \omega ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \omega (  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
+     & = \omega ( \tfrac{\partial }{\partial x ^{2}} ,  \ldots , \tfrac{\partial }{\partial x ^{n}}  )\\
+     & = f_1 (0, \ast , \cdots , \ast).
+    \end{align*}
+    Therefore, 
+    \[     \int_{\partial M} \omega = -\int_{\mathbb{R}^{n-1}}   ( \varphi ^{-1}) ^{\ast} \omega  = -  \int_{\mathbb{R}^{n-1}} f_1   (0, \ast , \cdots , \ast) .            \]
+    This finishes the proof in the case $M = \overline{\mathbb{H}^n}$.
+\end{solution}
+
+\begin{solution}
+    Now we deal with the general case. Let $\{ (U_i, \varphi_i )\} _{i \in I}$ and $\{ \rho _i \} _{i \in I}$ be as in the definition of integral. For simplicity, we assume all charts are compatible with the orientation. Then 
+    \begin{align*}
+        \int_M d \omega & = \sum _{i \in I} \int _{\mathbb{H}^n} (\varphi _i ^{-1} ) ^{\ast} \rho_i d \omega \\
+        & = \sum _{i \in I} \int _{\mathbb{H}^n} (\varphi _i ^{-1} ) ^{\ast} [d ( \rho _i  \omega ) - (d \rho _i) \wedge \omega ] \\
+        & = \sum _{i \in I} \int _{\mathbb{H}^n} d (\varphi _i ^{-1} ) ^{\ast}  ( \rho _i  \omega )  - \sum _{i \in I} \int_M d \rho _i  \wedge \omega \\
+        & = \sum _{i \in I} \int_{\partial \mathbb{H}^n} (\varphi _i ^{-1} ) ^{\ast}  ( \rho _i  \omega )  - \int_M \sum _{i \in I} d \rho _i \wedge \omega \\
+        & = \int_{\partial M } \omega   - \int_M \left( d \,\,  \sum _{i \in I}  \rho _i \right) \wedge \omega \\
+        & = \int_{\partial M } \omega .
+    \end{align*}
+The first equality follows from the definition of integral, the second one from the Leibniz rule, the third one from the fact that pullbacks commute with exterior derivatives and the definition of integral, the fourth one by Stokes theorem on $\mathbb{H}^n$, the fifth one by the definition of integral and linearity of the exterior derivative, and the last one because the sum of a partition of unity is constant.
+
+If one deals with charts not compatible with the orientation, one just carries factors of the form $(-1) ^{\theta _i }$ as in the definition of integral.
+\end{solution}
 
 \end{document}

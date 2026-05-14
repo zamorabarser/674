@@ -3,7 +3,7 @@
 
 \begin{document}
 
-    \begin{abstract} Exterior derivatives, charts, and Leibniz rule.  \end{abstract}
+    \begin{abstract} Exterior derivatives, charts,  Leibniz rule, and nilpotency.  \end{abstract}
     \maketitle
 
         A reference for this material is Chapter 14 of John M. Lee. Introduction to smooth manifolds. Second edition. Grad. Texts in Math., 218. Springer, New York, 2013. xvi+708pp. ISBN: 978-1-4419-9981-8.
@@ -17,12 +17,21 @@
         where the hat represents that the entry is missing. 
     \end{definition}
 
+\begin{remark}
+    If $f \in \Omega ^0 (M)$ is just a function, then 
+    \[    d f (X) = X (f) .          \]
+    In local coordinates, 
+    \[     d f = \sum_{i = 1} ^n \frac{\partial f}{\partial x^i} dx ^i .       \]
+\end{remark}
+    
+
+
     \begin{proposition}[Well defined?] 
         $d\omega$ is indeed a  $(k+1 )$-form. 
     \end{proposition}
 
     \begin{solution}
-        Exercise. 
+        Exercise. Do it at least for $k =1$!
     \end{solution}
 
 
@@ -30,7 +39,9 @@
         If 
         \[   \omega = f \, dx^{i_1} \wedge \cdots \wedge dx^{i_k}    ,        \]
         then
-        \[   d\omega =   \sum _{j = 1 }^n \,\frac{\partial f }{\partial x ^j }\, dx^j \wedge  dx^{i_1} \wedge \cdots \wedge dx^{i_k}   .           \]
+        \[             d\omega =  df \wedge  dx^{i_1} \wedge \cdots \wedge dx^{i_k}   .                \]
+        By the above remark, another way to write this is 
+        \[   d\omega =  \sum _{j = 1 }^n \,\frac{\partial f }{\partial x ^j }\, dx^j \wedge  dx^{i_1} \wedge \cdots \wedge dx^{i_k}   .           \]
     \end{proposition}
 
     \begin{solution}
@@ -38,45 +49,23 @@
 
     \begin{align*}
         d \omega  (\tfrac{\partial }{\partial x ^{j_0}},  & \ldots ,  \tfrac{\partial }{\partial x ^{j_k}} )       =  \sum_{\ell = 0} ^k (-1 ) ^{\ell} \frac{\partial }{\partial x ^{j_{\ell}}}  \omega (\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,\hat{\tfrac{\partial}{\partial x ^{j_{\ell}}}} , \ldots , \tfrac{\partial }{\partial x ^{j_k}} )   \\
-        & = \sum _{\ell  = 0} ^k (-1 ) ^{\ell} \frac{\partial f }{\partial x ^{j_{\ell}}} dx ^{i_1} \wedge \cdots \wedge dx ^{i_k} ( \tfrac{\partial}{\partial x ^{j_0}} , \ldots , \hat{\tfrac{\partial}{\partial x ^{j_{\ell}}}} , \ldots ,  \tfrac{\partial}{\partial x ^{j_k}} ) \\
-        & = \sum _{\ell  = 0} ^k (-1) ^{\ell}  \frac{\partial f }{\partial x ^{j_{\ell}}} dx ^{j_{\ell}} \wedge  dx ^{i_1} \wedge \cdots \wedge dx ^{i_k} ( \tfrac{\partial }{\partial x ^{j_{\ell}}},  \tfrac{\partial}{\partial x ^{j_0}} , \ldots , \hat{\tfrac{\partial}{\partial x ^{j_{\ell}}}} , \ldots   \tfrac{\partial}{\partial x ^{j_k}} ) \\
-        & = \sum _{\ell  = 0} ^k   \frac{\partial f }{\partial x ^{j_{\ell}}} dx ^{j_{\ell}} \wedge  dx ^{i_1} \wedge \cdots \wedge dx ^{i_k} (  \tfrac{\partial}{\partial x ^{j_0}} , \ldots , \tfrac{\partial}{\partial x ^{j_k}} ) 
+        & = \sum _{\ell  = 0} ^k (-1 ) ^{\ell} \frac{\partial f }{\partial x ^{j_{\ell}}} dx ^{i_1} \wedge \cdots \wedge dx ^{i_k} ( \tfrac{\partial}{\partial x ^{j_0}} , \ldots , \hat{\tfrac{\partial}{\partial x ^{j_{\ell}}}} , \ldots ,  \tfrac{\partial}{\partial x ^{j_k}} ) 
      \end{align*}
-     Plugging $(\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,  \tfrac{\partial }{\partial x ^{j_k}} )$ into the right hand side of the expression of the proposition, we get the same result. Note that the result is only not zero if 
-     \[    \{ i_1, \ldots , i_k \} \subset \{ j_0, \ldots , j_k \}                          \]
-    and the only summand that does not vanish is the one with  
-     \[ \{j \} =   \{ j_0, \ldots , j_k \} \backslash  \{ i_1, \ldots , i_k \} .  \] 
+    This sum is zero unless 
+     \[    \{ i_1, \ldots , i_k \} \subset \{ j_0, \ldots , j_k \}   .                        \] 
+    In that case, the only summand that is not zero is the one with 
+    \[     \{ j _{\ell} \}  = \{ j_0, \ldots    , j_k \}  \backslash  \{ i_1, \ldots , i_k \}   ,  \] 
+     and that summand is 
+     \[    (-1) ^{\ell} \frac{\partial f}{\partial x ^{j_{\ell}}} .                      \]
+     Plugging $(\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,  \tfrac{\partial }{\partial x ^{j_k}} )$ into the right hand side of the expression of the proposition, we get zero unless 
+     \[    \{ i_1, \ldots , i_k \} \subset \{ j_0, \ldots , j_k \} .          \]
+     In that case, if we set
+     \[ \{j_{\ell} \} =   \{ j_0, \ldots , j_k \} \backslash  \{ i_1, \ldots , i_k \} , \] 
+     the only summand that is not zero is 
+     \[      \frac{\partial f}{\partial x ^{j_{\ell}}}  d x ^{j_{\ell}} \wedge d x ^{i_1 } \wedge \cdots \wedge dx ^{i_k} ( \tfrac{\partial }{\partial x ^{j_0}}, \ldots ,  \tfrac{\partial }{\partial x ^{j_k}}  ) = (-1 )^{\ell} \frac{\partial f}{\partial x ^{j_{\ell}}} .      \]
+     In either case, the two expressions agree.
     \end{solution}
 
-
-
-\begin{comment}
-    
-
-    \begin{proposition}[Exterior derivative in charts]
-        If 
-        \[   \omega = \sum _{1 \leq i_1 < \ldots  < i _ k \leq n } \omega _{i_1, \ldots , i_k} dx^{i_1} \wedge \cdots \wedge dx^{i_k}    ,        \]
-        then
-        \[   d\omega =  \sum _{1 \leq i_1 < \ldots  < i _ k \leq n } \left[ \sum _{j = 1 }^n \,\frac{\partial \omega _{i_1, \ldots , i_k}}{\partial x ^j }\, dx^j \wedge  dx^{i_1} \wedge \cdots \wedge dx^{i_k} \right]  .           \]
-    \end{proposition}
-
-    \begin{solution}
-        Since the vector fields $ \tfrac{\partial }{\partial x ^1}, \ldots , \tfrac{\partial }{\partial x ^n} $ commute (partial derivatives commute), when we plug them into an exterior derivative, only the terms in the first sum show up.  For $1 \leq j_0 < \ldots < j_k \leq n$, we have
-
-    \begin{align*}
-        d \omega & (\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,  \tfrac{\partial }{\partial x ^{j_k}} ) \\
-        &  =  \sum_{\ell = 0} ^k (-1 ) ^{\ell} \frac{\partial }{\partial x ^{j_{\ell}}}  \omega (\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,\hat{\tfrac{\partial}{\partial x ^{j_{\ell}}}} , \ldots , \tfrac{\partial }{\partial x ^{j_k}} )   \\
-        & = \sum _{\ell  = 0} ^k (-1 ) ^{\ell} \frac{\partial }{\partial x ^{j_{\ell}}} \left(     \omega _{j_0, \ldots , \hat{j_{\ell}}, \ldots , j_k }   \right) \\
-        & = \sum _{\ell  = 0} ^k     \frac{\partial \omega _{j_0, \ldots , \hat{j_{\ell}}, \ldots , j_k } }{\partial x^{j_{\ell}}}   dx^{j_{\ell}} \wedge dx ^{j_0}  \wedge \ldots \wedge \widehat{d x ^{j_{\ell}}} \wedge \ldots   \wedge dx ^{j_k} ( \tfrac{\partial}{\partial x ^{j_0}}, \ldots , \tfrac{\partial}{\partial x ^{j_{k}}} ) .
-     \end{align*}
-     Plugging $(\tfrac{\partial }{\partial x ^{j_0}}, \ldots ,  \tfrac{\partial }{\partial x ^{j_k}} )$ into the right hand side of the expression of the proposition, we get the same result. Note that only summands with 
-     \[    \{ i_1, \ldots , i_k \} \subset \{ j_0, \ldots , j_k \}                          \]
-     do not vanish. And for such summands, only the term with 
-     \[ \{j \} =   \{ j_0, \ldots , j_k \} \backslash  \{ i_1, \ldots , i_k \}  \]
-     does not vanish. 
-    \end{solution}
-
-\end{comment}
 
     \begin{proposition}[Leibniz rule]
         For $\omega \in \Omega ^k (M)$ and $\eta \in \Omega ^{\ell} (M)$, one has 
@@ -98,14 +87,38 @@
         & \,\,\,\,\,\, + (-1) ^k  \left[ f  dx^{i_1} \wedge \cdots \wedge dx ^{i_k}   \right] \wedge \left[ \sum _{a = 1 }^n   \frac{\partial g}{\partial x ^a}  \,  dx ^a  \wedge dx^{j_1} \wedge \cdots \wedge dx ^{j_{\ell}}  \right] \\
         & = (d\omega) \wedge \eta + (-1)^k  \omega \wedge (d \eta)  . 
     \end{align*}        
-    \end{solution}    
+    \end{solution}   
 
 
-\begin{example}
+\begin{proposition}[Nilpotency]
+    $d^2 = 0$.
+\end{proposition}
+
+\begin{solution}
+We first check it for functions. 
+\begin{align*}
+    d^2 f (X,Y) & = X (df (Y)  )  - Y (df (X)) - df ([X,Y]) \\
+    & = X Yf - YXf - [X,Y] f \\
+    & = 0 . 
+\end{align*}
+Then, working in local coordinates, if
+\[     \omega = f dx^{i_1} \wedge \cdots \wedge dx ^{i_k}  ,             \]
+then
+\begin{align*}
+    d^2 \omega & = d\left[  df \wedge  dx^{i_1} \wedge \cdots \wedge dx ^{i_k}  \right] \\
+    & = ( d^2 f ) \wedge  dx^{i_1} \wedge \cdots \wedge dx ^{i_k}  \\
+    & = 0 . 
+\end{align*}
+\end{solution}
+
+
+\begin{example}[Classical calculus in $\mathbb{R}^3$]
 In $\mathbb{R}^3$, we identify the $1$-form
 \[  \eta =   P   dx +  Q  dy + R   dz       \]
 with the vector field 
 \[  F_{\eta} : =   \langle P, Q, R \rangle    .  \]
+In particular, for a function $f \in \Omega ^0 (M) = C^{\infty}(M)$,  
+\[   F_{df}  = \nabla f .               \]
 We also identify the $2$-form
 \[  \omega =  \alpha dy \wedge dz  + \beta dz \wedge dx  + \gamma dx \wedge dy                        \]
 with the vector field 
@@ -126,9 +139,8 @@ On the other hand,
 \begin{align*}
     d \omega   = \frac{\partial \alpha}{\partial x } \, & dx \wedge dy \wedge dz + \frac{\partial \beta }{\partial y } \, dy \wedge dz \wedge dx +\frac{\partial \gamma }{\partial z } \, dz \wedge dx \wedge dy \\
     & = \left[ \frac{\partial \alpha}{\partial x } + \frac{\partial \beta }{\partial y } +\frac{\partial \gamma }{\partial z }         \right] \, dx \wedge dy \wedge dz \\
-    & = [\text{div} (F^{\omega})] \, dx \wedge dy \wedge dz
+    & = [\text{div} (F^{\omega})] \, dx \wedge dy \wedge dz . 
 \end{align*}
-
 \end{example}
 
 

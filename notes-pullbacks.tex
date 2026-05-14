@@ -13,6 +13,8 @@
         \[  f^{\ast} \omega (X_1, \ldots , X_k) : = \omega (  f_{\ast} X_1, \ldots , f_{\ast} X_k  ).          \]
     \end{definition}
 
+    Note that if $g \in \Omega ^0 (M)$ is just a function, then $f^{\ast} g = g \circ f$.
+
     \begin{proposition}[We love pullbacks]
         The pullback behaves well with respect to wedge product and exterior derivative. Namely, if $\omega \in \Omega ^k (N)$ and $\eta \in \Omega ^{\ell}(N)$, then
         \[    f^{\ast} (\omega \wedge \eta ) = (f^{\ast} \omega ) \wedge (f^{\ast} \eta)                \]
@@ -24,17 +26,42 @@
         For vector fields $X_1, \ldots , X_{k + \ell} \in \mathfrak{X}(M)$, we compute
 \begin{align*}
      f^{\ast} (\omega & \wedge \eta )  (X_1, \ldots , X_{k + \ell } )  =  \omega \wedge \eta (f_{\ast} X_1 , \ldots , f_{\ast} X_{k + \ell } ) \\
-     & = \frac{1}{k! \, \ell ! }\sum_{\sigma \in S_{k + \ell }} \omega (  f_{\ast} X_{\sigma (1) }, \ldots , f_{\ast} X_{\sigma (k)}  ) \eta (  f_{\ast} X_{\sigma (k + 1 )}, \ldots , f_{\ast} X_{\sigma (k + \ell )}  ) \\
-     & = \frac{1}{k! \, \ell ! }\sum_{\sigma \in S_{k + \ell }}  f^{\ast}  \omega (   X_{\sigma (1) }, \ldots ,  X_{\sigma (k)}  ) f^{\ast} \eta (  X_{\sigma (k + 1 )}, \ldots , X_{\sigma (k + \ell )}  ) \\
+     & = \frac{1}{k! \, \ell ! }\sum_{\sigma \in S_{k + \ell }} \text{sign} (\sigma) \omega (  f_{\ast} X_{\sigma (1) }, \ldots , f_{\ast} X_{\sigma (k)}  ) \eta (  f_{\ast} X_{\sigma (k + 1 )}, \ldots , f_{\ast} X_{\sigma (k + \ell )}  ) \\
+     & = \frac{1}{k! \, \ell ! }\sum_{\sigma \in S_{k + \ell }} \text{sign} (\sigma) f^{\ast}  \omega (   X_{\sigma (1) }, \ldots ,  X_{\sigma (k)}  ) f^{\ast} \eta (  X_{\sigma (k + 1 )}, \ldots , X_{\sigma (k + \ell )}  ) \\
      & = ( f^{\ast} \omega ) \wedge (f^{\ast} \eta ) (X_1, \ldots , X_{k + \ell}). 
 \end{align*}
-to prove the second identity, we consider a form 
-\[     \omega = g \, dy^{i_1}\wedge \ldots \wedge dy ^{i_k} .     \]
+To prove the second identity, we first prove it for functions. That is, if $\omega \in \Omega ^0 (M)$, then
+\begin{align*}
+    d f^{\ast} \omega  (X) & = d (\omega  \circ f) (X)\\
+    & = X (\omega  \circ f) \\
+    & = f_{\ast} X (\omega ) \\
+    & = d\omega  (f_{\ast} X ) \\
+    & = f^{\ast} d \omega (X)
+\end{align*}
 
-
-
-
-
+Now we work in local coordinates. Let $(x_1, \ldots , x_m)$ be coordinates on $M$ and $(y_1, \ldots , y_n)$ coordinates on $N$. Recall that 
+\[      f_{\ast} \frac{\partial }{\partial x ^i } = \sum_{j  = 1 } ^n \frac{\partial y ^j}{\partial x ^i} \frac{\partial }{\partial y ^j}.                       \]
+We now do another elementary case:
+\[     \omega =   dy^a .     \]
+Then 
+\[     f^{\ast} \omega =  f^{\ast} dy^a =     \sum_{i  = 1 } ^n \frac{\partial y ^a}{\partial x ^i}  d x ^i.                  \]
+We compute
+\[      df ^{\ast} \omega = \sum _{i,j = 1}^n \frac{\partial ^2 y ^a}{\partial x^i \partial x ^j }  dx^i \wedge dx^j .                    \]
+For each pair $i < j$, we know
+\[   \frac{\partial ^2 y ^a}{\partial x^i \partial x ^j } dx^i \wedge dx^j +  \frac{\partial ^2 y ^a}{\partial x^j \partial x ^i } dx^j \wedge dx^i = 0 ,  \]
+so 
+\[      df ^{\ast} \omega = 0 .     \]
+Now consider 
+\[     \omega = g  \, dy ^{i_1} \wedge \cdots \wedge dy ^{i_k}  .       \]
+Then, using the first property and the Leibniz rule, 
+\begin{align*}
+    d f^{\ast} \omega & =  d  [ ( f^{\ast}g )  \, f^{\ast }dy^{i_1} \wedge \cdots f^{\ast} dy ^{i_k}] \\
+    & = [ d( f^{\ast}g ) ] \wedge f^{\ast }dy^{i_1} \wedge \cdots f^{\ast} dy ^{i_k} \\
+    & \,\,\,\,\,\, + \sum _{a = 1 }^k (-1 ) ^{a-1} (f^{\ast}g) \, f^{\ast} dy^{i_1 } \wedge \cdots \wedge (df ^{\ast} dy ^{i_a} ) \wedge \cdots \wedge f^{\ast} dy^{i_k} \\
+    & = [ f^{\ast} dg ] \wedge f^{\ast }dy^{i_1} \wedge \cdots f^{\ast} dy ^{i_k} \\
+    & = f^{\ast} [  d  g \wedge dy^{i_1} \wedge \cdots \wedge dy ^{i_k}  ] \\
+    & = f ^{\ast} d \omega . 
+\end{align*}
         
     \end{solution}
 
