@@ -7,7 +7,83 @@
     \maketitle
 
 
+\begin{exercise}
+  Let $\eta_1, \ldots , \eta_k \in \Omega ^1 (M)$, and $X_1, \ldots , X_k \in \mathfrak{X}(M)$. Show that the value  of  
+    \[     \eta _1 \wedge \cdots \wedge  \eta _k  ( X_1, \ldots , X_k)  \in C^{\infty}(M)         \]
+    at a point $p \in M$ is the determinant of the $k \times k$ matrix whose $(i,j)$-th entry is the number $\eta _i (X_j) (p)$.     
+\end{exercise}
 
+
+\begin{exercise}
+ Let $\omega \in \Omega ^k (M) $, $p \in M$, and 
+    \[   \{ v_1, \ldots , v_k \} , \{ w_1, \ldots , w_k \}   \subset T_pM          \]
+    two sets of vectors that span the same $k$-dimensional subspace of $T_pM$. Write
+    \[         v_j = \sum _{j = 1}^k a_{ij} w_j   .      \]
+    Show that 
+    \[       \omega (p) (v_1, \ldots, v_k ) = \det ( (a_{ij})_{ij}) \omega (p) (w_1, \ldots , w_k).                            \]
+    
+\end{exercise}
+
+\begin{exercise}
+     Let $\eta \in \Omega ^1 (M) $ and $\omega \in \Omega ^k (M)$. 
+    \begin{itemize}
+        \item  Show that $d\eta \in \Omega ^2 (M)$. That is, show that 
+        \begin{gather*}
+              d\eta(fX , Y ) = d\eta (X, fY) = f d\eta(X, Y )   \\
+                d \eta (X,Y) = - d \eta (Y,X) .     
+        \end{gather*}
+        for all $X,Y \in \mathfrak{X}(M)$ and $f \in C^{\infty}(M)$. 
+        \item Show that 
+        \[ d \omega : \mathfrak{X}(M) \times \cdots \mathfrak{X}(M) \to C^{\infty} (M)  \]  
+        is $C^{\infty}(M)$-multilinear. That is, 
+        \begin{align*}
+               d\omega (fX_0, \ldots , X_k) & = d\omega (X_0, fX_1, \ldots , X_k) \\ 
+               & = \ldots \\
+               & = d\omega (X_0, \ldots , fX_k)  \\ 
+               & = f d\omega (X_0 ,\ldots , X_k)          
+        \end{align*}
+        for all $X_0, \ldots , X_k \in \mathfrak{X}(M) $ and $f \in C^{\infty} (M)$. The computation is very short, so explain explicitly each step in words too. 
+        \item Convince yourself (not me!) that $d\omega \in \Omega ^{k+1}(M)$. That is, if you swap the order of two entries, you get a minus sign:
+        \[    d \omega (X_0, \ldots , X_k) = - d\omega (X_0 , \ldots , X_{i+1}, X_i , \ldots , X_k).                        \]
+        This is a mattter of counting signs in the definition of $d \omega $. 
+    \end{itemize}
+ 
+\end{exercise}
+
+
+\begin{exercise}
+    
+      Let $M$ be an $n$-dimensional manifold with smooth structure $\mathcal{A}$. Show that:
+        \begin{itemize}
+            \item For any orientation, there is $\omega \in \Omega ^n (M)$ that determines the orientation.
+            \item If $\omega \in \Omega ^n (M)$ satisfies $\omega (p) \neq 0$ for all $p \in M$, then the set 
+            \[   \{   (U , \varphi )   \in \mathcal{A}  \, \vert  (\varphi ^{-1} )^{\ast} \omega (\partial _1  , \ldots , \partial _n ) > 0  \, \text{ everywhere in } \varphi (U) \}                \]
+            is an orientation on $M$.
+        \end{itemize}
+        In particular, $M$ is orientable if and only if there is a nowhere-vanishing form $\omega \in \Omega ^n (M)$.
+
+\end{exercise}
+
+
+    \begin{exercise}
+     Let $M$ be a manifold of dimension $2n +1$. We say that $\eta \in \Omega ^1 (M)$ is a \emph{contact structure} if 
+    \[     \eta \wedge \underbrace{ d \eta \wedge \cdots  \wedge d \eta }_{n \text{ times}} \in \Omega ^{2n + 1} (M)          \]
+    is not zero anywhere (in particular, $M$ is orientable). Let 
+    \[       \eta : = d z + x dy \in \Omega ^1 (\mathbb{R}^3)  .              \]
+     Compute $d\eta $ , $\eta \wedge d \eta$, and show that $\eta$ is a contact structure on $\mathbb{R}^3$. 
+    
+    \end{exercise}
+
+
+\begin{exercise}
+     Let $M$ be a smooth manifold. The \emph{tautological $1$-form in the cotangent bundle} is the form $\eta \in \Omega ^1 (T^{\ast}M) $ given by 
+    \[   \eta (\alpha ' (0) ) : = \alpha(0) ( (\pi \circ \alpha )' (0)  )           \]
+     for a curve $\alpha : (- \varepsilon , \varepsilon ) \to T^{\ast}M $, where $\pi : T^{\ast} M \to M$ is the natural projection. Show that for any section $s \in \Gamma (T^{\ast}M)$, one has 
+     \[   s ^{\ast} \eta = s  .    \]
+     
+
+\end{exercise}
+    
 
 
 \end{document}

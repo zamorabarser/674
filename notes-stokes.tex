@@ -30,7 +30,7 @@ Let $M$ be an oriented smooth $n$-dimensional manifold with boundary and $\omega
          & =  \sum _{i = 1} ^n (-1 )^{i-1} \frac{\partial f_i}{\partial x^i} \,   dx^1  \wedge \cdots \wedge dx^n .
     \end{align*}
     Let $R > 0 $ large enough so that the support of $\omega$ is contained in the box
-    \[     [ 0 , R ] \times [-R , R ] \times [-R , R ] \times \cdots \times [-R,R]  \subset \mathbb{R}^n .                 \]
+    \[     [ 0 , R ] \times [-R , R ] \times [-R , R ] \times \cdots \times [-R,R]  \subset \overline{\mathbb{H}^n} .                 \]
     Using Funini's theorem, we can integrate the $i$-th summand first with respect to $x^i$, so we get
     \begin{align*}
         \int_M d \omega & = \int_{\mathbb{H}^n} \sum _{i = 1} ^n  \frac{\partial f_i}{\partial x^ i} \\
@@ -45,13 +45,13 @@ Let $M$ be an oriented smooth $n$-dimensional manifold with boundary and $\omega
     \[   \varphi ^{-1} (y^1, \ldots , y^{n-1}) = (0, y^1 , \ldots , y^{n-1} )  .              \]
     Using $V = - \tfrac{\partial}{\partial x^1}$ as an outward-pointing vector, we have
     \begin{align*}
-     ( \varphi ^{-1}) ^{\ast} \iota _V \eta ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \eta ( V , ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
+     ( \varphi ^{-1}) ^{\ast} \iota _V \eta ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \eta ( V , ( \varphi ^{-1} ) _{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) _{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
      & = \eta ( - \tfrac{\partial }{\partial x ^{1}} , \tfrac{\partial }{\partial x ^{2}} ,  \ldots , \tfrac{\partial }{\partial x ^{n}}  )\\
      & = -1 .
     \end{align*}
     We also have 
     \begin{align*}
-     ( \varphi ^{-1}) ^{\ast} \omega ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \omega (  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) ^{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
+     ( \varphi ^{-1}) ^{\ast} \omega ( \tfrac{\partial}{\partial y^1} , \ldots ,  \tfrac{\partial}{\partial y^{n-1}} )  & =  \omega (  ( \varphi ^{-1} ) _{\ast} \tfrac{\partial }{\partial y ^1} , \ldots ,  ( \varphi ^{-1} ) _{\ast} \tfrac{\partial }{\partial y ^{n-1}}   )  \\
      & = \omega ( \tfrac{\partial }{\partial x ^{2}} ,  \ldots , \tfrac{\partial }{\partial x ^{n}}  )\\
      & = f_1 (0, \ast , \cdots , \ast).
     \end{align*}
@@ -70,7 +70,7 @@ Let $M$ be an oriented smooth $n$-dimensional manifold with boundary and $\omega
         & = \int_{\partial M } \omega   - \int_M \left( d \,\,  \sum _{i \in I}  \rho _i \right) \wedge \omega \\
         & = \int_{\partial M } \omega .
     \end{align*}
-The first equality follows from the definition of integral, the second one from the Leibniz rule, the third one from the fact that pullbacks commute with exterior derivatives and the definition of integral, the fourth one by Stokes theorem on $\mathbb{H}^n$, the fifth one by the definition of integral and linearity of the exterior derivative, and the last one because the sum of a partition of unity is constant.
+The first equality follows from the definition of integral, the second one from the Leibniz rule, the third one from the fact that pullbacks commute with exterior derivatives and the definition of integral, the fourth one by Stokes theorem on $\overline{\mathbb{H}^n}$, the fifth one by the definition of integral and linearity of the exterior derivative, and the last one because the sum of a partition of unity is constant.
 
 If one deals with charts not compatible with the orientation, one just carries factors of the form $(-1) ^{\theta _i }$ as in the definition of integral.
 \end{solution}
